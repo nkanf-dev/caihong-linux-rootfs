@@ -53,3 +53,13 @@ The preservation delivery makes a local commit only. It does not push.
 The subtree `.gitattributes` exempts only six exact upstream/reviewed payloads from whitespace diagnostics.
 Their bytes and hashes are preserved, including patch context lines.
 Authored files still use the normal whitespace checks.
+
+Additional prepared-tool mock suites (no device/pactl/OpenVR initialization):
+
+```sh
+python3 -B -m unittest discover -s postboot/pcvr/audio -p 'test_*.py' -v
+python3 -B -m unittest discover -s postboot/pcvr/stereo -p 'test_*.py' -v
+python3 -B -m unittest discover -s postboot/pcvr/overlay -p 'test_*.py' -v
+```
+
+The reviewed counts are 31 audio, 23 stereo, and 10 overlay checks. These validate source safety and fixtures only; headset playback, microphone, visual repair, and native Steam UI remain charged-device tests.

@@ -1,0 +1,33 @@
+{
+  "status": "proposal_not_applied",
+  "observed_date": "2026-10-21",
+  "mesa_reference": {
+    "tag": "mesa-26.2.4",
+    "commit": "96cb43121031992b85767f9c1be8f3f48e22b1d2",
+    "exact_custom_binary_source_match": false
+  },
+  "upstream_issue": {
+    "url": "https://gitlab.freedesktop.org/mesa/mesa/-/issues/15792",
+    "state_at_retrieval": "opened",
+    "related_merge_requests_at_retrieval": [],
+    "identified_fix_commit": null
+  },
+  "probe": {
+    "scope": "FEX vrcompositor.real only",
+    "assignment": "TU_DEBUG=flushall",
+    "mode": "one-variable diagnostic",
+    "no_runtime_operations": true
+  },
+  "saved_guest_icd": {
+    "embedded_version": "26.2.4",
+    "gnu_build_id": "d67dab4b9350e7bb8ab120ff740c84e7ad038216",
+    "sha256": "17e06fecc7aa59ccd699cad8ea90f574d392a8499a8bae8107fda4dff944e717",
+    "unresolved_rodata_identifier": "920476b10efa3d98c9461e7328b45cfe48c167db"
+  },
+  "reference_files": {
+    "mesa-26.2.4-tu_util.cc": "6bf9e0a60c444157e20b419811c6957ffc61208c0f09a23c6c568a354114deea",
+    "mesa-26.2.4-tu_cmd_buffer.cc": "d61e9642c7daadd6144fbbe20d9f1fe6d1b3f51db64d2c63da886a3182df4fe8",
+    "mesa-26.2.4-tu_device.cc": "f70cb51cbd8f5cde788cdf747a1c8dbc2a9bc8780d46e003ee1b5d2873a602df",
+    "mesa-26.2.4-tu_shader.cc": "87130c8a2352241d7cf8d3b510bf5cbb1be3aa47d7f85e1a4be7b72f21f959f2"
+  }
+}

@@ -372,8 +372,8 @@
     {
       "path": "postboot/docs/current-validation.md",
       "role": "archive documentation and policy",
-      "bytes": 8078,
-      "sha256": "4b8fa28aceb801c9b39f94927425aca11318a282934a93e0dbd44e5dbf51f4e0"
+      "bytes": 9794,
+      "sha256": "a0125cb7488df034e87e4113e282706eabfc0fc69f274797927d077974b91bdb"
     },
     {
       "path": "postboot/docs/desktop-proxy.md",
@@ -390,8 +390,8 @@
     {
       "path": "postboot/docs/validation.md",
       "role": "archive documentation and policy",
-      "bytes": 2850,
-      "sha256": "4966f940b7cfdc7354fe7f25249298d4ed29da4e90ea15eb2c43a47e5fe1a19e"
+      "bytes": 3373,
+      "sha256": "2bb7da29b51423ef3e4b4e198e91e8793547b0ffb113887efa147fdd1ae82204"
     },
     {
       "path": "postboot/evidence/host-validation.json",
@@ -410,6 +410,30 @@
       "role": "PCVR exact patch/build/runtime/template/test/provenance",
       "bytes": 10768,
       "sha256": "5ed00246a43677ca0f24a64d7a48f458af7c8c037ee38d0d10c52885765f5611"
+    },
+    {
+      "path": "postboot/pcvr/audio/IMPLEMENTATION_PLAN.md",
+      "role": "Prepared host-tested audio repair/diagnostic source; live verification pending",
+      "bytes": 1608,
+      "sha256": "b0159ef55e26ee95e2bbfa99bc7c763158fa7211e635f5b59336ccfc9f6314ac"
+    },
+    {
+      "path": "postboot/pcvr/audio/README.md",
+      "role": "Prepared host-tested audio repair/diagnostic source; live verification pending",
+      "bytes": 6736,
+      "sha256": "8e747b7222de5ad3aef620c07d890e454787b4701168ba8361ce1165b23630f6"
+    },
+    {
+      "path": "postboot/pcvr/audio/route_namespace.py",
+      "role": "Prepared host-tested audio repair/diagnostic source; live verification pending",
+      "bytes": 21025,
+      "sha256": "fdfc8d5a536599f113f9ce863310fd02ab81d97b29fc0ddd70caa0f30234321d"
+    },
+    {
+      "path": "postboot/pcvr/audio/test_route_namespace.py",
+      "role": "Prepared host-tested audio repair/diagnostic source; live verification pending",
+      "bytes": 18005,
+      "sha256": "65cceb2348ced2bf8948a1110810fac43b4764a82273ddcdfc49ad1813c7b2eb"
     },
     {
       "path": "postboot/pcvr/build/PRESERVATION-PLAN.md",
@@ -736,6 +760,24 @@
       "sha256": "7748fb04720cf5a777388860b4d59b33a428a3ec2a565eee72fd290736ccb1d4"
     },
     {
+      "path": "postboot/pcvr/overlay/README.md",
+      "role": "Prepared host-tested overlay repair/diagnostic source; live verification pending",
+      "bytes": 3903,
+      "sha256": "b9fb1087f6d0008408052720fb6315a4aa70cf3ef9c41ed18b7b6a39474a18f3"
+    },
+    {
+      "path": "postboot/pcvr/overlay/read_native_steam_readiness.py",
+      "role": "Prepared host-tested overlay repair/diagnostic source; live verification pending",
+      "bytes": 7013,
+      "sha256": "67a9e9ad548967e39c1f75f4a5ea002f32b1068b73b39bca55aaa3982ed8c86f"
+    },
+    {
+      "path": "postboot/pcvr/overlay/test_read_native_steam_readiness.py",
+      "role": "Prepared host-tested overlay repair/diagnostic source; live verification pending",
+      "bytes": 5332,
+      "sha256": "9504ceb5796675774eac49b3eb6a27f6c0a1268b234203320c6d7709a67883ff"
+    },
+    {
       "path": "postboot/pcvr/patches/headpose/README.md",
       "role": "PCVR exact patch/build/runtime/template/test/provenance",
       "bytes": 1055,
@@ -974,6 +1016,30 @@
       "role": "PCVR exact patch/build/runtime/template/test/provenance",
       "bytes": 2040,
       "sha256": "025eec64b85e7f74d4d817f8af8fa440a952e38fc600a76946f746f288cef412"
+    },
+    {
+      "path": "postboot/pcvr/stereo/README.md",
+      "role": "Prepared host-tested stereo repair/diagnostic source; live verification pending",
+      "bytes": 9432,
+      "sha256": "fa1d510920c86e987813b8d795f36d1de9c6b38f47846390c4bdf3381e0fe246"
+    },
+    {
+      "path": "postboot/pcvr/stereo/source-references.json",
+      "role": "Prepared host-tested stereo repair/diagnostic source; live verification pending",
+      "bytes": 1332,
+      "sha256": "b0e37796055d49ba7ce830fa00385bb290c1e66e87ee5402abb199280313d333"
+    },
+    {
+      "path": "postboot/pcvr/stereo/stage_compositor_turnip_probe.py",
+      "role": "Prepared host-tested stereo repair/diagnostic source; live verification pending",
+      "bytes": 5664,
+      "sha256": "c021b936042df987dc37ef02286139a4830778917499b11723cb13f42c9d9ba7"
+    },
+    {
+      "path": "postboot/pcvr/stereo/test_stage_compositor_turnip_probe.py",
+      "role": "Prepared host-tested stereo repair/diagnostic source; live verification pending",
+      "bytes": 7971,
+      "sha256": "ecc4ab973d11d47f0ad3a22f6f42e7bb9f937510fc01ad618d4f782d9420776d"
     },
     {
       "path": "postboot/pcvr/tests/pose/README.md",
