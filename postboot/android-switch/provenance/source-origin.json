@@ -1,0 +1,248 @@
+{
+  "originBase": "Assessment source collection; all origin paths are relative to that collection",
+  "snapshots": [
+    "android-switch-app-deployed",
+    "android-switch-diagnostic"
+  ],
+  "historicalSourceManifest": {
+    "origin": "android-switch-app-deployed/evidence/SOURCE_SHA256SUMS",
+    "sha256": "fd87349f5131cc914d2d4a4b7e119b6fb6d784644239007730e11766c350dfda",
+    "entries": 34,
+    "allEntriesMatch": true
+  },
+  "files": [
+    {
+      "path": "AndroidManifest.xml",
+      "origin": "android-switch-app-deployed/AndroidManifest.xml",
+      "originSha256": "667232802f9c641801faede1256fa2e7b27e978c4b8b46d0a24b4a25a59f85f8",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "aidl/v1/.hash",
+      "origin": "android-switch-app-deployed/aidl/v1/.hash",
+      "originSha256": "17258cacac6fc96af59ea9c14c17bcdfc2b76fc2b210bd804866b853fa78c065",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "aidl/v1/android/hardware/boot/IBootControl.aidl",
+      "origin": "android-switch-app-deployed/aidl/v1/android/hardware/boot/IBootControl.aidl",
+      "originSha256": "b94e0de5aa02b9733513311e018a0a89f4951d0b746c64ec8686d75b7491d70d",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "aidl/v1/android/hardware/boot/MergeStatus.aidl",
+      "origin": "android-switch-app-deployed/aidl/v1/android/hardware/boot/MergeStatus.aidl",
+      "originSha256": "3ccb02d10ae3430e28b30f5b1248076917e20e3887ddcba7dd64be0e9e72ccdd",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "res/drawable/ic_launcher.xml",
+      "origin": "android-switch-app-deployed/res/drawable/ic_launcher.xml",
+      "originSha256": "6129057ca41f7f12d944e86e798e62ed58b07fce3d698a9fc4cec8810539f325",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "res/values/strings.xml",
+      "origin": "android-switch-app-deployed/res/values/strings.xml",
+      "originSha256": "eb10c7fc32c128315593eedf518815266cf11e7635e67c9ec2287e20f28df65b",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "res/values/styles.xml",
+      "origin": "android-switch-app-deployed/res/values/styles.xml",
+      "originSha256": "cbe3cc436c8b2255adf5fba2056beef7840179df703b83945a148da44a89e204",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "src/cn/armada/dualswitch/BlockIdentity.java",
+      "origin": "android-switch-app-deployed/src/cn/armada/dualswitch/BlockIdentity.java",
+      "originSha256": "a07c5ddc8223fcfd8114f8f5986ca5f46f7b2c17c5f3de88af8e53028c38722b",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "src/cn/armada/dualswitch/BootControlClient.java",
+      "origin": "android-switch-app-deployed/src/cn/armada/dualswitch/BootControlClient.java",
+      "originSha256": "6d9a5d575028568f3ba320e29fd7f7a25933826f05331e638ec5822406d4f743",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "src/cn/armada/dualswitch/BootControlHelper.java",
+      "origin": "android-switch-app-deployed/src/cn/armada/dualswitch/BootControlHelper.java",
+      "originSha256": "2460455918d398e4bf1411164959fb2d14e34b8933260e2bf6987d221e2caecf",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "src/cn/armada/dualswitch/ImageDigest.java",
+      "origin": "android-switch-app-deployed/src/cn/armada/dualswitch/ImageDigest.java",
+      "originSha256": "0dd8cd96db19a82f96b4d0f97fd6bf4fc2833db6626d889cc5257af435eb867e",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "src/cn/armada/dualswitch/InputGuard.java",
+      "origin": "android-switch-app-deployed/src/cn/armada/dualswitch/InputGuard.java",
+      "originSha256": "a60f5dc4b9617cfa04923eb9188850eb7a67452fbd9720dcdebe1dbe40757d40",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "src/cn/armada/dualswitch/MainActivity.java",
+      "origin": "android-switch-app-deployed/src/cn/armada/dualswitch/MainActivity.java",
+      "originSha256": "c6440e8b2a4115e2c076291a456741ad71085cc12d5250e792653869d8b8f3f7",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "src/cn/armada/dualswitch/Policy.java",
+      "origin": "android-switch-app-deployed/src/cn/armada/dualswitch/Policy.java",
+      "originSha256": "39040167fd2c8cf9e5f73a40567944a96faf71cb7e576556f578f4e8a925f3a3",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "src/cn/armada/dualswitch/ProcessSession.java",
+      "origin": "android-switch-app-deployed/src/cn/armada/dualswitch/ProcessSession.java",
+      "originSha256": "f06679d197ae5327f384115895adc393ea287bdc5e6566820e52e0a7a2e49cb9",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "src/cn/armada/dualswitch/RootShell.java",
+      "origin": "android-switch-app-deployed/src/cn/armada/dualswitch/RootShell.java",
+      "originSha256": "80ba291efd4d1f585331d180a9e1daab782e7a1d10508b2cadb27f4fa7bde90d",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "src/cn/armada/dualswitch/SwitchCoordinator.java",
+      "origin": "android-switch-app-deployed/src/cn/armada/dualswitch/SwitchCoordinator.java",
+      "originSha256": "1668b8366f25f46e9ca75dc5479c3e3adef6e53d7f5c817dbd91fb0c9eae7d69",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "src/cn/armada/dualswitch/SwitchDeadline.java",
+      "origin": "android-switch-app-deployed/src/cn/armada/dualswitch/SwitchDeadline.java",
+      "originSha256": "b65ca8beb736e3e8bae7e11cf69a22a1ddee9772d25b3a22c81414f050395200",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "tests/binder/android/os/IBinder.java",
+      "origin": "android-switch-app-deployed/tests/binder/android/os/IBinder.java",
+      "originSha256": "1be4db0d4ce13d339ce0085185de3b5d94a10c6c224da4f6a22b370eeca039eb",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "tests/binder/android/os/Parcel.java",
+      "origin": "android-switch-app-deployed/tests/binder/android/os/Parcel.java",
+      "originSha256": "fda46155e38ec1c499d57afdbed262040bf407b05089eef69af345e28b712fd5",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "tests/binder/android/os/ServiceManager.java",
+      "origin": "android-switch-app-deployed/tests/binder/android/os/ServiceManager.java",
+      "originSha256": "208aa987936b38b0d1b5741b5f6f1764c2954c87fdca16a04f2fa329f8cbf060",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "tests/binder/cn/armada/dualswitch/BootControlClientTest.java",
+      "origin": "android-switch-app-deployed/tests/binder/cn/armada/dualswitch/BootControlClientTest.java",
+      "originSha256": "4c2457e3b51cb1b1c7accfcbd75c1374932ec3ec347bf03390b5692a5c734d27",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "tests/cn/armada/dualswitch/BlockIdentityTest.java",
+      "origin": "android-switch-app-deployed/tests/cn/armada/dualswitch/BlockIdentityTest.java",
+      "originSha256": "90ebd0b93c5b25f0274fa7f9639fac1ece8ca9bfe85c4caaebe6b5e8db67f05d",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "tests/cn/armada/dualswitch/ImageDigestTest.java",
+      "origin": "android-switch-app-deployed/tests/cn/armada/dualswitch/ImageDigestTest.java",
+      "originSha256": "ceec6580e627c4de7fcf9a3513f77a1594ee8de2a1d727f4450ffcab755d2349",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "tests/cn/armada/dualswitch/InputGuardTest.java",
+      "origin": "android-switch-app-deployed/tests/cn/armada/dualswitch/InputGuardTest.java",
+      "originSha256": "992638a15f41ec82c5bf5013eadbdfb0b6531ee01e85d7acf9357a1bf4a3fef7",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "tests/cn/armada/dualswitch/PolicyTest.java",
+      "origin": "android-switch-app-deployed/tests/cn/armada/dualswitch/PolicyTest.java",
+      "originSha256": "65486125c6c02c07b07fe1f6ecf9bed2d582d1ebafaa21c182ad7346791b7e72",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "tests/cn/armada/dualswitch/ProcessSessionTest.java",
+      "origin": "android-switch-app-deployed/tests/cn/armada/dualswitch/ProcessSessionTest.java",
+      "originSha256": "778c41ed0ec16504e23634aeec1329047e247214288a3034ccb202165bd1667d",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "tests/cn/armada/dualswitch/SwitchCoordinatorTest.java",
+      "origin": "android-switch-app-deployed/tests/cn/armada/dualswitch/SwitchCoordinatorTest.java",
+      "originSha256": "b36acf942ada6f08806fd230302b0774451d2401c0776c1a19d4a81d12b8cee6",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "tests/cn/armada/dualswitch/SwitchDeadlineTest.java",
+      "origin": "android-switch-app-deployed/tests/cn/armada/dualswitch/SwitchDeadlineTest.java",
+      "originSha256": "c7d7df7bb9c24287284e0fc5bb294f5658678306a2bccd4b289865ac5ec3676e",
+      "transform": "Unmodified"
+    },
+    {
+      "path": "tests/test_build_config.py",
+      "origin": "android-switch-app-deployed/tests/test_build_config.py",
+      "originSha256": "f1d903d47c42aff2eeb12245bab2e5223516c48242817c2f3394dc19bbb353ec",
+      "transform": "Expanded configuration tests"
+    },
+    {
+      "path": "diagnostic/src/cn/armada/dualswitch/BootControlDiagnostic.java",
+      "origin": "android-switch-diagnostic/src/cn/armada/dualswitch/BootControlDiagnostic.java",
+      "originSha256": "6dbda4e41723ea71e0636f5825fb2104fa83fd7a81a3d39e3d2c2f032a009755",
+      "transform": "Unmodified; shared dependencies use app source"
+    },
+    {
+      "path": "diagnostic/src/cn/armada/dualswitch/DiagnosticCoordinator.java",
+      "origin": "android-switch-diagnostic/src/cn/armada/dualswitch/DiagnosticCoordinator.java",
+      "originSha256": "10d89eaece82fe9e87d48294f568d2129093ea5b77bab7da20093e58f6db91cd",
+      "transform": "Unmodified; shared dependencies use app source"
+    },
+    {
+      "path": "diagnostic/src/cn/armada/dualswitch/DiagnosticState.java",
+      "origin": "android-switch-diagnostic/src/cn/armada/dualswitch/DiagnosticState.java",
+      "originSha256": "b7111acd7310686ec3e08320fc83900907d577985ce9e99f4fb1ddeab4e551f2",
+      "transform": "Unmodified; shared dependencies use app source"
+    },
+    {
+      "path": "diagnostic/tests/cn/armada/dualswitch/DiagnosticCoordinatorTest.java",
+      "origin": "android-switch-diagnostic/tests/cn/armada/dualswitch/DiagnosticCoordinatorTest.java",
+      "originSha256": "9c8f4dcd3cee1709214f63bc60270d16f36504b14b9d90e264b45499bf5d18a3",
+      "transform": "Unmodified; shared dependencies use app source"
+    },
+    {
+      "path": "build.py",
+      "origin": "android-switch-app-deployed/build.py",
+      "originSha256": "fab1919f94be9bd568ecb3ddf3c4c4c23e2561260d0f64146b937eb975036bbf",
+      "transform": "Replaced host-specific toolchain and signing paths with explicit inputs; added source-only test mode and diagnostic target"
+    },
+    {
+      "path": "config/deployment.example.json",
+      "origin": "android-switch-app-deployed/config/deployment.json",
+      "originSha256": "70c6380927ad4cb5bf5376f98842f4d4d14e22ca95349b3b2d8e6812e1b228e1",
+      "transform": "Replaced device and image identity with disabled placeholders"
+    },
+    {
+      "path": "src/cn/armada/dualswitch/TargetConfig.java",
+      "origin": "android-switch-app-deployed/src/cn/armada/dualswitch/TargetConfig.java",
+      "originSha256": "0e50df85456120cb453090f45629a90aa2429ca119c014e007a2c9b99a1346cf",
+      "transform": "Generated disabled placeholder config; builds generate private config outside checked-in source"
+    }
+  ],
+  "excluded": [
+    "out/",
+    "build/",
+    "signing material",
+    "private deployment config",
+    "screenshots",
+    "device dumps",
+    "generated reference Java",
+    "reference bootctl source",
+    "kernel images"
+  ]
+}

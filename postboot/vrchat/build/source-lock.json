@@ -1,0 +1,15 @@
+{
+  "repo": "StonkGuy/FEX",
+  "tag": "eac-2610.3",
+  "commit": "938eedfcd79eb00e86561fbdf4933770766f0ba9",
+  "submodules": {
+    "External/drm-headers": "3e49836995c1dcb3df709440ad2f270b569c6a5f",
+    "External/fmt": "c07e2aa4b130b4fd359a1c6455a5201b17af01fa",
+    "External/jemalloc_glibc": "8436195ad5e1bc347d9b39743af3d29abee59f06",
+    "External/range-v3": "ca1388fb9da8e69314dda222dc7b139ca84e092f",
+    "External/rpmalloc": "09142d726429416bfa7b459151515fe3ab7622dd",
+    "External/unordered_dense": "3234af2c03549bc85656bfd3a86993bf1cd8aef1",
+    "External/xxhash": "e626a72bc2321cd320e953a0ccf1584cad60f363",
+    "Source/Common/cpp-optparse": "9f94388a339fcbb0bc95c17768eb786c85988f6e"
+  }
+}

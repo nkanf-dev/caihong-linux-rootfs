@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "repository": "KhronosGroup/Vulkan-Headers",
+  "tag": "v1.3.290",
+  "commit": "b379292b2ab6df5771ba9870d53cf8b2c9295daf",
+  "commit_tree": "60d1dc3edd2561cd7453ab6a4b8f23e69467f1f1",
+  "acquisition": "Authenticated gh api exact-commit contents reads; every file must match its pinned Git blob, SHA256 and byte count.",
+  "defines": [
+    "VK_USE_PLATFORM_XLIB_XRANDR_EXT"
+  ],
+  "files": [
+    {
+      "path": "LICENSE.md",
+      "git_blob": "d6a0648b652ade1defb1eb481643d2f8d14828b5",
+      "sha256": "ac24e5ea920e4318e4d02c4086ae51f53cfb03feed06c18df1019e7ada1ec7bc",
+      "size": 458
+    },
+    {
+      "path": "include/vk_video/vulkan_video_codec_av1std.h",
+      "git_blob": "8ce283e8a8a4fab73f1ee57484ede50c08c24b9f",
+      "sha256": "f3ab53dbfdeb36a349f674656d50bd507f2e4b3c883343da74aace0df4f02a02",
+      "size": 16507
+    },
+    {
+      "path": "include/vk_video/vulkan_video_codec_av1std_decode.h",
+      "git_blob": "6b8130cd9fcf71c8488dc00ccb6fa0d981ea3adc",
+      "sha256": "96f923dc01cd3e266c081d88fa020525a20d63ffe4ce09a4c807a04ef3aaf97e",
+      "size": 4250
+    },
+    {
+      "path": "include/vk_video/vulkan_video_codec_h264std.h",
+      "git_blob": "6d27af37b73342388f3281a70c8af34efe1de567",
+      "sha256": "072ee6eac80e73d93bb4bfe0059f99e581fc8b55b1437236185bb4ff377914b1",
+      "size": 13853
+    },
+    {
+      "path": "include/vk_video/vulkan_video_codec_h264std_decode.h",
+      "git_blob": "439cb885e71b7dcbde9b477b2bfb3fd4613bec10",
+      "sha256": "e1708b3996a740eeedb79f51d0f0e379f9bcae13566538375acaf73301023b58",
+      "size": 2722
+    },
+    {
+      "path": "include/vk_video/vulkan_video_codec_h264std_encode.h",
+      "git_blob": "9e24aa5d991d3b4388b4bd297d66faf46a698f7a",
+      "sha256": "052a6e357be8d88bf4be0db1b3da5a9cc1a6011cf4b3533759ff588e1e26f9f1",
+      "size": 6878
+    },
+    {
+      "path": "include/vk_video/vulkan_video_codec_h265std.h",
+      "git_blob": "d0a1bacbea378c7e0acc1ebcf2596da80525bfe9",
+      "sha256": "0cbdfd6c45ee8ca902e9c961cd7e49a4d601d443ea0ef2a60a8496b127ed397c",
+      "size": 23416
+    },
+    {
+      "path": "include/vk_video/vulkan_video_codec_h265std_decode.h",
+      "git_blob": "0178793e5111ac4eea8f26185bea2312ce645dd3",
+      "sha256": "800946aa19d83d305d504e2e4141bc938f989e0cf8872cef97480238eefef1ea",
+      "size": 2428
+    },
+    {
+      "path": "include/vk_video/vulkan_video_codec_h265std_encode.h",
+      "git_blob": "ee34491f4e9c0a5fa3740193802ecd437f93473f",
+      "sha256": "7239f9f4e811546639111e562a8be1ec73ad5bef1c23d5fad80889f35e125e9c",
+      "size": 7462
+    },
+    {
+      "path": "include/vk_video/vulkan_video_codecs_common.h",
+      "git_blob": "5e6ef1db48ee560e2004388f95d25c6a5bc6a19b",
+      "sha256": "78cf3c99d3d57afa7ab1782ec6018b4bcdbe273f2843d76e3375282db875b71e",
+      "size": 660
+    },
+    {
+      "path": "include/vulkan/vk_icd.h",
+      "git_blob": "59204a3419f53b7e4a3610377791d52705a2c65e",
+      "sha256": "6c80200a7fcc4c7da3170ef9dc674eab142c92767bfc9733c98649bce78aecb9",
+      "size": 8164
+    },
+    {
+      "path": "include/vulkan/vk_layer.h",
+      "git_blob": "19d88fce4bac25a66ced1cb79a909dd702d2ab88",
+      "sha256": "861cd0ea24c7d81b935e5726520d184dbbc00e571f9089e17a723ccbbc1944e2",
+      "size": 7073
+    },
+    {
+      "path": "include/vulkan/vk_platform.h",
+      "git_blob": "0ecd4f64719968f57fabbc40b5d884fb6483fd39",
+      "sha256": "c4cabbcf699c90cde344095ae54da9435d117951aad114ba3a540c5997d7906f",
+      "size": 2828
+    },
+    {
+      "path": "include/vulkan/vulkan.h",
+      "git_blob": "ef94006bb319d65f46ef228af8a8804939352dfc",
+      "sha256": "52297513cc6b6cc8db2921aa849f72e3f55d678b3a58a2c3eb297c02ded7a837",
+      "size": 1555
+    },
+    {
+      "path": "include/vulkan/vulkan_core.h",
+      "git_blob": "62b079c83bb1dc59092cf55287c5f08a7df80ffd",
+      "sha256": "24b258dbfc5f177206fbffcf35f3a87cf756ee6f883167b92ecaeab16a5aa005",
+      "size": 1007428
+    },
+    {
+      "path": "include/vulkan/vulkan_xlib_xrandr.h",
+      "git_blob": "8e99190b4ffe480afea201909daef3e542fa93d9",
+      "sha256": "b33d51ee2feb28890cb5b2db3cd4c8b0553553d81c71d6057ed91bb5029d844e",
+      "size": 1411
+    },
+    {
+      "path": "LICENSES/Apache-2.0.txt",
+      "git_blob": "d645695673349e3947e8e5ae42332d0ac3164cd7",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "size": 11358
+    },
+    {
+      "path": "LICENSES/MIT.txt",
+      "git_blob": "8495fe9e901b430947d54980af7c77c0bb8a6221",
+      "sha256": "1ca3502222d967f3be5751c55f6b7ee735b5383909c3b501495f54b216dbf227",
+      "size": 1084
+    }
+  ],
+  "include_closure": [
+    {
+      "from": "include/vulkan/vulkan.h",
+      "include": "vk_platform.h",
+      "resolved": "include/vulkan/vk_platform.h"
+    },
+    {
+      "from": "include/vulkan/vulkan.h",
+      "include": "vulkan_core.h",
+      "resolved": "include/vulkan/vulkan_core.h"
+    },
+    {
+      "from": "include/vulkan/vulkan.h",
+      "include": "vulkan_xlib_xrandr.h",
+      "resolved": "include/vulkan/vulkan_xlib_xrandr.h"
+    },
+    {
+      "from": "include/vulkan/vulkan_core.h",
+      "include": "vk_platform.h",
+      "resolved": "include/vulkan/vk_platform.h"
+    },
+    {
+      "from": "include/vulkan/vulkan_core.h",
+      "include": "vk_video/vulkan_video_codec_h264std.h",
+      "resolved": "include/vk_video/vulkan_video_codec_h264std.h"
+    },
+    {
+      "from": "include/vulkan/vulkan_core.h",
+      "include": "vk_video/vulkan_video_codec_h264std_encode.h",
+      "resolved": "include/vk_video/vulkan_video_codec_h264std_encode.h"
+    },
+    {
+      "from": "include/vulkan/vulkan_core.h",
+      "include": "vk_video/vulkan_video_codec_h265std.h",
+      "resolved": "include/vk_video/vulkan_video_codec_h265std.h"
+    },
+    {
+      "from": "include/vulkan/vulkan_core.h",
+      "include": "vk_video/vulkan_video_codec_h265std_encode.h",
+      "resolved": "include/vk_video/vulkan_video_codec_h265std_encode.h"
+    },
+    {
+      "from": "include/vulkan/vulkan_core.h",
+      "include": "vk_video/vulkan_video_codec_h264std_decode.h",
+      "resolved": "include/vk_video/vulkan_video_codec_h264std_decode.h"
+    },
+    {
+      "from": "include/vulkan/vulkan_core.h",
+      "include": "vk_video/vulkan_video_codec_h265std_decode.h",
+      "resolved": "include/vk_video/vulkan_video_codec_h265std_decode.h"
+    },
+    {
+      "from": "include/vulkan/vulkan_core.h",
+      "include": "vk_video/vulkan_video_codec_av1std.h",
+      "resolved": "include/vk_video/vulkan_video_codec_av1std.h"
+    },
+    {
+      "from": "include/vulkan/vulkan_core.h",
+      "include": "vk_video/vulkan_video_codec_av1std_decode.h",
+      "resolved": "include/vk_video/vulkan_video_codec_av1std_decode.h"
+    },
+    {
+      "from": "include/vulkan/vk_layer.h",
+      "include": "vulkan_core.h",
+      "resolved": "include/vulkan/vulkan_core.h"
+    },
+    {
+      "from": "include/vulkan/vk_icd.h",
+      "include": "vulkan.h",
+      "resolved": "include/vulkan/vulkan.h"
+    },
+    {
+      "from": "include/vk_video/vulkan_video_codec_h264std.h",
+      "include": "vulkan_video_codecs_common.h",
+      "resolved": "include/vk_video/vulkan_video_codecs_common.h"
+    },
+    {
+      "from": "include/vk_video/vulkan_video_codec_h264std_encode.h",
+      "include": "vulkan_video_codec_h264std.h",
+      "resolved": "include/vk_video/vulkan_video_codec_h264std.h"
+    },
+    {
+      "from": "include/vk_video/vulkan_video_codec_h265std.h",
+      "include": "vulkan_video_codecs_common.h",
+      "resolved": "include/vk_video/vulkan_video_codecs_common.h"
+    },
+    {
+      "from": "include/vk_video/vulkan_video_codec_h265std_encode.h",
+      "include": "vulkan_video_codec_h265std.h",
+      "resolved": "include/vk_video/vulkan_video_codec_h265std.h"
+    },
+    {
+      "from": "include/vk_video/vulkan_video_codec_h264std_decode.h",
+      "include": "vulkan_video_codec_h264std.h",
+      "resolved": "include/vk_video/vulkan_video_codec_h264std.h"
+    },
+    {
+      "from": "include/vk_video/vulkan_video_codec_h265std_decode.h",
+      "include": "vulkan_video_codec_h265std.h",
+      "resolved": "include/vk_video/vulkan_video_codec_h265std.h"
+    },
+    {
+      "from": "include/vk_video/vulkan_video_codec_av1std.h",
+      "include": "vulkan_video_codecs_common.h",
+      "resolved": "include/vk_video/vulkan_video_codecs_common.h"
+    },
+    {
+      "from": "include/vk_video/vulkan_video_codec_av1std_decode.h",
+      "include": "vulkan_video_codec_av1std.h",
+      "resolved": "include/vk_video/vulkan_video_codec_av1std.h"
+    }
+  ],
+  "license": "Apache-2.0 OR MIT, as specified in individual header notices; full license texts are fetched and also retained in ../licenses/Vulkan-Headers/."
+}

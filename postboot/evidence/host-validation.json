@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "scope": "host repository preservation only",
+  "tests": {
+    "archive_audit_unittest": 3,
+    "runtime_profiles_retry_gate": 7,
+    "ALVR_preservation": 13,
+    "VRChat_launcher_preservation_recipe": 24,
+    "desktop_pen_controller": 32,
+    "proxy": 8,
+    "menu_javascript": 3,
+    "android_python_config": 11,
+    "android_java_assertions": 220,
+    "pose_release": "PASS",
+    "pose_ASan_UBSan": "PASS",
+    "main_comm_logic_constructor_release": "PASS",
+    "main_comm_logic_constructor_ASan_UBSan": "PASS"
+  },
+  "source_syntax": [
+    "Python AST",
+    "JSON",
+    "XML",
+    "bash -n",
+    "node --check"
+  ],
+  "archive_audit": "actual staged allowlist, SHA256, size and secret-pattern audit passed; exact upstream context whitespace exempt by scoped attributes",
+  "git_push": false,
+  "device_access": false,
+  "runtime_status": "See docs/current-validation.md; root owns live updates."
+}

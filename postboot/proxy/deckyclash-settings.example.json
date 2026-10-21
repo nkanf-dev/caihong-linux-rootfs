@@ -1,0 +1,10 @@
+{
+  "secret": "REPLACE_CONTROLLER_SECRET",
+  "controller_port": 9090,
+  "allow_remote_access": false,
+  "autostart": false,
+  "skip_steam_download": false,
+  "override_dns": true,
+  "enhanced_mode": "fake-ip",
+  "log_level": "INFO"
+}

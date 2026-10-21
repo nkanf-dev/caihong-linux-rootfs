@@ -1,0 +1,17 @@
+/build/
+/out/
+/.source-test-*/
+/.source-build-*/
+/config/deployment.local.json
+__pycache__/
+*.pyc
+*.class
+*.dex
+*.apk
+*.jar
+*.jks
+*.keystore
+*.p12
+*.pfx
+*.pem
+*.key

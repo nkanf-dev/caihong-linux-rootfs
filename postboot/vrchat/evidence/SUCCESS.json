@@ -1,0 +1,57 @@
+{
+  "historical": true,
+  "source_origin": "SUCCESS.json",
+  "verified_at": "2026-10-21T13:52:40+08:00",
+  "result": "VRChat desktop login screen verified",
+  "EAC": {
+    "bootstrap_result": 301,
+    "message": "Easy Anti-Cheat successfully loaded in-game",
+    "latest_success_time": "13:49:29",
+    "original_chain": true
+  },
+  "UI": {
+    "screen": "Create an Account or Log In",
+    "visible_login_providers": [
+      "VRChat",
+      "Steam",
+      "Discord",
+      "Google"
+    ],
+    "no_error_prompt": true,
+    "input_probe": "gated relative mouse motion accepted"
+  },
+  "runtime": {
+    "tool_name": "proton_experimental",
+    "Steam_appid": 1493710,
+    "version": "experimental-11.0-20261014-x86_64",
+    "required_runtime": 4183110,
+    "FEX_private_tag": "eac-2610.3",
+    "FEX_commit": "938eedfcd79eb00e86561fbdf4933770766f0ba9",
+    "stock_FEX_version": "FEX-2607-76-g37265b1",
+    "stock_FEX_unchanged": true,
+    "private_tool": "$HOME/.local/share/caihong-vrchat-fex-eac-tool"
+  },
+  "private_prefix": "$HOME/.local/share/cvrc-x64",
+  "desktop_flags": [
+    "--no-vr",
+    "--enable-avpro-in-proton"
+  ],
+  "later_transition": "The desktop session was closed normally for SteamVR work.",
+  "original_prefix_note": "Steam x64 first-run install evaluator did touch original prefix after backup; do not call original prefix untouched",
+  "game_and_EAC_executables_unchanged": true,
+  "no_game_or_EAC_patches": true,
+  "account_login_performed": false,
+  "world_join_performed": false,
+  "VR_and_audio_validation": "pending",
+  "synthetic_tests": {
+    "expected_results": 32,
+    "total": 35,
+    "unresolved": [
+      "execve-seccomp with FEX_NEEDSSECCOMP=1",
+      "smc-same-page default",
+      "ptrace-sigbus recovery"
+    ],
+    "full_suite_pass": false,
+    "scope": "private VRChat copy only; not a global FEX rollout"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "description": "Previously used conservative ALVR 20.14.1 video settings",
+  "values": {
+    "session_settings.video.preferred_codec.variant": "H264",
+    "session_settings.video.encoder_config.software.force_software_encoding": true,
+    "session_settings.video.encoder_config.software.thread_count": 2,
+    "session_settings.video.encoder_config.use_10bit": false,
+    "session_settings.video.encoder_config.server_overrides_use_10bit": true,
+    "session_settings.extra.steamvr_launcher.open_close_steamvr_with_dashboard": false,
+    "session_settings.extra.patches.linux_async_compute": false,
+    "session_settings.extra.patches.linux_async_reprojection": false,
+    "session_settings.video.preferred_fps": 72.0,
+    "session_settings.video.transcoding_view_resolution.variant": "Absolute",
+    "session_settings.video.transcoding_view_resolution.Absolute.width": 1024,
+    "session_settings.video.transcoding_view_resolution.Absolute.height.set": false,
+    "session_settings.video.emulated_headset_view_resolution.variant": "Absolute",
+    "session_settings.video.emulated_headset_view_resolution.Absolute.width": 1024,
+    "session_settings.video.emulated_headset_view_resolution.Absolute.height.set": false
+  },
+  "required_manual_readback": [
+    "Confirm the exact 20.14.1 schema before applying video keys",
+    "H264; software x264; two encoder threads; 1024 pixels per eye; requested 72 Hz",
+    "Async compute and async reprojection disabled"
+  ]
+}

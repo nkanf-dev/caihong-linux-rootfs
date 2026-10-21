@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "repository": "alvr-org/ALVR",
+  "base_tag": "v20.14.1",
+  "base_commit": "a9f6542fa507a841f40ab4f3fcb531427cd02550",
+  "path": "alvr/vulkan_layer/util/pose.cpp",
+  "base_git_blob": "3d83d21bcc211161cfad7397b2d40c896bc6aa07",
+  "base_sha256": "dab18eafbebe766de40e657ad3daaa7a1225a8650a31b9a2f113321d76105857",
+  "patched_sha256": "e9fd01a893700eed08414bb8ae499a3bae6e379e071a165db4e68c7bef1cf274",
+  "patch_sha256": "e693822a44935360b7e17716f3166747084c365583e3297b2492a1f06e33326a",
+  "patched_header_sha256": "db7c1059abe944a5f1e8ffe2d7546590a3143b8971ba8a59eba31e64b70cd668",
+  "scope": "One-file local exact-compositor pose patch. Separate from upstream PR3353. Exact build-ID/PC-gated HMD slot selection; deterministic ELF/unwind API stubs cover unit tests.",
+  "compositor": {
+    "version": "2.17.10",
+    "elf_build_id": "f5c560dcaa16d7b2625ece684b02396505e0768f",
+    "update_pc_range": [
+      "0x282d00",
+      "0x2861d0"
+    ],
+    "update_async_pc_range": [
+      "0x27faf0",
+      "0x282d00"
+    ],
+    "hmd0_below_rbp": "0x5030"
+  },
+  "license": "../../licenses/ALVR-vulkan-layer-MIT.txt",
+  "patch_origin": "Locally reviewed headpose-metadata-review patch; source and patch bytes preserved unchanged."
+}

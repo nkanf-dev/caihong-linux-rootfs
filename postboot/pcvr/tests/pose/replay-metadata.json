@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "fixture": "external saved Update-frame extraction; supply explicitly with --fixture",
+  "fixture_in_repository": false,
+  "fixture_bytes": 22048,
+  "fixture_sha256": "6ca8279dc1ce5427655dde8e1df3b9cbbd54c2907f14d84b323a60eaaa0ccc2e",
+  "reviewed_source_sha256": "e9fd01a893700eed08414bb8ae499a3bae6e379e071a165db4e68c7bef1cf274",
+  "render_update_return_elf_va": "0x285069",
+  "expected_hmd_slot_below_rbp": "0x5030",
+  "relative_layout": {
+    "frame_pointer_offset": "0x5610",
+    "hmd0_offset": "0x5e0",
+    "second_prediction_offset": "0x19e0"
+  },
+  "historical_checks": {
+    "release": "exit 0",
+    "ASan_UBSan": "exit 0",
+    "source": "original saved-core replay metadata"
+  },
+  "scope": "External saved memory replay through the exact reviewed function with mocked libunwind/module APIs. Runtime verification remains a separate device test."
+}

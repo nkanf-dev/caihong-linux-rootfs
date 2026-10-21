@@ -1,0 +1,33 @@
+{
+  "scope": "Host-only preservation checks; mocked launcher exec; no live operation",
+  "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest -v test_launcher build/test_recipe.py test_preservation",
+  "passed": 24,
+  "failed": 0,
+  "exit_code": 0,
+  "tests": [
+    "test_launcher.LauncherTests.test_bad_runtime_paths_rejected",
+    "test_launcher.LauncherTests.test_exact_private_substitution_preserves_chain",
+    "test_launcher.LauncherTests.test_existing_tool_path_is_not_duplicated",
+    "test_launcher.LauncherTests.test_experimental_options_rejected",
+    "test_launcher.LauncherTests.test_explicit_short_runtime_is_used",
+    "test_launcher.LauncherTests.test_missing_duplicate_and_near_match_wrappers_rejected",
+    "test_launcher.LauncherTests.test_missing_prefix_and_executable_rejected",
+    "test_launcher.LauncherTests.test_private_environment_and_no_argument_logging",
+    "test_launcher.LauncherTests.test_root_rejected",
+    "test_launcher.LauncherTests.test_routing_record_symlink_rejected",
+    "test_launcher.LauncherTests.test_runtime_fallback_uses_current_uid",
+    "test_launcher.LauncherTests.test_wrong_app_and_prefix_rejected",
+    "test_launcher.OwnerDirectoryTests.test_private_mode_owner_and_symlink_checks",
+    "build.test_recipe.Checks.test_elf_machine",
+    "build.test_recipe.Checks.test_expected_exit_codes",
+    "build.test_recipe.Checks.test_no_cpu_quota",
+    "build.test_recipe.Checks.test_pinned_table",
+    "build.test_recipe.Checks.test_short_socket",
+    "test_preservation.PreservationTests.test_historical_35_result_summary",
+    "test_preservation.PreservationTests.test_historical_status_and_vr_attempt",
+    "test_preservation.PreservationTests.test_no_runtime_binaries_or_personal_home_paths",
+    "test_preservation.PreservationTests.test_pins_agree_with_recipe",
+    "test_preservation.PreservationTests.test_python_and_json_parse_without_bytecode",
+    "test_preservation.PreservationTests.test_recorded_source_checksums"
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "scope": "Optional ALVR negotiation-shim constructor repair for exact compositor main-task name; pose/drawing/encoder sources unchanged.",
+  "files": [
+    {
+      "path": "ALVR_Negotiate.before.cpp.in",
+      "sha256": "40e751876935315911e463b1f276cd5be0ecacece0b5bf5bdb128543277a5d1c",
+      "bytes": 217,
+      "assessment_relative_source": "headpose-metadata-review/main-comm-repair/ALVR_Negotiate.before.cpp",
+      "original_input_sha256": "be50d9176ef6858d6558a8825859fbc1a5ba3a2e6cfda6d9b34d745df18a7118",
+      "byte_identical": false
+    },
+    {
+      "path": "ALVR_Negotiate.cpp.in",
+      "sha256": "4e0dd889e08019c47b2862690561a633bd7735f102fc37d65643dab5f15d431c",
+      "bytes": 251,
+      "assessment_relative_source": "headpose-metadata-review/main-comm-repair/ALVR_Negotiate.cpp",
+      "original_input_sha256": "a1ffa2886d9e050e519584b18c8db99d59522b7399f4ab42b0c9623e606a7beb",
+      "byte_identical": false
+    },
+    {
+      "path": "compositor_main_comm.h",
+      "sha256": "657fa7e0c2fea617730c2abb19ec3a368d2f279fcc113ff0effec30eeecf7cae",
+      "bytes": 4592,
+      "assessment_relative_source": "headpose-metadata-review/main-comm-repair/compositor_main_comm.h",
+      "original_input_sha256": "657fa7e0c2fea617730c2abb19ec3a368d2f279fcc113ff0effec30eeecf7cae",
+      "byte_identical": true
+    },
+    {
+      "path": "main-comm-shim.patch",
+      "sha256": "3d6595a00d2c8b424c7acbe390a89df7d6dea3306c8da9ca1143eb742ef6fa10",
+      "bytes": 5096,
+      "assessment_relative_source": "headpose-metadata-review/main-comm-repair/main-comm-shim.patch",
+      "original_input_sha256": "e9214269d13ede819749ec30340b6115611c316411f3eef9f7e0da280b13fe72",
+      "byte_identical": false
+    },
+    {
+      "path": "tests/include/elf.h",
+      "sha256": "15cfb94a5d5bec01934e6a546ff9ed6813c9ee84fed026d72ac54af654a1eb6a",
+      "bytes": 244,
+      "assessment_relative_source": "headpose-metadata-review/main-comm-repair/tests/include/elf.h",
+      "original_input_sha256": "15cfb94a5d5bec01934e6a546ff9ed6813c9ee84fed026d72ac54af654a1eb6a",
+      "byte_identical": true
+    },
+    {
+      "path": "tests/include/link.h",
+      "sha256": "37c36e789d17e0b6e9c83c600ee476bb7a29d8a77e0740557d4ad8029a2fe29f",
+      "bytes": 289,
+      "assessment_relative_source": "headpose-metadata-review/main-comm-repair/tests/include/link.h",
+      "original_input_sha256": "37c36e789d17e0b6e9c83c600ee476bb7a29d8a77e0740557d4ad8029a2fe29f",
+      "byte_identical": true
+    },
+    {
+      "path": "tests/include/sys/prctl.h",
+      "sha256": "76a87560566caead9ad617fb8f7b3d4253ed33c8883e5c427449a79356dd76f9",
+      "bytes": 56,
+      "assessment_relative_source": "headpose-metadata-review/main-comm-repair/tests/include/sys/prctl.h",
+      "original_input_sha256": "76a87560566caead9ad617fb8f7b3d4253ed33c8883e5c427449a79356dd76f9",
+      "byte_identical": true
+    },
+    {
+      "path": "tests/include/sys/syscall.h",
+      "sha256": "2154eea45cd66f24555c3cd060e278cf7f35f9ba47e4f36ff703674e2aac2fbb",
+      "bytes": 36,
+      "assessment_relative_source": "headpose-metadata-review/main-comm-repair/tests/include/sys/syscall.h",
+      "original_input_sha256": "2154eea45cd66f24555c3cd060e278cf7f35f9ba47e4f36ff703674e2aac2fbb",
+      "byte_identical": true
+    },
+    {
+      "path": "tests/test_comm.cpp",
+      "sha256": "9a6a0ea3a5aac605ebd079dd8a9f796b5907c1176ae1f22989f8014a52208a25",
+      "bytes": 1419,
+      "assessment_relative_source": "headpose-metadata-review/main-comm-repair/tests/test_comm.cpp",
+      "original_input_sha256": "9a6a0ea3a5aac605ebd079dd8a9f796b5907c1176ae1f22989f8014a52208a25",
+      "byte_identical": true
+    },
+    {
+      "path": "tests/test_constructor.cpp",
+      "sha256": "f10d7af15a6973ae1306d5951b5f2e5040bdb03d2fed364bd417fc16c20eace0",
+      "bytes": 2750,
+      "assessment_relative_source": "headpose-metadata-review/main-comm-repair/tests/test_constructor.cpp",
+      "original_input_sha256": "f10d7af15a6973ae1306d5951b5f2e5040bdb03d2fed364bd417fc16c20eace0",
+      "byte_identical": true
+    }
+  ],
+  "sanitization": "Original personal session path replaced with @SESSION_PATH@. Patch shim filenames use .cpp.in. Original input SHA256 values retain byte provenance.",
+  "guard": "Exact main ELF build ID and main-task comm vrcompositor.re or vrcompositor",
+  "behavior": "Use prctl on main thread; from a worker, write the same process group main-task comm.",
+  "origin": "Locally authored main-comm repair source; assessment-relative paths and original hashes recorded above.",
+  "runtime_status": "Root-owned observation: driver load 17:09:17.991, comm status=set 17:09:19, VR_Init successful 17:09:20.779 in the same run; game acceptance separate."
+}

@@ -1,0 +1,14 @@
+{
+  "description": "ALVR 20.14.1 balanced low-queue profile; merge through official SetValues API",
+  "restart": "Reconnect the stream after queue/socket/client-buffer changes",
+  "values": {
+    "session_settings.video.bitrate.mode.variant": "ConstantMbps",
+    "session_settings.video.bitrate.mode.ConstantMbps": 10,
+    "session_settings.video.bitrate.adapt_to_framerate.enabled": false,
+    "session_settings.connection.max_queued_server_video_frames": 1,
+    "session_settings.connection.server_send_buffer_bytes.variant": "Custom",
+    "session_settings.connection.server_send_buffer_bytes.Custom": 65536,
+    "session_settings.video.max_buffering_frames": 1.0,
+    "session_settings.video.buffering_history_weight": 0.5
+  }
+}

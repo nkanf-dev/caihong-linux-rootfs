@@ -1,0 +1,17 @@
+# Runtime state and secrets belong outside the checkout.
+__pycache__/
+*.pyc
+out/
+private/
+local/
+*.so
+*.o
+*.a
+*.apk
+*.tar
+*.tar.gz
+*.img
+*.qcow2
+*.core
+*.dSYM/
+node_modules/

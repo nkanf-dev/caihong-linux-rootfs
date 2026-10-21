@@ -1,0 +1,17 @@
+[Unit]
+Description=Pen pointer mapping for Gamescope Steam UI
+PartOf=gamescope-session-plus@steam.service
+After=gamescope-session-plus@steam.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/python3 %h/.local/bin/pen-steamui-bridge.py --duration 0 --device auto --rotation 0
+Restart=on-failure
+RestartSec=2s
+TimeoutStopSec=3s
+KillSignal=SIGTERM
+NoNewPrivileges=yes
+UMask=0077
+
+[Install]
+WantedBy=gamescope-session-plus@steam.service

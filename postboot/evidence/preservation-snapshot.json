@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-21",
+  "operation": "host-only repository preservation",
+  "live_operations_performed_by_preserver": false,
+  "branch": "feat/caihong-postboot-pcvr-recovery-20261021",
+  "prior_main_commit_preserved": "27adc4f",
+  "verified_historical": {
+    "desktop_vrchat": "login UI and EAC301; later closed normally",
+    "private_fex_synthetic_expected_results": 32,
+    "private_fex_synthetic_total": 35,
+    "full_steamvr_alvr_headset_images": true,
+    "head_turn_pose_improvement": "user confirmed much improved after exact-build patch"
+  },
+  "latest_reviewed": {
+    "steamvr": "2.17.10",
+    "alvr": "20.14.1",
+    "bitrate_mbps": 10,
+    "host_encoder": "software x264",
+    "client_decoder": "c2.qti.avc.decoder",
+    "pose_capture": "exact-build-hmd0 valid matrix observed",
+    "vrchat_vr": "launched once around17:10; game-start/scene/audio pending",
+    "dashboard_203": "real main-task comm set; Ready17:09:21; error203 gone"
+  },
+  "pending": [
+    "full dashboard/stereo acceptance",
+    "right-eye complete UI",
+    "native Steam VR library integration",
+    "VRChat VR scene",
+    "audio"
+  ],
+  "excluded": [
+    "credentials",
+    "subscriptions",
+    "account state",
+    "device identifiers",
+    "prefixes",
+    "images",
+    "cores/raw stack fixtures",
+    "APK/ELF archives",
+    "large binaries",
+    "bulk logs"
+  ]
+}

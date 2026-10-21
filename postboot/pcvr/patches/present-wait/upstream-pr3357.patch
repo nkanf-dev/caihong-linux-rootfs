@@ -1,0 +1,335 @@
+From d350c7c26e944af5e74b7f1ca65ae940ed3f4869 Mon Sep 17 00:00:00 2001
+From: besauce <300328542+besauce@users.noreply.github.com>
+Date: Tue, 25 Aug 2026 15:28:53 +0000
+Subject: [PATCH] fix(vulkan_layer): implement vkWaitForPresentKHR in the layer
+ (#3357)
+
+SteamVR 2.17.7 enables VK_KHR_present_id / VK_KHR_present_wait and calls
+vkWaitForPresentKHR every frame. The layer owns the swapchain (the
+handle it returns is its own wsi::swapchain_base), but never intercepted
+that call, so it reached the driver, which read the layer's object as
+the driver's own swapchain struct and jumped through a data field.
+vrcompositor segfaults about half a second after "Startup Complete" on
+every launch and SteamVR reports error -203, making ALVR completely
+unusable on Linux with any Mesa driver.
+
+Implement vkWaitForPresentKHR in the layer: QueuePresent records the
+VkPresentIdKHR id at queue time, and the wait blocks until that id is
+reached. Queue-time release is deliberate: releasing at display time
+pushes every wait to ~14 ms, at the edge of the compositor's 15 ms wait
+budget, and SteamVR 2.17.7 aborts after ~2.5 minutes with "ASSERT:
+Vulkan transfer ring buffer overflow". Queue-time release ran for hours
+without issue.
+
+Also hide the newer swapchain extension families the layer does not
+implement (VK_KHR_present_id2, VK_KHR_present_wait2,
+VK_EXT_swapchain_maintenance1) from device extension enumeration and
+device creation, and return null PFNs for their entrypoints. Note that
+VK_KHR_present_id / present_wait themselves cannot be hidden the same
+way: SteamVR resolves vkWaitForPresentKHR only when the extension is
+advertised, never initialises the member, and calls it regardless, so
+hiding them crashes differently.
+---
+ alvr/vulkan_layer/layer/layer.cpp         | 81 ++++++++++++++++++++++-
+ alvr/vulkan_layer/layer/private_data.hpp  |  1 +
+ alvr/vulkan_layer/layer/swapchain_api.cpp | 31 +++++++++
+ alvr/vulkan_layer/layer/swapchain_api.hpp |  3 +
+ alvr/vulkan_layer/wsi/swapchain_base.cpp  | 28 ++++++++
+ alvr/vulkan_layer/wsi/swapchain_base.hpp  | 24 +++++++
+ 6 files changed, 166 insertions(+), 2 deletions(-)
+
+diff --git a/alvr/vulkan_layer/layer/layer.cpp b/alvr/vulkan_layer/layer/layer.cpp
+index 8bb35a7597..992fbd7bd3 100644
+--- a/alvr/vulkan_layer/layer/layer.cpp
++++ b/alvr/vulkan_layer/layer/layer.cpp
+@@ -22,11 +22,13 @@
+  * SOFTWARE.
+  */
+ 
++#include <algorithm>
+ #include <cassert>
+ #include <cstdio>
+ #include <cstring>
+ #include <fstream>
+ #include <iostream>
++#include <vector>
+ 
+ #include <vulkan/vk_layer.h>
+ 
+@@ -55,6 +57,32 @@ static const VkExtensionProperties device_extension[] = {
+ static const VkExtensionProperties instance_extension[] = {
+     {VK_KHR_SURFACE_EXTENSION_NAME, VK_KHR_SURFACE_SPEC_VERSION}};
+ 
++/* Swapchain-scoped extensions this layer does not implement. The layer owns the
++ * swapchain: a VkSwapchainKHR handed to the application is a wsi::swapchain_base,
++ * not the driver's object. Any entrypoint of these extensions that reached the
++ * driver would dereference our object as the driver's own swapchain type, so they
++ * are hidden from the application instead.
++ *
++ * VK_KHR_present_id and VK_KHR_present_wait are deliberately absent: SteamVR
++ * resolves vkWaitForPresentKHR only when they are advertised, but calls the
++ * result unconditionally, and it never initialises that member. Hiding them
++ * leaves it calling into whatever the heap left behind, so the layer implements
++ * them instead. */
++static const char *const unowned_swapchain_extensions[] = {
++    "VK_KHR_present_id2",
++    "VK_KHR_present_wait2",
++    "VK_EXT_swapchain_maintenance1",
++};
++
++bool is_unowned_swapchain_extension(const char *name) {
++    for (const char *extension : unowned_swapchain_extensions) {
++        if (!strcmp(name, extension)) {
++            return true;
++        }
++    }
++    return false;
++}
++
+ VKAPI_ATTR VkResult extension_properties(const uint32_t count,
+                                          const VkExtensionProperties *layer_ext, uint32_t *pCount,
+                                          VkExtensionProperties *pProp) {
+@@ -253,6 +281,13 @@ VKAPI_ATTR VkResult create_device(VkPhysicalDevice physicalDevice,
+         return VK_ERROR_OUT_OF_HOST_MEMORY;
+     }
+ 
++    /* An application that enables one of these anyway must not reach the driver's
++     * implementation with our swapchain handles. */
++    modified_enabled_extensions.erase(
++        std::remove_if(modified_enabled_extensions.begin(), modified_enabled_extensions.end(),
++                       [](const char *name) { return is_unowned_swapchain_extension(name); }),
++        modified_enabled_extensions.end());
++
+     /* Now call create device on the chain further down the list. */
+     VkDeviceCreateInfo modified_info = *pCreateInfo;
+     modified_info.ppEnabledExtensionNames = modified_enabled_extensions.data();
+@@ -344,8 +379,41 @@ VKAPI_ATTR VkResult VKAPI_CALL wsi_layer_vkEnumerateDeviceExtensionProperties(
+         return layer::extension_properties(1, layer::device_extension, pCount, pProperties);
+ 
+     assert(physicalDevice);
+-    return layer::instance_private_data::get(physicalDevice)
+-        .disp.EnumerateDeviceExtensionProperties(physicalDevice, pLayerName, pCount, pProperties);
++    auto &disp = layer::instance_private_data::get(physicalDevice).disp;
++
++    uint32_t driver_count = 0;
++    VkResult result =
++        disp.EnumerateDeviceExtensionProperties(physicalDevice, pLayerName, &driver_count, nullptr);
++    if (result != VK_SUCCESS) {
++        return result;
++    }
++
++    std::vector<VkExtensionProperties> properties(driver_count);
++    if (driver_count != 0) {
++        result = disp.EnumerateDeviceExtensionProperties(physicalDevice, pLayerName, &driver_count,
++                                                         properties.data());
++        if (result != VK_SUCCESS) {
++            return result;
++        }
++        properties.resize(driver_count);
++    }
++
++    properties.erase(std::remove_if(properties.begin(), properties.end(),
++                                    [](const VkExtensionProperties &extension) {
++                                        return layer::is_unowned_swapchain_extension(
++                                            extension.extensionName);
++                                    }),
++                     properties.end());
++
++    if (pProperties == nullptr) {
++        *pCount = properties.size();
++        return VK_SUCCESS;
++    }
++
++    uint32_t copied = std::min<uint32_t>(*pCount, properties.size());
++    memcpy(pProperties, properties.data(), copied * sizeof(VkExtensionProperties));
++    *pCount = copied;
++    return copied < properties.size() ? VK_INCOMPLETE : VK_SUCCESS;
+ }
+ 
+ VKAPI_ATTR VkResult VKAPI_CALL wsi_layer_vkEnumerateInstanceExtensionProperties(
+@@ -373,12 +441,21 @@ PFN_vkVoidFunction VKAPI_CALL wsi_layer_vkGetDeviceProcAddr(VkDevice device,
+     GET_PROC_ADDR(vkGetSwapchainImagesKHR);
+     GET_PROC_ADDR(vkAcquireNextImageKHR);
+     GET_PROC_ADDR(vkQueuePresentKHR);
++    GET_PROC_ADDR(vkWaitForPresentKHR);
+     GET_PROC_ADDR(vkGetSwapchainCounterEXT);
+     GET_PROC_ADDR(vkRegisterDisplayEventEXT);
+     GET_PROC_ADDR(vkDestroyFence);
+     GET_PROC_ADDR(vkWaitForFences);
+     GET_PROC_ADDR(vkGetFenceStatus);
+ 
++    /* Swapchain entrypoints the layer does not implement. Returning the driver's
++     * pointer would let it read our wsi::swapchain_base as its own swapchain
++     * struct, which faults on the first dispatch through it. */
++    if (!strcmp(funcName, "vkWaitForPresent2KHR")
++        || !strcmp(funcName, "vkReleaseSwapchainImagesEXT")) {
++        return nullptr;
++    }
++
+     return layer::device_private_data::get(device).disp.GetDeviceProcAddr(device, funcName);
+ }
+ 
+diff --git a/alvr/vulkan_layer/layer/private_data.hpp b/alvr/vulkan_layer/layer/private_data.hpp
+index 3345548ee0..3d567223bb 100644
+--- a/alvr/vulkan_layer/layer/private_data.hpp
++++ b/alvr/vulkan_layer/layer/private_data.hpp
+@@ -115,6 +115,7 @@ struct instance_dispatch_table {
+     OPTIONAL(GetSwapchainImagesKHR)                                                                \
+     OPTIONAL(AcquireNextImageKHR)                                                                  \
+     OPTIONAL(QueuePresentKHR)                                                                      \
++    OPTIONAL(WaitForPresentKHR)                                                                    \
+     OPTIONAL(GetSwapchainCounterEXT)                                                               \
+     OPTIONAL(RegisterDisplayEventEXT)                                                              \
+     OPTIONAL(GetFenceStatus)                                                                       \
+diff --git a/alvr/vulkan_layer/layer/swapchain_api.cpp b/alvr/vulkan_layer/layer/swapchain_api.cpp
+index 0bc744d293..ca9c2aeca8 100644
+--- a/alvr/vulkan_layer/layer/swapchain_api.cpp
++++ b/alvr/vulkan_layer/layer/swapchain_api.cpp
+@@ -138,6 +138,24 @@ VKAPI_ATTR VkResult wsi_layer_vkQueuePresentKHR(VkQueue queue,
+ 
+         VkResult res = sc->queue_present(queue, pPresentInfo, pPresentInfo->pImageIndices[i]);
+ 
++        /* Record the presentId this frame was tagged with, so a caller blocked in
++         * vkWaitForPresentKHR can be released. */
++        if (res == VK_SUCCESS) {
++            for (const VkBaseInStructure *next =
++                     reinterpret_cast<const VkBaseInStructure *>(pPresentInfo->pNext);
++                 next != nullptr; next = next->pNext) {
++                if (next->sType != VK_STRUCTURE_TYPE_PRESENT_ID_KHR) {
++                    continue;
++                }
++                const VkPresentIdKHR *present_id =
++                    reinterpret_cast<const VkPresentIdKHR *>(next);
++                if (present_id->pPresentIds != nullptr && i < present_id->swapchainCount) {
++                    sc->set_present_id(present_id->pPresentIds[i]);
++                }
++                break;
++            }
++        }
++
+         if (pPresentInfo->pResults != nullptr) {
+             pPresentInfo->pResults[i] = res;
+         }
+@@ -150,6 +168,19 @@ VKAPI_ATTR VkResult wsi_layer_vkQueuePresentKHR(VkQueue queue,
+     return ret;
+ }
+ 
++VKAPI_ATTR VkResult wsi_layer_vkWaitForPresentKHR(VkDevice device, VkSwapchainKHR swapc,
++                                                  uint64_t presentId, uint64_t timeout) {
++    layer::device_private_data &device_data = layer::device_private_data::get(device);
++
++    if (!device_data.layer_owns_swapchain(swapc)) {
++        return device_data.disp.WaitForPresentKHR(device_data.device, swapc, presentId, timeout);
++    }
++
++    assert(swapc != VK_NULL_HANDLE);
++    wsi::swapchain_base *sc = reinterpret_cast<wsi::swapchain_base *>(swapc);
++    return sc->wait_for_present(presentId, timeout);
++}
++
+ VKAPI_ATTR VkResult wsi_layer_vkGetSwapchainCounterEXT(VkDevice device, VkSwapchainKHR swapchain,
+                                                        VkSurfaceCounterFlagBitsEXT counter,
+                                                        uint64_t *pCounterValue) {
+diff --git a/alvr/vulkan_layer/layer/swapchain_api.hpp b/alvr/vulkan_layer/layer/swapchain_api.hpp
+index d5ec946ad9..9cb6518dae 100644
+--- a/alvr/vulkan_layer/layer/swapchain_api.hpp
++++ b/alvr/vulkan_layer/layer/swapchain_api.hpp
+@@ -52,6 +52,9 @@ VKAPI_ATTR VkResult wsi_layer_vkAcquireNextImageKHR(VkDevice device, VkSwapchain
+ VKAPI_ATTR VkResult wsi_layer_vkQueuePresentKHR(VkQueue queue,
+                                                 const VkPresentInfoKHR *pPresentInfo);
+ 
++VKAPI_ATTR VkResult wsi_layer_vkWaitForPresentKHR(VkDevice device, VkSwapchainKHR swapc,
++                                                  uint64_t presentId, uint64_t timeout);
++
+ VKAPI_ATTR VkResult wsi_layer_vkGetSwapchainCounterEXT(VkDevice device, VkSwapchainKHR swapchain,
+                                                        VkSurfaceCounterFlagBitsEXT counter,
+                                                        uint64_t *pCounterValue);
+diff --git a/alvr/vulkan_layer/wsi/swapchain_base.cpp b/alvr/vulkan_layer/wsi/swapchain_base.cpp
+index 66f8652483..ca5f18cc2d 100644
+--- a/alvr/vulkan_layer/wsi/swapchain_base.cpp
++++ b/alvr/vulkan_layer/wsi/swapchain_base.cpp
+@@ -34,6 +34,7 @@
+ #include <array>
+ #include <cassert>
+ #include <cerrno>
++#include <chrono>
+ #include <cstdio>
+ #include <cstdlib>
+ 
+@@ -544,6 +545,33 @@ VkResult swapchain_base::wait_for_free_buffer(uint64_t timeout) {
+     return retval;
+ }
+ 
++void swapchain_base::set_present_id(uint64_t present_id) {
++    {
++        std::lock_guard<std::mutex> lock(m_present_id_mutex);
++        if (present_id <= m_present_id) {
++            return;
++        }
++        m_present_id = present_id;
++    }
++    m_present_id_cv.notify_all();
++}
++
++VkResult swapchain_base::wait_for_present(uint64_t present_id, uint64_t timeout) {
++    std::unique_lock<std::mutex> lock(m_present_id_mutex);
++
++    auto reached = [this, present_id]() { return m_present_id >= present_id; };
++
++    if (timeout == UINT64_MAX) {
++        m_present_id_cv.wait(lock, reached);
++        return VK_SUCCESS;
++    }
++
++    if (m_present_id_cv.wait_for(lock, std::chrono::nanoseconds(timeout), reached)) {
++        return VK_SUCCESS;
++    }
++    return VK_TIMEOUT;
++}
++
+ #undef WSI_PRINT_ERROR
+ 
+ } /* namespace wsi */
+diff --git a/alvr/vulkan_layer/wsi/swapchain_base.hpp b/alvr/vulkan_layer/wsi/swapchain_base.hpp
+index 040b35fb78..a3e010253c 100644
+--- a/alvr/vulkan_layer/wsi/swapchain_base.hpp
++++ b/alvr/vulkan_layer/wsi/swapchain_base.hpp
+@@ -30,6 +30,8 @@
+ 
+ #pragma once
+ 
++#include <condition_variable>
++#include <mutex>
+ #include <pthread.h>
+ #include <semaphore.h>
+ #include <thread>
+@@ -134,7 +136,29 @@ class swapchain_base {
+     VkResult queue_present(VkQueue queue, const VkPresentInfoKHR *present_info,
+                            const uint32_t image_index);
+ 
++    /**
++     * @brief Record the presentId a queued present was tagged with, releasing
++     * any wait_for_present() blocked on it or on an earlier id.
++     */
++    void set_present_id(uint64_t present_id);
++
++    /**
++     * @brief Block until a present tagged with @p present_id has been queued.
++     *
++     * @param timeout Nanoseconds to wait, UINT64_MAX to wait indefinitely.
++     *
++     * @return VK_SUCCESS once the id has been reached, VK_TIMEOUT otherwise.
++     */
++    VkResult wait_for_present(uint64_t present_id, uint64_t timeout);
++
+   protected:
++    /**
++     * @brief Highest presentId queued so far, with its wait plumbing.
++     */
++    std::mutex m_present_id_mutex;
++    std::condition_variable m_present_id_cv;
++    uint64_t m_present_id = 0;
++
+     layer::device_private_data &m_device_data;
+ 
+     /**

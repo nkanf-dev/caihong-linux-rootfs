@@ -1,0 +1,51 @@
+{
+  "url": "https://steamdeck-packages.steamos.cloud/archlinux-deckard-hotfixes/release/0.3.x/deckard-steamvr-rel-r25358740%2B28b72a4f-1-aarch64.pkg.tar.zst",
+  "expected_size": 571309057,
+  "source_reference_sha256": "90a600775eb3e8856dc475f83166a93a290a0b1f3b4e82a69c8e2a8f06b9ddc9",
+  "current_x64_buildid": "25330290",
+  "candidate_arm64_package_buildid": "25358740",
+  "independent_nix_source": "https://github.com/y0usaf/steam-frame-nixos/blob/d44d5177aa54c13a83ec6d6a7a139808d256025d/valve.nix",
+  "independent_nix_sha256_sri": "sha256-kKYAd16z6IVtxHX4MWapOikKCx87ToKmnI4qjwa53ck=",
+  "reference_hashes_match": true,
+  "detached_signature_status": "official .sig URL returned 404",
+  "expected_sha256": "90a600775eb3e8856dc475f83166a93a290a0b1f3b4e82a69c8e2a8f06b9ddc9",
+  "actual_size": 571309057,
+  "actual_sha256": "90a600775eb3e8856dc475f83166a93a290a0b1f3b4e82a69c8e2a8f06b9ddc9",
+  "selected_members": [
+    ".BUILDINFO",
+    ".PKGINFO",
+    "opt/steamvr/bin/linuxarm64/libopenvr_api.so",
+    "opt/steamvr/bin/linuxarm64/vrclient.so",
+    "opt/steamvr/bin/version.txt",
+    "opt/steamvr/tools/imageoverlay/bin/linuxarm64/libopenvr_api.so",
+    "opt/steamvr/tools/overlayboxroom/bin/linuxarm64/libopenvr_api.so"
+  ],
+  "native_client_sha256": "fe967dcc0d97dab984bd9acc1dc522fcecbcf9beb794fdd7ec156334ec31e313",
+  "native_client_size": 6470544,
+  "needed": [
+    "libGL.so.1",
+    "libEGL.so.1",
+    "librt.so.1",
+    "libuuid.so.1",
+    "libdl.so.2",
+    "ld-linux-aarch64.so.1",
+    "libpthread.so.0",
+    "libstdc++.so.6",
+    "libm.so.6",
+    "libgcc_s.so.1",
+    "libc.so.6"
+  ],
+  "native_package_version": "r25358740+28b72a4f-1",
+  "native_runtime_version_txt": "1789606310",
+  "native_client_interfaces": [
+    "IVRClientCore_003",
+    "IVRClientCore_002",
+    "IVRClientCore_001"
+  ],
+  "native_client_factory_exported": true,
+  "status": "verified candidate only; no global deployment",
+  "source_archive_in_repository": false,
+  "source_origin": "steamvr-alvr/native-backend-candidate/stage-record.json",
+  "runtime_compatibility": "isolated Background VR_Init returned0 and a valid token using private resource/version links to the current x64 runtime; component interoperability passed; native Steam VR library not ready",
+  "global_deployment": false
+}

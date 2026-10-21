@@ -1,0 +1,2 @@
+#include "layer/layer.h"
+extern "C" __attribute__((visibility("default"))) VKAPI_ATTR VkResult VKAPI_CALL ALVR_Negotiate(VkNegotiateLayerInterface*nli){g_sessionPath="@SESSION_PATH@";return wsi_layer_Negotiate(nli);}

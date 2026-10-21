@@ -1,0 +1,17 @@
+{
+  "model": "REPLACE_WITH_VERIFIED_MODEL",
+  "device": "REPLACE_WITH_VERIFIED_DEVICE",
+  "androidSlot": 0,
+  "linuxSlot": 1,
+  "linuxPartlabel": "linux",
+  "linuxPath": "/dev/block/by-name/linux",
+  "linuxBytes": 68719476736,
+  "bootPath": "/dev/block/by-name/boot_b",
+  "imageBytes": 0,
+  "imageSha256": "",
+  "deploymentReady": false,
+  "sourceRun": "",
+  "sourceCommit": "",
+  "aidlVersion": 1,
+  "aidlHash": "2400346954240a5de495a1debc81429dd012d7b7"
+}

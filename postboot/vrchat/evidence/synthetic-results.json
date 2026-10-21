@@ -1,0 +1,253 @@
+{
+  "historical": true,
+  "expected_results": 32,
+  "total": 35,
+  "full_suite_pass": false,
+  "results": {
+    "stock-rootfs-true": {
+      "rc": 0,
+      "result": "NO_RESULT",
+      "expected": "NO_RESULT",
+      "timeout": false,
+      "okay": true
+    },
+    "native-aarch64-signal-mask": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "ptrace-inject": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "signal-mask": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "signal-regs": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "seccomp-trap.FEX_NEEDSSECCOMP_1": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "seccomp-trap-noexec.FEX_NEEDSSECCOMP_1": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "seccomp-trap-blocked.FEX_NEEDSSECCOMP_1": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "signal-race.FEX_NEEDSSECCOMP_1": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "fdexec-argv": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "execve-seccomp.FEX_NEEDSSECCOMP_1": {
+      "rc": 124,
+      "result": "NO_RESULT",
+      "expected": "PASS",
+      "timeout": true,
+      "okay": false
+    },
+    "cpuid-fault": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "proc-status": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "proc-maps": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "sigtrace-unlink": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "smc-remote-write": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "smc-same-page": {
+      "rc": 6,
+      "result": "FAIL",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": false
+    },
+    "smc-same-page.FEX_SMCHOTPAGEFAULTS_0": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "munmap-4g": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "smc-kernel-write": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "smc-hot-page": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "smc-hot-page.FEX_SMCHOTPAGEFAULTS_0": {
+      "rc": 4,
+      "result": "FAIL",
+      "expected": "FAIL",
+      "timeout": false,
+      "okay": true
+    },
+    "ptrace-dregs": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "ptrace-regsets": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "ptrace-sigbus": {
+      "rc": 1,
+      "result": "FAIL",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": false
+    },
+    "restart-syscall": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "signal-frame": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "signal-frame.FEX_HOSTFEATURES_disableavx": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "sigreturn-eflags": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "maps-probe": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "tf-iret": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "syscall-efault.FEX_NEEDSSECCOMP_1": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "sigreturn-syscallinfo": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "sigsys-redirect.FEX_NEEDSSECCOMP_1": {
+      "rc": 0,
+      "result": "PASS",
+      "expected": "PASS",
+      "timeout": false,
+      "okay": true
+    },
+    "pop-fault": {
+      "rc": 2,
+      "result": "FAIL",
+      "expected": "FAIL",
+      "timeout": false,
+      "okay": true
+    }
+  }
+}

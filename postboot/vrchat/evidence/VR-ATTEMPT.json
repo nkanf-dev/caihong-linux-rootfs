@@ -1,0 +1,16 @@
+{
+  "recorded_at": "2026-10-21T17:00:12.054825",
+  "source_origin": "VR-ATTEMPT.json",
+  "change": "Remove only --no-vr from the known desktop launch options.",
+  "preserve": [
+    "full x86-64 Proton Experimental",
+    "private pinned FEX copy",
+    "original launch.exe and EAC chain",
+    "--enable-avpro-in-proton"
+  ],
+  "desktop_rollback": "Restore --no-vr at the end of the Steam launch options.",
+  "validation": "VR launch pending validation at this preservation checkpoint.",
+  "account_login_performed": false,
+  "world_join_performed": false,
+  "user_authority": "One VR launch was authorized after the desktop session was closed normally."
+}

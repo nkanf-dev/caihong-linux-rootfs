@@ -1,0 +1,16 @@
+{
+  "historical": true,
+  "source_origin": "CHECKPOINT.json",
+  "appid": 438100,
+  "desktop_checkpoint": "EAC 301 and desktop login screen verified",
+  "later_transition": "The desktop session was closed normally for SteamVR work.",
+  "original_left_running_statement": "Superseded by the later normal closure.",
+  "private_tool": "$HOME/.local/share/caihong-vrchat-fex-eac-tool",
+  "working_prefix": "$HOME/.local/share/cvrc-x64",
+  "global_FEX_unchanged": true,
+  "game_EAC_executable_hashes_unchanged": true,
+  "account_login_performed": false,
+  "world_join_performed": false,
+  "Mono_RuntimePath": "No override in the working x86-64 prefix; the diagnostic override was restored earlier.",
+  "VR_and_audio_validation": "pending"
+}

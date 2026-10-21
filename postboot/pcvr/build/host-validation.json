@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "scope": "Host-only source preservation checks",
+  "checks": {
+    "preservation_unittest": {
+      "tests": 13,
+      "result": "pass"
+    },
+    "pose_unit_release": "pass",
+    "pose_unit_ASan_UBSan": "pass",
+    "external_saved_frame_release": "pass",
+    "external_saved_frame_ASan_UBSan": "pass",
+    "authenticated_pinned_header_fetch": {
+      "files": 18,
+      "result": "all file sizes, Git blobs and SHA256 digests match"
+    },
+    "portable_build_stage_dry_run": {
+      "cpp_translation_units": 16,
+      "shim_translation_units": 1,
+      "link_commands": 1,
+      "result": "pass"
+    },
+    "portable_standalone_copy_dry_run": "pass without Git metadata or assessment source paths",
+    "main_comm_release": "logic and mocked constructor pass",
+    "main_comm_ASan_UBSan": "logic and mocked constructor pass",
+    "main_comm_template_patch_and_build_stage": "pass"
+  },
+  "external_replay_fixture": {
+    "fixture_in_repository": false,
+    "metadata": "../tests/pose/replay-metadata.json"
+  },
+  "build_status": "The preserved portable recipe was staged and dry-run on this host. The parent owns separate guest compile and runtime results.",
+  "operations": {
+    "adb": false,
+    "ssh": false,
+    "device_runtime": false,
+    "deployment": false,
+    "commit": false
+  }
+}

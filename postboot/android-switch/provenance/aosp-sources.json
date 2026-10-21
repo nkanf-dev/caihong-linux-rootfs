@@ -1,0 +1,22 @@
+{
+  "upstream": "Android Open Source Project",
+  "license": "Apache-2.0",
+  "frozenInterfaceVersion": 1,
+  "files": [
+    {
+      "path": "aidl/v1/android/hardware/boot/IBootControl.aidl",
+      "url": "https://android.googlesource.com/platform/hardware/interfaces/+/refs/heads/android16-release/boot/aidl/aidl_api/android.hardware.boot/1/android/hardware/boot/IBootControl.aidl?format=TEXT",
+      "sha256": "b94e0de5aa02b9733513311e018a0a89f4951d0b746c64ec8686d75b7491d70d"
+    },
+    {
+      "path": "aidl/v1/android/hardware/boot/MergeStatus.aidl",
+      "url": "https://android.googlesource.com/platform/hardware/interfaces/+/refs/heads/android16-release/boot/aidl/aidl_api/android.hardware.boot/1/android/hardware/boot/MergeStatus.aidl?format=TEXT",
+      "sha256": "3ccb02d10ae3430e28b30f5b1248076917e20e3887ddcba7dd64be0e9e72ccdd"
+    },
+    {
+      "path": "aidl/v1/.hash",
+      "url": "https://android.googlesource.com/platform/hardware/interfaces/+/refs/heads/android16-release/boot/aidl/aidl_api/android.hardware.boot/1/.hash?format=TEXT",
+      "sha256": "17258cacac6fc96af59ea9c14c17bcdfc2b76fc2b210bd804866b853fa78c065"
+    }
+  ]
+}

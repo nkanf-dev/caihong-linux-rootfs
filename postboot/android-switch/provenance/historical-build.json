@@ -1,0 +1,51 @@
+{
+  "scope": "Historical source snapshot metadata only; current deployment status is maintained separately",
+  "artifactStatusRecordedBySnapshot": "FROZEN enabled candidate; not installed by this agent",
+  "installedBySnapshotBuildAgent": false,
+  "package": "cn.armada.dualswitch",
+  "versionName": "0.1.0",
+  "versionCode": 1,
+  "upstreamImage": {
+    "workflowRun": "39271136713",
+    "sourceCommit": "de326733837450b6e805fdacf9b0cb12820767f3",
+    "bytes": 46305280,
+    "sha256": "823877ca036da514c69d907fb5f491d668f51e46409059190fbda690d2bb5a50"
+  },
+  "historicalArtifacts": [
+    {
+      "file": "armada-dual-boot.apk",
+      "bytes": 24854,
+      "sha256": "590345699fea3db719cde6b943c4ea97dce39c37289fcc595df15fe3a3b62aa0"
+    },
+    {
+      "file": "armada-boot-helper.jar",
+      "bytes": 10767,
+      "sha256": "11c84a90f23ff9082a5188b3fc7abcf38b53a831c4c6e6632ed8812edb9a4650"
+    },
+    {
+      "file": "armada-slot-diagnostic.jar",
+      "bytes": 10467,
+      "sha256": "2e5bcdb7441bf7b61edc4ddaeeffeda9b7d572505fa7adf4f24c2f0091e3e26e"
+    }
+  ],
+  "historicalTests": {
+    "appJavaAssertions": 209,
+    "appPythonConfigTests": 3,
+    "diagnosticJavaAssertions": 145
+  },
+  "evidence": [
+    {
+      "origin": "android-switch-app-deployed/evidence/local-validation.json",
+      "sha256": "78b481c5aa8b734e1f676f056f0e622e37c65144cedb4f9b1d9aa534fd6d2a93"
+    },
+    {
+      "origin": "android-switch-diagnostic/evidence/local-validation.json",
+      "sha256": "3dadf8f4e2f4f72e4bcd36ed3a43865bea1e19d185c921d6d2a93405f6f422d6"
+    },
+    {
+      "origin": "android-switch-app-deployed/out/SHA256SUMS",
+      "sha256": "ccf1a2f5b7b86d46a0fd8a4d4884c93e16d7c3805189202cf1bbd45113986d06"
+    }
+  ],
+  "archiveConfiguration": "Disabled placeholders; no private signing or device credentials preserved"
+}

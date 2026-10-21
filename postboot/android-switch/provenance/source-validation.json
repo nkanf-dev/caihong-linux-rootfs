@@ -1,0 +1,50 @@
+{
+  "command": "python3 -B build.py --test --java-home \"$JAVA_HOME\"",
+  "toolchainsTested": [
+    "JDK 17",
+    "JDK 25"
+  ],
+  "pythonConfigTests": 11,
+  "javaAssertions": 220,
+  "javaTests": {
+    "PolicyTest": 31,
+    "SwitchCoordinatorTest": 31,
+    "ImageDigestTest": 4,
+    "SwitchDeadlineTest": 6,
+    "BlockIdentityTest": 11,
+    "InputGuardTest": 4,
+    "ProcessSessionTest": 40,
+    "DiagnosticCoordinatorTest": 11,
+    "BootControlClientTest": 82
+  },
+  "pythonSyntax": {
+    "build.py": true,
+    "tests/test_build_config.py": true
+  },
+  "xmlParsed": [
+    "AndroidManifest.xml",
+    "res/drawable/ic_launcher.xml",
+    "res/values/strings.xml",
+    "res/values/styles.xml"
+  ],
+  "sourceChecks": {
+    "historicalAppManifestEntriesVerified": 34,
+    "unmodifiedCopiedFilesVerified": 33,
+    "allUnmodifiedFilesMatch": true,
+    "placeholderConfigDisabled": true,
+    "diagnosticNoProcessOrRebootApi": "PASS",
+    "forbiddenPersonalPathsAndWorkspaceLinks": "PASS",
+    "privateIPv4MacUuidScan": "PASS",
+    "binaryPrivateExtensionsAndSymlinks": "PASS",
+    "temporaryCompilerOutputRemoved": true
+  },
+  "operations": {
+    "deviceContact": false,
+    "liveCommands": false,
+    "apkOrJarBuild": false,
+    "signing": false,
+    "commit": false,
+    "kernelFileChanges": false
+  },
+  "scope": "Host-only source preservation and validation; current device status is maintained by the repository status owner"
+}

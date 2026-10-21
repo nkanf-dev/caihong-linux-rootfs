@@ -1,0 +1,192 @@
+{
+  "scope": "Relative source-origin names refer to assessment inputs, not runtime dependencies. Public GitHub paths refer to pinned upstream source.",
+  "FEX_source_lock": "build/source-lock.json",
+  "maintainer_recipe_revision": "1dc6d0374573f41f1fe7ef0e4cb5a8fb9e5b68bc",
+  "entries": [
+    {
+      "path": "build/build_fex.py",
+      "source_origin": "fex-build-plan/build_fex.py",
+      "source_sha256": "96beef36984455205725c6704f8490f0a8d75332f7e16eefc6bc59b31af61441",
+      "preserved_sha256": "96beef36984455205725c6704f8490f0a8d75332f7e16eefc6bc59b31af61441",
+      "adaptation": "byte-for-byte source copy"
+    },
+    {
+      "path": "build/container_build.py",
+      "source_origin": "fex-build-plan/container_build.py",
+      "source_sha256": "0dd1813bf87b778c02cfa00bda0c52e7e5fa461a5122893dbbb9b73f7be0326e",
+      "preserved_sha256": "0dd1813bf87b778c02cfa00bda0c52e7e5fa461a5122893dbbb9b73f7be0326e",
+      "adaptation": "byte-for-byte source copy"
+    },
+    {
+      "path": "build/validate_fex.py",
+      "source_origin": "fex-build-plan/validate_fex.py",
+      "source_sha256": "d20d72c683f748b6fabb0a3f503e06f9823b1300f2617901630bd5db1710d6e3",
+      "preserved_sha256": "d20d72c683f748b6fabb0a3f503e06f9823b1300f2617901630bd5db1710d6e3",
+      "adaptation": "byte-for-byte source copy"
+    },
+    {
+      "path": "build/test_recipe.py",
+      "source_origin": "fex-build-plan/test_recipe.py",
+      "source_sha256": "d8076a8efa17f42b62702f76c1310543db54b3535ee946696904e8e6ece725c1",
+      "preserved_sha256": "004666fda1d26f934927182e6b7b1adae8333ee9f1225fb59f6887d0a46ea31e",
+      "adaptation": "Host test temporary files stay under this tree."
+    },
+    {
+      "path": "build/source-lock.json",
+      "source_origin": "fex-build-plan/source-lock.json",
+      "source_sha256": "03622c68ce0f854efcc82d3155acab69b6f53993b7a69cb678042052cb7dcc0a",
+      "preserved_sha256": "03622c68ce0f854efcc82d3155acab69b6f53993b7a69cb678042052cb7dcc0a",
+      "adaptation": "byte-for-byte source copy"
+    },
+    {
+      "path": "build/evidence/eac-tests/run-all.sh",
+      "source_origin": "fex-build-plan/evidence/eac-tests/run-all.sh",
+      "source_sha256": "22ddb3e45127a37c37fa410fd2c4c4c5e6f36a506bdcd67e9f4d1d9d7a507a68",
+      "preserved_sha256": "22ddb3e45127a37c37fa410fd2c4c4c5e6f36a506bdcd67e9f4d1d9d7a507a68",
+      "adaptation": "byte-for-byte source copy"
+    },
+    {
+      "path": "build/evidence/eac-tests/README.md",
+      "source_origin": "fex-build-plan/evidence/eac-tests/README.md",
+      "source_sha256": "0cbc32170a03fea7f92738cb45c6831f5fe0847e441a1edcc957f459f7a4c926",
+      "preserved_sha256": "0cbc32170a03fea7f92738cb45c6831f5fe0847e441a1edcc957f459f7a4c926",
+      "adaptation": "byte-for-byte source copy"
+    },
+    {
+      "path": "regressions/ptrace-sigbus/ptrace_sigbus_test.c",
+      "source_origin": "fex-build-plan/ptrace-sigbus-source/ptrace_sigbus_test.c",
+      "source_sha256": "918591b2ac91d572545b65c903cdfa56eb8c87dd8ac7eb0a3c7bfc2c9aab1867",
+      "preserved_sha256": "918591b2ac91d572545b65c903cdfa56eb8c87dd8ac7eb0a3c7bfc2c9aab1867",
+      "adaptation": "byte-for-byte source copy"
+    },
+    {
+      "path": "regressions/ptrace-sigbus/build.sh",
+      "source_origin": "fex-build-plan/ptrace-sigbus-source/build.sh",
+      "source_sha256": "badf36fe63bce08c52fb5b28e57f86d091388d40955bc1777da274a5b29b6454",
+      "preserved_sha256": "badf36fe63bce08c52fb5b28e57f86d091388d40955bc1777da274a5b29b6454",
+      "adaptation": "byte-for-byte source copy"
+    },
+    {
+      "path": "regressions/tools/static-link.py",
+      "source_origin": "fex-build-plan/evidence/eac-tests/tools/static-link.py",
+      "source_sha256": "b5ba470fe3045a8992c1c9b1cd482c7c09b0bac9d0256046ae820253f720fb5e",
+      "preserved_sha256": "b5ba470fe3045a8992c1c9b1cd482c7c09b0bac9d0256046ae820253f720fb5e",
+      "adaptation": "byte-for-byte source copy"
+    },
+    {
+      "path": "regressions/seccomp-trap/seccomp_trap_test.c",
+      "source_origin": "eac-native-review/tag-seccomp_test.c",
+      "source_sha256": "dbdb57cb35386500923c76ebc8df462f08672ec7edf9991bc9e28fdfbcf2fa47",
+      "preserved_sha256": "dbdb57cb35386500923c76ebc8df462f08672ec7edf9991bc9e28fdfbcf2fa47",
+      "adaptation": "byte-for-byte source copy"
+    },
+    {
+      "path": "upstream/build-fex-steam.sh",
+      "source_origin": "known-working-route/scripts/steamos/build-fex.sh",
+      "source_sha256": "94046ee12fa616f5765e52a4a254e68aad6b79673a198644df4c0f30588cfdfc",
+      "preserved_sha256": "94046ee12fa616f5765e52a4a254e68aad6b79673a198644df4c0f30588cfdfc",
+      "adaptation": "byte-for-byte source copy"
+    },
+    {
+      "path": "upstream/POC-LICENSE",
+      "source_origin": "eac-native-review/poc/LICENSE",
+      "source_sha256": "82a79f6f5fc874bf3d68a1c52700e251ce25850135d8b47bc5e37ffad71ab092",
+      "preserved_sha256": "82a79f6f5fc874bf3d68a1c52700e251ce25850135d8b47bc5e37ffad71ab092",
+      "adaptation": "byte-for-byte source copy"
+    },
+    {
+      "path": "regressions/execve-seccomp/build.sh",
+      "source_origin": "StonkGuy/FEX:eac-tests/execve-seccomp/build.sh",
+      "source_commit": "938eedfcd79eb00e86561fbdf4933770766f0ba9",
+      "git_blob": "30bfa0d1a07c99456478c62672ebb37d4d63b95e",
+      "preserved_sha256": "f482c8f0169931a109cb5818093a0e036cfe31996748a816c7b797ee3a5f3f8c",
+      "adaptation": "byte-for-byte pinned public source"
+    },
+    {
+      "path": "regressions/execve-seccomp/execve_seccomp_test.c",
+      "source_origin": "StonkGuy/FEX:eac-tests/execve-seccomp/execve_seccomp_test.c",
+      "source_commit": "938eedfcd79eb00e86561fbdf4933770766f0ba9",
+      "git_blob": "4762a065e5d4d0679f88d317826955980a48ac88",
+      "preserved_sha256": "78a5f0fdc67535d0f447d59a3e3672b7935af19fe5358235a8a77157f187db44",
+      "adaptation": "byte-for-byte pinned public source"
+    },
+    {
+      "path": "regressions/signal-mask/build.sh",
+      "source_origin": "StonkGuy/FEX:eac-tests/signal-mask/build.sh",
+      "source_commit": "938eedfcd79eb00e86561fbdf4933770766f0ba9",
+      "git_blob": "802d8df0893a4e051508f5f5856a37cd82dcf728",
+      "preserved_sha256": "c54bcde346242d0b78786a40b68d3d933a5d96920b4a4821130be73c4510f13c",
+      "adaptation": "byte-for-byte pinned public source"
+    },
+    {
+      "path": "regressions/signal-mask/signal_mask_test.c",
+      "source_origin": "StonkGuy/FEX:eac-tests/signal-mask/signal_mask_test.c",
+      "source_commit": "938eedfcd79eb00e86561fbdf4933770766f0ba9",
+      "git_blob": "e1a0345052f446a8c812f1507ba22f9594663c44",
+      "preserved_sha256": "a3797bfce351ee92fd8bbf19448056a3a6fb7a02be5d354e0acbd9b9b61917c3",
+      "adaptation": "byte-for-byte pinned public source"
+    },
+    {
+      "path": "regressions/smc-same-page/build.sh",
+      "source_origin": "StonkGuy/FEX:eac-tests/smc-same-page/build.sh",
+      "source_commit": "938eedfcd79eb00e86561fbdf4933770766f0ba9",
+      "git_blob": "d26c82e0bedb4cd164778d4704cbbbf6f3fa6ef0",
+      "preserved_sha256": "8f9f21bdb9c199e3478e6217bd474ba79d308cf1514cd5ddf299329893a2bc54",
+      "adaptation": "byte-for-byte pinned public source"
+    },
+    {
+      "path": "regressions/smc-same-page/smc_same_page_test.c",
+      "source_origin": "StonkGuy/FEX:eac-tests/smc-same-page/smc_same_page_test.c",
+      "source_commit": "938eedfcd79eb00e86561fbdf4933770766f0ba9",
+      "git_blob": "94411f92f2797a7d44d3f601212d4d4a2a7c1544",
+      "preserved_sha256": "18ed278b2bc30a6b394e8e76035b017b00a48a8c3837de6cebc030b1dca56cf7",
+      "adaptation": "byte-for-byte pinned public source"
+    },
+    {
+      "path": "regressions/seccomp-trap/build.sh",
+      "source_origin": "StonkGuy/FEX:eac-tests/seccomp-trap/build.sh",
+      "source_commit": "938eedfcd79eb00e86561fbdf4933770766f0ba9",
+      "git_blob": "48d99f436d5f2dc9d7c54643dc2578df26b38a82",
+      "preserved_sha256": "02d762567e84825946f3849c1729d7b846e54caa95d899e194648680ebe394de",
+      "adaptation": "byte-for-byte pinned public source"
+    },
+    {
+      "path": "regressions/FEX-LICENSE",
+      "source_origin": "StonkGuy/FEX:LICENSE",
+      "git_blob": "cdb4f90b34cd30c0e0fd88108481c1fe61f66e57",
+      "preserved_sha256": "f34a779f56b36d22b20e1b990d23e583a6a7ca071331925fa46156441c77a1ee",
+      "adaptation": "byte-for-byte pinned public license"
+    },
+    {
+      "path": "launch_vrchat_known_route.py",
+      "source_origin": "launch_vrchat_known_route.py",
+      "source_sha256": "acfc83b9d5dd3215d7f1c08310ed2b3dd5313d9836597c1485d0975a121998e1",
+      "preserved_sha256": "8836114fc47f8a8fc880ffca2b859c60fdc336e0336aef21168b0ac36747e700",
+      "adaptation": "HOME and UID portability; explicit guards; owner-only runtime; no argument/environment logging; same original-chain exec and single private wrapper substitution"
+    },
+    {
+      "path": "evidence/SUCCESS.json",
+      "source_origin": "SUCCESS.json",
+      "source_sha256": "641176ab750eca3f4d91edc74f157f84f4e59979aa56c8a1387ebd4ed082c861",
+      "adaptation": "Selected public result fields only; HOME-normalized paths; historical wording; later closure and authorized VR attempt recorded separately."
+    },
+    {
+      "path": "evidence/CHECKPOINT.json",
+      "source_origin": "CHECKPOINT.json",
+      "source_sha256": "1db874558d1c2a51f2475ab08e251c9c33793d9f76c7f880345b8a5f4a471169",
+      "adaptation": "Selected public result fields only; HOME-normalized paths; historical wording; later closure and authorized VR attempt recorded separately."
+    },
+    {
+      "path": "evidence/VR-ATTEMPT.json",
+      "source_origin": "VR-ATTEMPT.json",
+      "source_sha256": "35737dd6e4676c2809e2fc9727f563879d504ccd9dcdb2a66e916d595bd5a446",
+      "adaptation": "Selected public result fields only; HOME-normalized paths; historical wording; later closure and authorized VR attempt recorded separately."
+    },
+    {
+      "path": "evidence/synthetic-results.json",
+      "source_origin": "fex-full-suite-results.json",
+      "source_sha256": "26cdb88e502737c4cc3de674c6e661c42c34d4df732607b11e35dc75350d968f",
+      "adaptation": "All 35 outcome rows retained; per-run log paths omitted."
+    }
+  ]
+}

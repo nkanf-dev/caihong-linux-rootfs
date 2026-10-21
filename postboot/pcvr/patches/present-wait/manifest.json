@@ -1,0 +1,76 @@
+{
+  "base_repo": "alvr-org/ALVR",
+  "base_tag": "v20.14.1",
+  "upstream_fix_commit": "d350c7c26e944af5e74b7f1ca65ae940ed3f4869",
+  "scope": "Only six official source files; not a complete build tree. No session or encoder changes.",
+  "files": [
+    {
+      "path": "alvr/vulkan_layer/layer/layer.cpp",
+      "base_git_blob": "8bb35a75978619e01ad94ce1c9beb3650fc901e4",
+      "base_sha256": "2b3fab4bfbc9daeed3564ea8feeb3b66fef1068b2efb0625d3fa7f50631fbaa8",
+      "expected_fixed_git_blob": "992fbd7bd3c9e2569b1dbc3f82eb8c2000e41d88",
+      "source_url": "https://api.github.com/repos/alvr-org/ALVR/contents/alvr/vulkan_layer/layer/layer.cpp?ref=v20.14.1",
+      "patched_git_blob": "992fbd7bd3c9e2569b1dbc3f82eb8c2000e41d88",
+      "patched_sha256": "1873c3c746a02a4b3359b345296ce4bf97d17df06d2f189138297cbc21d3fdd2",
+      "exact_upstream_match": true
+    },
+    {
+      "path": "alvr/vulkan_layer/layer/private_data.hpp",
+      "base_git_blob": "3345548ee056f607134115fb567fab9066c526bb",
+      "base_sha256": "03d09fd592edb1f6ac26e279f01fdae786d7049c4fec97ba709d3fff0a1d488d",
+      "expected_fixed_git_blob": "3d567223bbfcbd59f72e8cfe9a9dc156d115b41f",
+      "source_url": "https://api.github.com/repos/alvr-org/ALVR/contents/alvr/vulkan_layer/layer/private_data.hpp?ref=v20.14.1",
+      "patched_git_blob": "3d567223bbfcbd59f72e8cfe9a9dc156d115b41f",
+      "patched_sha256": "a191f91835fcdb3db8701fec4c1ee057d6fa567379fdeb5134c7ed6e33c15b61",
+      "exact_upstream_match": true
+    },
+    {
+      "path": "alvr/vulkan_layer/layer/swapchain_api.cpp",
+      "base_git_blob": "0bc744d293d1e035cf136f94ef506db9b07ed7f4",
+      "base_sha256": "16241dd80d0334e9d4ddaa3bd016b59868eec70a46503af59855cf2c4a7b2438",
+      "expected_fixed_git_blob": "ca9c2aeca8fee1bf3a602b699db8dec2e88350dd",
+      "source_url": "https://api.github.com/repos/alvr-org/ALVR/contents/alvr/vulkan_layer/layer/swapchain_api.cpp?ref=v20.14.1",
+      "patched_git_blob": "ca9c2aeca8fee1bf3a602b699db8dec2e88350dd",
+      "patched_sha256": "f9f8c9dae6091e0d226c73398a3b9f9d34fe511777d52c911d56c94b71b20a34",
+      "exact_upstream_match": true
+    },
+    {
+      "path": "alvr/vulkan_layer/layer/swapchain_api.hpp",
+      "base_git_blob": "d5ec946ad9d61128312756a8a2b2211783c79f9a",
+      "base_sha256": "3dd4297793156f0a7f759d12b0bcd1feacfeccb86a6c48df77b608c47905e9d4",
+      "expected_fixed_git_blob": "9cb6518daedfe7e3638df4078d85a1adb0e4b992",
+      "source_url": "https://api.github.com/repos/alvr-org/ALVR/contents/alvr/vulkan_layer/layer/swapchain_api.hpp?ref=v20.14.1",
+      "patched_git_blob": "9cb6518daedfe7e3638df4078d85a1adb0e4b992",
+      "patched_sha256": "4128ee9ed720d29bd807b6199f821312c09d44b813c97784d434cea578360821",
+      "exact_upstream_match": true
+    },
+    {
+      "path": "alvr/vulkan_layer/wsi/swapchain_base.cpp",
+      "base_git_blob": "66f8652483fc9de0bf2f93dd7c27097f56521aa1",
+      "base_sha256": "88ac2528c28df4a0d25f7b48eb7f72246f9148609b7499ee867e58aa28d7f247",
+      "expected_fixed_git_blob": "ca5f18cc2d2cf440516d3cae9cb2a5bf28fea348",
+      "source_url": "https://api.github.com/repos/alvr-org/ALVR/contents/alvr/vulkan_layer/wsi/swapchain_base.cpp?ref=v20.14.1",
+      "patched_git_blob": "ca5f18cc2d2cf440516d3cae9cb2a5bf28fea348",
+      "patched_sha256": "60091c81ba7b445b8dd624d662dc4345f9c052573e20a06a44f4f502b1235778",
+      "exact_upstream_match": true
+    },
+    {
+      "path": "alvr/vulkan_layer/wsi/swapchain_base.hpp",
+      "base_git_blob": "040b35fb7834d0ccf5842253d2358023f2b2a4cd",
+      "base_sha256": "c0844f58e42a64459b07a0719dd5e6e91fcf66f571830bdf7f987ed72176bed8",
+      "expected_fixed_git_blob": "a3e010253cafe75c2228afec4f8f7c0e2e72bf5e",
+      "source_url": "https://api.github.com/repos/alvr-org/ALVR/contents/alvr/vulkan_layer/wsi/swapchain_base.hpp?ref=v20.14.1",
+      "patched_git_blob": "a3e010253cafe75c2228afec4f8f7c0e2e72bf5e",
+      "patched_sha256": "d3b4f767ba354a2938a722c8ebb5eef3a681320aab0e68d803a7142e62621af0",
+      "exact_upstream_match": true
+    }
+  ],
+  "upstream_patch_sha256": "6fe142e9411b292178bd8008103e84f6a05b6d6dbf7caa65895f210a55e6975d",
+  "git_apply_check": "pass",
+  "git_diff_check": "pass",
+  "validation": "six base files match official v20.14.1 blobs; six patched files match exact upstream fixed blobs",
+  "minimal_patch_sha256": "d75cad89ed55e528ec0e58561a1b6012cf1c452e1841aef7db2592409fed596c",
+  "minimal_patch_size_bytes": 12967,
+  "base_commit": "a9f6542fa507a841f40ab4f3fcb531427cd02550",
+  "base_tree": "c624599c2d399604eea05efd5e1a51bb5cea686b"
+}

@@ -1,0 +1,71 @@
+{
+  "builder_image_name": "localhost/caihong-vrchat-fex-builder:fc44",
+  "base_image": "registry.fedoraproject.org/fedora:44",
+  "base_linux_arm64_manifest_digest": "sha256:d458dbabce9d9400db66c046ec07bec6b75759f85ea737b1e3235ef2b702f036",
+  "image_selection": "The build helper resolves the local compiler image to an immutable ID and records it for each build.",
+  "historical_prepared_image_id": "No compiler image ID or complete installed-RPM lock is included in this source-only preservation.",
+  "release_package_examples": {
+    "binutils": {
+      "epoch": "0",
+      "ver": "2.46",
+      "rel": "1.fc44"
+    },
+    "ca-certificates": {
+      "epoch": "0",
+      "ver": "2025.2.80_v9.0.304",
+      "rel": "6.fc44"
+    },
+    "clang": {
+      "epoch": "0",
+      "ver": "22.1.1",
+      "rel": "2.fc44"
+    },
+    "cmake": {
+      "epoch": "0",
+      "ver": "4.3.0",
+      "rel": "1.fc44"
+    },
+    "coreutils": {
+      "epoch": "0",
+      "ver": "9.10",
+      "rel": "3.fc44"
+    },
+    "git-core": {
+      "epoch": "0",
+      "ver": "2.53.0",
+      "rel": "1.fc44"
+    },
+    "glibc-devel": {
+      "epoch": "0",
+      "ver": "2.43",
+      "rel": "2.fc44"
+    },
+    "gzip": {
+      "epoch": "0",
+      "ver": "1.14",
+      "rel": "2.fc44"
+    },
+    "libstdc++-devel": {
+      "epoch": "0",
+      "ver": "16.0.1",
+      "rel": "0.10.fc44"
+    },
+    "lld": {
+      "epoch": "0",
+      "ver": "22.1.1",
+      "rel": "2.fc44"
+    },
+    "ninja-build": {
+      "epoch": "0",
+      "ver": "1.13.2",
+      "rel": "2.fc44"
+    },
+    "python3": {
+      "epoch": "0",
+      "ver": "3.14.3",
+      "rel": "2.fc44"
+    }
+  },
+  "python3-packaging": "25.0-8.fc44.noarch",
+  "tune_cpu": "native on the target aarch64 device with 4 KiB pages"
+}

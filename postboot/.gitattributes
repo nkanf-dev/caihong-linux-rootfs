@@ -1,0 +1,7 @@
+# Preserve exact upstream and reviewed patch bytes, including context whitespace.
+pcvr/patches/headpose/alvr-v20.14.1-exact-compositor-pose.patch -whitespace
+pcvr/patches/headpose/patched/alvr/vulkan_layer/util/pose.hpp -whitespace
+pcvr/patches/present-wait/upstream-pr3357.patch -whitespace
+pcvr/patches/present-wait/alvr-v20.14.1-pr3357.patch -whitespace
+pcvr/build/source/alvr/vulkan_layer/util/pose.hpp -whitespace
+pcvr/build/source/alvr/vulkan_layer/layer/settings.cpp -whitespace

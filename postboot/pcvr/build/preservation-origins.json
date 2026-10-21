@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "assessment_relative_root": "steamvr-alvr/",
+  "artifacts": [
+    {
+      "preserved_path": "patches/present-wait/alvr-v20.14.1-pr3357.patch",
+      "assessment_relative_source": "present-wait-alvr-v20.14.1-backport/alvr-v20.14.1-pr3357.patch",
+      "original_sha256": "d75cad89ed55e528ec0e58561a1b6012cf1c452e1841aef7db2592409fed596c",
+      "preserved_sha256": "d75cad89ed55e528ec0e58561a1b6012cf1c452e1841aef7db2592409fed596c",
+      "byte_identical": true
+    },
+    {
+      "preserved_path": "patches/present-wait/upstream-pr3357.patch",
+      "assessment_relative_source": "present-wait-alvr-v20.14.1-backport/upstream-pr3357.patch",
+      "original_sha256": "6fe142e9411b292178bd8008103e84f6a05b6d6dbf7caa65895f210a55e6975d",
+      "preserved_sha256": "6fe142e9411b292178bd8008103e84f6a05b6d6dbf7caa65895f210a55e6975d",
+      "byte_identical": true
+    },
+    {
+      "preserved_path": "patches/present-wait/manifest.json",
+      "assessment_relative_source": "present-wait-alvr-v20.14.1-backport/manifest.json",
+      "original_sha256": "c5d91c1f67f81d0ce81faecf95fa58def82a2b2cd2fb94187fe2d3d076306053",
+      "preserved_sha256": "c5d91c1f67f81d0ce81faecf95fa58def82a2b2cd2fb94187fe2d3d076306053",
+      "byte_identical": true
+    },
+    {
+      "preserved_path": "patches/present-wait/verify_apply.py",
+      "assessment_relative_source": "present-wait-alvr-v20.14.1-backport/verify_apply.py",
+      "original_sha256": "2bc8c0939c2045a70616c72d05e8761de3e68b2b51a9a47313eb16b4ad2abd0b",
+      "preserved_sha256": "2bc8c0939c2045a70616c72d05e8761de3e68b2b51a9a47313eb16b4ad2abd0b",
+      "byte_identical": true
+    },
+    {
+      "preserved_path": "patches/headpose/alvr-v20.14.1-exact-compositor-pose.patch",
+      "assessment_relative_source": "headpose-metadata-review/alvr-v20.14.1-exact-compositor-pose.patch",
+      "original_sha256": "e693822a44935360b7e17716f3166747084c365583e3297b2492a1f06e33326a",
+      "preserved_sha256": "e693822a44935360b7e17716f3166747084c365583e3297b2492a1f06e33326a",
+      "byte_identical": true
+    },
+    {
+      "preserved_path": "tests/pose/test_pose.cpp",
+      "assessment_relative_source": "headpose-metadata-review/tests/test_pose.cpp",
+      "original_sha256": "9f8f3b98d0034ffa387a66f584b4a6ca0c93ac69fc4ca9d4242cbc8ffa21339d",
+      "preserved_sha256": "1a7964b05ec7dbb70e914b7929210fdd1abfe8009c3a3ba595b11acb2b1563a2",
+      "byte_identical": false
+    },
+    {
+      "preserved_path": "tests/pose/replay_exact_update.cpp",
+      "assessment_relative_source": "fex-capture-source/pose-core-independent-replay/replay_exact_update.cpp",
+      "original_sha256": "2419f7d2544698a5b0d8f9475695d60129dd0d704138774e0e119b03f0f44fe5",
+      "preserved_sha256": "4726810a18d124870dc9fa6d37d5aa740afebc01bdc59c4b0ef955fce346dddb",
+      "byte_identical": false
+    },
+    {
+      "preserved_path": "tests/pose/replay-metadata.json",
+      "assessment_relative_source": "fex-capture-source/pose-core-independent-replay/metadata.json",
+      "original_sha256": "24d9ace66cbf67960a9546b21527009afaea3a2a025c9e536de78c88d0f6382f",
+      "preserved_sha256": "52af6ba82522f048b4c104c46ff4c591420ebec5636efa2cb23158bc69aba9c8",
+      "byte_identical": false
+    },
+    {
+      "preserved_path": "build/build_pose_capture_layer.py",
+      "assessment_relative_source": "build_pose_capture_layer.py",
+      "original_sha256": "02d5c649bfd995555f2743e260a9c9f203c1c1b5e93b64cb4df70376e032bf2d",
+      "preserved_sha256": "7347724f19215570a6cadfc39bb5fcf196b3fc89d9645e99f5bdf9d9362f03d2",
+      "byte_identical": false
+    }
+  ],
+  "source_closure": {
+    "assessment_relative_source": "pose-layer-build-source/alvr/",
+    "identity_manifest": "source-manifest.json",
+    "original_provenance_sha256": "e41f285d5d333407c63cb0e194d8a52acf88dee9acd823a85150fc51bb565eaa"
+  },
+  "header_closure": {
+    "assessment_relative_source": "pose-layer-build-source/Vulkan-Headers/",
+    "identity_manifest": "vulkan-headers-manifest.json",
+    "copied_in_repository": false
+  },
+  "adaptations": {
+    "tests/pose/test_pose.cpp": "Portable relative includes and explicit return 0 for reuse under a renamed test main.",
+    "tests/pose/replay_exact_update.cpp": "Portable harness include, explicit external fixture argument and error messages, no captured matrix print in replay wrapper.",
+    "tests/pose/replay-metadata.json": "Removed original absolute paths, guest addresses and saved-output paths; retained size, digest and relative layout.",
+    "build/build_pose_capture_layer.py": "Portable explicit work/header/session/compiler arguments, pinned input checks, same 16 C++ sources and custom negotiation shim. Optional --main-comm verifies the repair package and stages its portable shim/header."
+  }
+}

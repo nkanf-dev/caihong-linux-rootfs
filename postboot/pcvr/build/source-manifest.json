@@ -1,0 +1,379 @@
+{
+  "schema_version": 1,
+  "repository": "alvr-org/ALVR",
+  "tag": "v20.14.1",
+  "commit": "a9f6542fa507a841f40ab4f3fcb531427cd02550",
+  "commit_tree": "c624599c2d399604eea05efd5e1a51bb5cea686b",
+  "state": "Verified stable ALVR source closure with exact PR3357 six-file backport applied; pose.cpp remains the original stable base until build staging.",
+  "acquisition": "Preserved verified local source cache; Git blob identities match the pinned official tree and six fixed upstream blobs.",
+  "files": [
+    {
+      "path": "alvr/vulkan_layer/layer/device_api.cpp",
+      "base_git_blob": "ba2d2c7d9fa6d69750bb944ff4caf66792ab3062",
+      "original_sha256": "56c7ee5c86d2b14220e457de18df3515874d4696b6686885b9b5defb0e3cde32",
+      "staged_git_blob": "ba2d2c7d9fa6d69750bb944ff4caf66792ab3062",
+      "sha256": "56c7ee5c86d2b14220e457de18df3515874d4696b6686885b9b5defb0e3cde32",
+      "size": 7779,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/layer/layer.cpp",
+      "base_git_blob": "8bb35a75978619e01ad94ce1c9beb3650fc901e4",
+      "original_sha256": "2b3fab4bfbc9daeed3564ea8feeb3b66fef1068b2efb0625d3fa7f50631fbaa8",
+      "staged_git_blob": "992fbd7bd3c9e2569b1dbc3f82eb8c2000e41d88",
+      "sha256": "1873c3c746a02a4b3359b345296ce4bf97d17df06d2f189138297cbc21d3fdd2",
+      "size": 21058,
+      "applied_patch": "alvr-v20.14.1-pr3357.patch"
+    },
+    {
+      "path": "alvr/vulkan_layer/layer/private_data.cpp",
+      "base_git_blob": "c856bac5a77f7b09329edd58f1f713976aeac8dc",
+      "original_sha256": "a38a8a63c58c2195d28adf38916d3c83c1739f860454a7495124576a9187f32a",
+      "staged_git_blob": "c856bac5a77f7b09329edd58f1f713976aeac8dc",
+      "sha256": "a38a8a63c58c2195d28adf38916d3c83c1739f860454a7495124576a9187f32a",
+      "size": 7714,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/layer/settings.cpp",
+      "base_git_blob": "ab93c8bc8dfd6a38e17408b6e311baaaf6c9da19",
+      "original_sha256": "d72333a52a2ff997f52906abe93cd97b690dd5a3a9aa925ed63faf49dee1ad09",
+      "staged_git_blob": "ab93c8bc8dfd6a38e17408b6e311baaaf6c9da19",
+      "sha256": "d72333a52a2ff997f52906abe93cd97b690dd5a3a9aa925ed63faf49dee1ad09",
+      "size": 1338,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/layer/surface_api.cpp",
+      "base_git_blob": "a096ee450a36f5292b6f2ca93f9c049488688d26",
+      "original_sha256": "f12e8ab37c08729a4f52ff8f9200f818df9f3235fa6abafd1b88cd69940813ad",
+      "staged_git_blob": "a096ee450a36f5292b6f2ca93f9c049488688d26",
+      "sha256": "f12e8ab37c08729a4f52ff8f9200f818df9f3235fa6abafd1b88cd69940813ad",
+      "size": 5029,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/layer/swapchain_api.cpp",
+      "base_git_blob": "0bc744d293d1e035cf136f94ef506db9b07ed7f4",
+      "original_sha256": "16241dd80d0334e9d4ddaa3bd016b59868eec70a46503af59855cf2c4a7b2438",
+      "staged_git_blob": "ca9c2aeca8fee1bf3a602b699db8dec2e88350dd",
+      "sha256": "f9f8c9dae6091e0d226c73398a3b9f9d34fe511777d52c911d56c94b71b20a34",
+      "size": 8269,
+      "applied_patch": "alvr-v20.14.1-pr3357.patch"
+    },
+    {
+      "path": "alvr/vulkan_layer/util/custom_allocator.cpp",
+      "base_git_blob": "55cdea3a78831d2ada326d5047b4bcef60d59b28",
+      "original_sha256": "d24c2e3ab7c4268160222843ae9ff45fd1f42bb6f892d76f3797bf5e9ff79bf0",
+      "staged_git_blob": "55cdea3a78831d2ada326d5047b4bcef60d59b28",
+      "sha256": "d24c2e3ab7c4268160222843ae9ff45fd1f42bb6f892d76f3797bf5e9ff79bf0",
+      "size": 2535,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/util/extension_list.cpp",
+      "base_git_blob": "d6c46a656be4b93cfc9e3aec4f8524b0cae8e226",
+      "original_sha256": "e57d7017164f602297887d28f0383e73b720085874c6fff6c4168d4c1692c0e6",
+      "staged_git_blob": "d6c46a656be4b93cfc9e3aec4f8524b0cae8e226",
+      "sha256": "e57d7017164f602297887d28f0383e73b720085874c6fff6c4168d4c1692c0e6",
+      "size": 6001,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/util/logger.cpp",
+      "base_git_blob": "cbd4539f3a7a386f2b1fe5697ff2173b6f6d779e",
+      "original_sha256": "68901eca36d214387df4d2040ee26044d80eff8d2307f8f50bd25e706bb7e4e9",
+      "staged_git_blob": "cbd4539f3a7a386f2b1fe5697ff2173b6f6d779e",
+      "sha256": "68901eca36d214387df4d2040ee26044d80eff8d2307f8f50bd25e706bb7e4e9",
+      "size": 755,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/util/pose.cpp",
+      "base_git_blob": "3d83d21bcc211161cfad7397b2d40c896bc6aa07",
+      "original_sha256": "dab18eafbebe766de40e657ad3daaa7a1225a8650a31b9a2f113321d76105857",
+      "staged_git_blob": "3d83d21bcc211161cfad7397b2d40c896bc6aa07",
+      "sha256": "dab18eafbebe766de40e657ad3daaa7a1225a8650a31b9a2f113321d76105857",
+      "size": 2693,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/util/timed_semaphore.cpp",
+      "base_git_blob": "25807fd86f605b5785b0e122f36b4e1f8aa109c4",
+      "original_sha256": "667c90c35da761f8ab89c73545b8724a7b60bf429b9d3ad264fa819e7bb8e52e",
+      "staged_git_blob": "25807fd86f605b5785b0e122f36b4e1f8aa109c4",
+      "sha256": "667c90c35da761f8ab89c73545b8724a7b60bf429b9d3ad264fa819e7bb8e52e",
+      "size": 4909,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/wsi/display.cpp",
+      "base_git_blob": "d2b875d29ea79bf11156832cd41da42409785a1a",
+      "original_sha256": "8a79e489e270caee005ee31cd644e99b21e16472ed4752ae3092267ca1816b3a",
+      "staged_git_blob": "d2b875d29ea79bf11156832cd41da42409785a1a",
+      "sha256": "8a79e489e270caee005ee31cd644e99b21e16472ed4752ae3092267ca1816b3a",
+      "size": 1215,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/wsi/headless/surface_properties.cpp",
+      "base_git_blob": "e16c4f949b0a9e82d1c206d3665313fb1e442106",
+      "original_sha256": "974b239460c2020e76a84d01bb5e189c98ab364802a5c3fea29bc85391583289",
+      "staged_git_blob": "e16c4f949b0a9e82d1c206d3665313fb1e442106",
+      "sha256": "974b239460c2020e76a84d01bb5e189c98ab364802a5c3fea29bc85391583289",
+      "size": 6417,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/wsi/headless/swapchain.cpp",
+      "base_git_blob": "f5975442bc487d967865b80042e2486ea037c013",
+      "original_sha256": "7e345741d3c4fd4e89a0bd400c023b552e3aeb312dea695e5c37acf5d4d17616",
+      "staged_git_blob": "f5975442bc487d967865b80042e2486ea037c013",
+      "sha256": "7e345741d3c4fd4e89a0bd400c023b552e3aeb312dea695e5c37acf5d4d17616",
+      "size": 11860,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/wsi/swapchain_base.cpp",
+      "base_git_blob": "66f8652483fc9de0bf2f93dd7c27097f56521aa1",
+      "original_sha256": "88ac2528c28df4a0d25f7b48eb7f72246f9148609b7499ee867e58aa28d7f247",
+      "staged_git_blob": "ca5f18cc2d2cf440516d3cae9cb2a5bf28fea348",
+      "sha256": "60091c81ba7b445b8dd624d662dc4345f9c052573e20a06a44f4f502b1235778",
+      "size": 20968,
+      "applied_patch": "alvr-v20.14.1-pr3357.patch"
+    },
+    {
+      "path": "alvr/vulkan_layer/wsi/wsi_factory.cpp",
+      "base_git_blob": "bc7f04869a12e37a7e7a67b806f5e9b79fd6ebef",
+      "original_sha256": "c13b3ae499ed51244192575f6d17c51163943fdc695c6fffc809967061c4c464",
+      "staged_git_blob": "bc7f04869a12e37a7e7a67b806f5e9b79fd6ebef",
+      "sha256": "c13b3ae499ed51244192575f6d17c51163943fdc695c6fffc809967061c4c464",
+      "size": 5594,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/layer/device_api.hpp",
+      "base_git_blob": "34641aeefa711a6c92ae3006f948cbda25475718",
+      "original_sha256": "19259a9be30db604fc0fa4bbafd57f43adb19bb4209603a3a5b1e3e05143dc1e",
+      "staged_git_blob": "34641aeefa711a6c92ae3006f948cbda25475718",
+      "sha256": "19259a9be30db604fc0fa4bbafd57f43adb19bb4209603a3a5b1e3e05143dc1e",
+      "size": 3382,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/layer/layer.h",
+      "base_git_blob": "bacb30a0d361a28dc53bdb694770e1fa43e85ba5",
+      "original_sha256": "fdc9c2eb7451ecb2eeea34adb98324bb93de0ca77f3e7d3c1f12b9a2294e5b6f",
+      "staged_git_blob": "bacb30a0d361a28dc53bdb694770e1fa43e85ba5",
+      "sha256": "fdc9c2eb7451ecb2eeea34adb98324bb93de0ca77f3e7d3c1f12b9a2294e5b6f",
+      "size": 178,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/layer/private_data.hpp",
+      "base_git_blob": "3345548ee056f607134115fb567fab9066c526bb",
+      "original_sha256": "03d09fd592edb1f6ac26e279f01fdae786d7049c4fec97ba709d3fff0a1d488d",
+      "staged_git_blob": "3d567223bbfcbd59f72e8cfe9a9dc156d115b41f",
+      "sha256": "a191f91835fcdb3db8701fec4c1ee057d6fa567379fdeb5134c7ed6e33c15b61",
+      "size": 13391,
+      "applied_patch": "alvr-v20.14.1-pr3357.patch"
+    },
+    {
+      "path": "alvr/vulkan_layer/layer/settings.h",
+      "base_git_blob": "233fc268b41ae469ba3eea5f712a2d27fbd348e0",
+      "original_sha256": "9898f458cf790802f3d77ccc21ad627cb6b4d662e5b82e67145f5509da1fe20d",
+      "staged_git_blob": "233fc268b41ae469ba3eea5f712a2d27fbd348e0",
+      "sha256": "9898f458cf790802f3d77ccc21ad627cb6b4d662e5b82e67145f5509da1fe20d",
+      "size": 345,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/layer/surface_api.hpp",
+      "base_git_blob": "8842f04d8ae8f0fc6be3f82a3af01a57042d1a94",
+      "original_sha256": "cf93e7d4efd61a1db11955fe933880af5c600bf236eee87fbc26eec54ed0de78",
+      "staged_git_blob": "8842f04d8ae8f0fc6be3f82a3af01a57042d1a94",
+      "sha256": "cf93e7d4efd61a1db11955fe933880af5c600bf236eee87fbc26eec54ed0de78",
+      "size": 2632,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/layer/swapchain_api.hpp",
+      "base_git_blob": "d5ec946ad9d61128312756a8a2b2211783c79f9a",
+      "original_sha256": "3dd4297793156f0a7f759d12b0bcd1feacfeccb86a6c48df77b608c47905e9d4",
+      "staged_git_blob": "9cb6518daedfe7e3638df4078d85a1adb0e4b992",
+      "sha256": "4128ee9ed720d29bd807b6199f821312c09d44b813c97784d434cea578360821",
+      "size": 2835,
+      "applied_patch": "alvr-v20.14.1-pr3357.patch"
+    },
+    {
+      "path": "alvr/vulkan_layer/util/custom_allocator.hpp",
+      "base_git_blob": "47bb689cd87564b53f0d617489f269e99567ec6a",
+      "original_sha256": "79e04787cc7aeb4a9a71c6622ab2c261c42ea05dfe8e79d0f235680cbc78c6aa",
+      "staged_git_blob": "47bb689cd87564b53f0d617489f269e99567ec6a",
+      "sha256": "79e04787cc7aeb4a9a71c6622ab2c261c42ea05dfe8e79d0f235680cbc78c6aa",
+      "size": 8895,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/util/extension_list.hpp",
+      "base_git_blob": "80d38261856f07ae0161ec4d434840ae7775fb78",
+      "original_sha256": "a8110bf103af83fcd6e4da924dbc1fd5657aaa8bd386f5bb0b0f476319447ab0",
+      "staged_git_blob": "80d38261856f07ae0161ec4d434840ae7775fb78",
+      "sha256": "a8110bf103af83fcd6e4da924dbc1fd5657aaa8bd386f5bb0b0f476319447ab0",
+      "size": 3301,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/util/logger.h",
+      "base_git_blob": "7269331990c54b8dd25bd2630e0c9140c08a322b",
+      "original_sha256": "5e23796b62abfb63602de4df131c8542f03f4491d597164c5257cf761da76299",
+      "staged_git_blob": "7269331990c54b8dd25bd2630e0c9140c08a322b",
+      "sha256": "5e23796b62abfb63602de4df131c8542f03f4491d597164c5257cf761da76299",
+      "size": 160,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/util/platform_set.hpp",
+      "base_git_blob": "0261a7ff1b8d80a98e64fe025d090970ccf0cecf",
+      "original_sha256": "b3157bfa73cad5bce147baa6bbe917c1111663e5a0e5d76a0795eb2de96112fb",
+      "staged_git_blob": "0261a7ff1b8d80a98e64fe025d090970ccf0cecf",
+      "sha256": "b3157bfa73cad5bce147baa6bbe917c1111663e5a0e5d76a0795eb2de96112fb",
+      "size": 2078,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/util/pose.hpp",
+      "base_git_blob": "1dcd1def8e583080e5482c12ca47ed6bfd58dd51",
+      "original_sha256": "db7c1059abe944a5f1e8ffe2d7546590a3143b8971ba8a59eba31e64b70cd668",
+      "staged_git_blob": "1dcd1def8e583080e5482c12ca47ed6bfd58dd51",
+      "sha256": "db7c1059abe944a5f1e8ffe2d7546590a3143b8971ba8a59eba31e64b70cd668",
+      "size": 597,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/util/timed_semaphore.hpp",
+      "base_git_blob": "5221230d3a32883b57f2005e1f3075c08e7e2cee",
+      "original_sha256": "e2a1efdd373cbcf857937919a4caa9f37d0f34040b06100add364c60f68e0edd",
+      "staged_git_blob": "5221230d3a32883b57f2005e1f3075c08e7e2cee",
+      "sha256": "e2a1efdd373cbcf857937919a4caa9f37d0f34040b06100add364c60f68e0edd",
+      "size": 3653,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/wsi/display.hpp",
+      "base_git_blob": "e37b932bea72ada15b111e2bbdc206feb315ed48",
+      "original_sha256": "0c04a3e9d8bea017e5c273b94551095000982ad3a309fb77c1426e6c0c311604",
+      "staged_git_blob": "e37b932bea72ada15b111e2bbdc206feb315ed48",
+      "sha256": "0c04a3e9d8bea017e5c273b94551095000982ad3a309fb77c1426e6c0c311604",
+      "size": 707,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/wsi/headless/surface_properties.hpp",
+      "base_git_blob": "c0a6cc758652ecdea1b710199eb1cb2253748ee5",
+      "original_sha256": "b5f436ae31289a26a5bdc48e0705ba3abbed886077bac7ab0d396a50753c1281",
+      "staged_git_blob": "c0a6cc758652ecdea1b710199eb1cb2253748ee5",
+      "sha256": "b5f436ae31289a26a5bdc48e0705ba3abbed886077bac7ab0d396a50753c1281",
+      "size": 2142,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/wsi/headless/swapchain.hpp",
+      "base_git_blob": "8870dc301d132e15d009c3bf396b8aaf676a9f23",
+      "original_sha256": "bc73ad35bbe014b3c84f9ffef6b7d49c3bfaebbc4752cc91bd9a348c5dcfbc2e",
+      "staged_git_blob": "8870dc301d132e15d009c3bf396b8aaf676a9f23",
+      "sha256": "bc73ad35bbe014b3c84f9ffef6b7d49c3bfaebbc4752cc91bd9a348c5dcfbc2e",
+      "size": 3408,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/wsi/surface_properties.hpp",
+      "base_git_blob": "07376ee66cacccde2d582265805949b046975540",
+      "original_sha256": "c972be74ce4dd040170b54f36d530ebe664cb3bee9a42b196bbc373d64104e53",
+      "staged_git_blob": "07376ee66cacccde2d582265805949b046975540",
+      "sha256": "c972be74ce4dd040170b54f36d530ebe664cb3bee9a42b196bbc373d64104e53",
+      "size": 2920,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/wsi/swapchain_base.hpp",
+      "base_git_blob": "040b35fb7834d0ccf5842253d2358023f2b2a4cd",
+      "original_sha256": "c0844f58e42a64459b07a0719dd5e6e91fcf66f571830bdf7f987ed72176bed8",
+      "staged_git_blob": "a3e010253cafe75c2228afec4f8f7c0e2e72bf5e",
+      "sha256": "d3b4f767ba354a2938a722c8ebb5eef3a681320aab0e68d803a7142e62621af0",
+      "size": 14124,
+      "applied_patch": "alvr-v20.14.1-pr3357.patch"
+    },
+    {
+      "path": "alvr/vulkan_layer/wsi/wsi_factory.hpp",
+      "base_git_blob": "943bb25b5654e1dd905113c5887c6ee30fc1d28b",
+      "original_sha256": "3fd6c014a457e1eaa0ee8bb42741c75a62662311803d519b8172585fd79c5a67",
+      "staged_git_blob": "943bb25b5654e1dd905113c5887c6ee30fc1d28b",
+      "sha256": "3fd6c014a457e1eaa0ee8bb42741c75a62662311803d519b8172585fd79c5a67",
+      "size": 4190,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/server_openvr/cpp/platform/linux/protocol.h",
+      "base_git_blob": "7c2b5b2782cbdfa1f2c82852d0ab6d1ca1846ae4",
+      "original_sha256": "1aae904824a19f2eecb3c33dc5eaf3416355369e807bd18f41015bc0e7a6f313",
+      "staged_git_blob": "7c2b5b2782cbdfa1f2c82852d0ab6d1ca1846ae4",
+      "sha256": "1aae904824a19f2eecb3c33dc5eaf3416355369e807bd18f41015bc0e7a6f313",
+      "size": 467,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/server_openvr/cpp/alvr_server/include/picojson.h",
+      "base_git_blob": "cc9c0cdbcc435147cd7965305ba1e80f64d13523",
+      "original_sha256": "9b94bc14305c68ee21db253a11f435450d597c49447b8f9b1e328162b4ce925f",
+      "staged_git_blob": "cc9c0cdbcc435147cd7965305ba1e80f64d13523",
+      "sha256": "9b94bc14305c68ee21db253a11f435450d597c49447b8f9b1e328162b4ce925f",
+      "size": 33299,
+      "applied_patch": null
+    },
+    {
+      "path": "alvr/vulkan_layer/LICENSE",
+      "base_git_blob": "3866bd8cb63fea447525afa096a691496def9b11",
+      "original_sha256": "4a8629adc559aaf9c7aab148ec8e7c6cf12d8cfd7e507efd42bed4e5f1add905",
+      "staged_git_blob": "3866bd8cb63fea447525afa096a691496def9b11",
+      "sha256": "4a8629adc559aaf9c7aab148ec8e7c6cf12d8cfd7e507efd42bed4e5f1add905",
+      "size": 1088,
+      "applied_patch": null
+    }
+  ],
+  "source_include_roots": [
+    "alvr/vulkan_layer",
+    "alvr/server_openvr/cpp"
+  ],
+  "cpp_sources": [
+    "layer/device_api.cpp",
+    "layer/layer.cpp",
+    "layer/private_data.cpp",
+    "layer/settings.cpp",
+    "layer/surface_api.cpp",
+    "layer/swapchain_api.cpp",
+    "util/custom_allocator.cpp",
+    "util/extension_list.cpp",
+    "util/logger.cpp",
+    "util/pose.cpp",
+    "util/timed_semaphore.cpp",
+    "wsi/display.cpp",
+    "wsi/headless/surface_properties.cpp",
+    "wsi/headless/swapchain.cpp",
+    "wsi/swapchain_base.cpp",
+    "wsi/wsi_factory.cpp"
+  ],
+  "system_dependencies": [
+    "C/C++ standard and Linux headers",
+    "libunwind.h",
+    "X11/Xlib.h",
+    "X11/extensions/Xrandr.h"
+  ],
+  "licenses": {
+    "alvr/vulkan_layer/": "../licenses/ALVR-vulkan-layer-MIT.txt",
+    "alvr/server_openvr/cpp/platform/linux/protocol.h": "../licenses/ALVR-MIT.txt",
+    "alvr/server_openvr/cpp/alvr_server/include/picojson.h": "../licenses/picojson-BSD-2-Clause.txt"
+  },
+  "original_build_script_sha256": "02d5c649bfd995555f2743e260a9c9f203c1c1b5e93b64cb4df70376e032bf2d",
+  "build_adaptation": "Same 16 translation units, custom ALVR_Negotiate entry point and hidden-export link map. Work directory, session path, compiler command and verified header input are explicit arguments."
+}
