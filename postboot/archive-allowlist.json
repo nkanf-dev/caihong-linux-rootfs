@@ -372,8 +372,8 @@
     {
       "path": "postboot/docs/current-validation.md",
       "role": "archive documentation and policy",
-      "bytes": 6937,
-      "sha256": "bdadf9176b610a1e9628cd8060baeeb041658eeb4fdbc56bcd4d4ffdbbe879ee"
+      "bytes": 8078,
+      "sha256": "4b8fa28aceb801c9b39f94927425aca11318a282934a93e0dbd44e5dbf51f4e0"
     },
     {
       "path": "postboot/docs/desktop-proxy.md",
@@ -408,8 +408,8 @@
     {
       "path": "postboot/pcvr/README.md",
       "role": "PCVR exact patch/build/runtime/template/test/provenance",
-      "bytes": 10552,
-      "sha256": "62db2e41b2b01a8ca2b34613d435ded962a5ab7b6dcc0619e75f07022fd11f08"
+      "bytes": 10768,
+      "sha256": "5ed00246a43677ca0f24a64d7a48f458af7c8c037ee38d0d10c52885765f5611"
     },
     {
       "path": "postboot/pcvr/build/PRESERVATION-PLAN.md",
@@ -948,8 +948,8 @@
     {
       "path": "postboot/pcvr/runtime/install_profiles.py",
       "role": "PCVR exact patch/build/runtime/template/test/provenance",
-      "bytes": 2924,
-      "sha256": "bfe2e7682dbe45f8142e64af31d8746929fa8aca07745fd9f4f7d394d02e8e69"
+      "bytes": 2959,
+      "sha256": "89e6bd508bde3a7f7edd99e573cfa615fa8e090bbb07e0e0939fd99b2a828911"
     },
     {
       "path": "postboot/pcvr/runtime/paths.py",
@@ -972,8 +972,8 @@
     {
       "path": "postboot/pcvr/runtime/steamvr_runtime_escape.py",
       "role": "PCVR exact patch/build/runtime/template/test/provenance",
-      "bytes": 1964,
-      "sha256": "13f6f60999a32cd75dee8385717424ff5c390c637d05f55054816cf4198b5d2e"
+      "bytes": 2040,
+      "sha256": "025eec64b85e7f74d4d817f8af8fa440a952e38fc600a76946f746f288cef412"
     },
     {
       "path": "postboot/pcvr/tests/pose/README.md",
@@ -1032,8 +1032,8 @@
     {
       "path": "postboot/pcvr/tests/test_runtime.py",
       "role": "PCVR exact patch/build/runtime/template/test/provenance",
-      "bytes": 6444,
-      "sha256": "a657cb70055b6d77166fd81e5ef413fb54a3f55bf30a9e702b86a6535540e845"
+      "bytes": 8794,
+      "sha256": "9cc5a8d7d49d546846e1a06a16d6cfb6bacab23ff3e35a2d1513bfd0eb46c887"
     },
     {
       "path": "postboot/proxy/20-preserve-armada.conf",

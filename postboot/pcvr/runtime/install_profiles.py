@@ -15,10 +15,12 @@ from retry_gate import check_closed
 
 NAMES = ("server-fex-config.json", "vrcompositor.real.json", "vrmonitor.json")
 
-def secure_ipc_dir(uid):
-    path = Path("/tmp") / ("caihong-alvr-" + str(uid))
-    if not path.exists():
+def secure_ipc_dir(uid, base=Path("/tmp")):
+    path = base / ("caihong-alvr-" + str(uid))
+    try:
         path.mkdir(mode=0o700)
+    except FileExistsError:
+        pass
     info = path.lstat()
     if path.is_symlink() or not stat.S_ISDIR(info.st_mode) or info.st_uid != uid or stat.S_IMODE(info.st_mode) != 0o700:
         raise ValueError("ALVR shared IPC directory must be a user-owned 0700 real directory")

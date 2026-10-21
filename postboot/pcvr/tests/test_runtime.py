@@ -34,6 +34,49 @@ class RuntimeTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 outer.prepare(args, {"SteamAppId": "438100"})
 
+    def test_ipc_directory_recreated_and_rejects_unsafe_state(self):
+        import install_profiles
+        from types import SimpleNamespace
+        import stat
+        with tempfile.TemporaryDirectory() as temp:
+            base = Path(temp)
+            uid = os.getuid()
+            path = install_profiles.secure_ipc_dir(uid, base)
+            self.assertEqual(path, base / ("caihong-alvr-" + str(uid)))
+            self.assertEqual(path.stat().st_mode & 0o777, 0o700)
+            path.rmdir()
+            self.assertEqual(install_profiles.secure_ipc_dir(uid, base), path)
+            path.chmod(0o755)
+            with self.assertRaises(ValueError):
+                install_profiles.secure_ipc_dir(uid, base)
+            path.chmod(0o700)
+            fake = SimpleNamespace(st_mode=stat.S_IFDIR | 0o700, st_uid=uid + 1)
+            with patch.object(Path, "lstat", return_value=fake), self.assertRaises(ValueError):
+                install_profiles.secure_ipc_dir(uid, base)
+            path.rmdir()
+            target = base / "target"
+            target.mkdir(mode=0o700)
+            path.symlink_to(target, target_is_directory=True)
+            with self.assertRaises(ValueError):
+                install_profiles.secure_ipc_dir(uid, base)
+
+    def test_runtime_recreates_ipc_before_receipt_consumption(self):
+        events = []
+        with tempfile.TemporaryDirectory() as temp:
+            state = Path(temp)
+            with patch.object(outer, "prepare", return_value=(["/fixture/launch"], {})), \
+                 patch.object(outer, "secure_ipc_dir", side_effect=lambda uid: events.append("ipc")), \
+                 patch.object(outer, "consume_receipt", side_effect=lambda: events.append("receipt")), \
+                 patch.object(outer, "state_root", return_value=state), \
+                 patch.object(outer.os, "execve", side_effect=lambda *args: events.append("exec")):
+                outer.main()
+            self.assertEqual(events, ["ipc", "receipt", "exec"])
+            with patch.object(outer, "prepare", return_value=(["/fixture/launch"], {})), \
+                 patch.object(outer, "secure_ipc_dir", side_effect=ValueError("unsafe IPC dir")), \
+                 patch.object(outer, "consume_receipt") as consume, self.assertRaises(ValueError):
+                outer.main()
+            consume.assert_not_called()
+
     def test_inner_requires_valve_runtime(self):
         with patch.dict(os.environ, {"CAIHONG_HOME": "/fixture/home"}, clear=False):
             args = ["/fixture/home/.local/share/Steam/steamapps/common/SteamVR/bin/vrstartup.sh"]

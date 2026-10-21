@@ -7,6 +7,7 @@ import time
 from pathlib import Path
 from paths import library_paths, steam_root, state_root
 from retry_gate import consume_receipt
+from install_profiles import secure_ipc_dir
 
 def prepare(args, env):
     steam = steam_root()
@@ -32,6 +33,7 @@ def prepare(args, env):
 
 def main():
     args, env = prepare(sys.argv[1:], dict(os.environ))
+    secure_ipc_dir(os.getuid())
     consume_receipt()
     state = state_root()
     state.mkdir(mode=0o700, parents=True, exist_ok=True)

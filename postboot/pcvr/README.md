@@ -87,7 +87,7 @@ env FEX_APP_CONFIG=<HOME>/.local/state/caihong-pcvr/server-fex-config.json VK_DR
 ```
 
 `<HOME>` is a placeholder, not a literal path. Keep `VK_DRIVER_FILES` aligned with the installed guest Turnip ICD. The recorded device used Adreno 750.
-The wrapper enforces app 250820 and one stock FEX compat tool. It also consumes one clean-retry receipt.
+The wrapper enforces app 250820 and one stock FEX compat tool. Before consuming a clean-retry receipt, it recreates the private IPC directory if a reboot or temporary-directory cleanup removed it. It rejects a symlink, wrong owner, or permissions other than 0700. An unsafe directory leaves the retry receipt unconsumed.
 
 ## 5. Configure capture and latency
 
