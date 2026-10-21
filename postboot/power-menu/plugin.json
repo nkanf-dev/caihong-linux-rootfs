@@ -1,0 +1,15 @@
+{
+  "name": "Caihong Return Android",
+  "author": "Caihong",
+  "flags": [
+    "root"
+  ],
+  "api_version": 1,
+  "publish": {
+    "tags": [
+      "utility",
+      "root"
+    ],
+    "description": "Return to Android from the native Steam power menu."
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "upstream": {
+    "decky_loader": {
+      "tag": "v3.3.0",
+      "commit": "67196adfa9b299f20dfb0cc932e88a169417b7d5",
+      "repository": "SteamDeckHomebrew/decky-loader",
+      "sources": [
+        "frontend/pnpm-lock.yaml",
+        "frontend/src/tabs-hook.tsx",
+        "frontend/src/plugin-loader.tsx",
+        "backend/decky_loader/loader.py",
+        "backend/decky_loader/wsrouter.py"
+      ]
+    },
+    "decky_ui": {
+      "version": "4.15.1",
+      "commit": "5419bcbbc8ab77fecd28f563e9a8c19fd8e5e5d7",
+      "repository": "SteamDeckHomebrew/decky-frontend-lib",
+      "sources": [
+        "src/webpack.ts",
+        "src/utils/patcher.ts",
+        "src/utils/react/treepatcher.ts",
+        "src/utils/react/react.ts",
+        "src/components/Menu.ts",
+        "src/components/Modal.ts",
+        "src/modules/Router.ts"
+      ]
+    },
+    "decky_api": {
+      "version": "1.1.3",
+      "commit": "d1b7f16070777a0ada939cbacd3606eeba0574f5",
+      "repository": "SteamDeckHomebrew/loader-api",
+      "sources": [
+        "src/index.ts",
+        "src/types.ts"
+      ]
+    },
+    "plugin_template": {
+      "commit": "90d0780e882a17f5714fc6de044c645f22608290",
+      "repository": "SteamDeckHomebrew/decky-plugin-template",
+      "sources": [
+        "src/index.tsx",
+        "main.py",
+        "rollup.config.js"
+      ]
+    }
+  },
+  "steam_runtime_evidence": {
+    "power_bundle": {
+      "assessment_relative_path": "proxy-research/steamui-public/chunk-main.js",
+      "sha256": "f9606b111203c9140dcdd6fc016a0ee00e4c8406aeb786187c42873f08d071fb",
+      "power_module": 38258,
+      "router_module": 61236,
+      "observed_forwarder": "OpenPowerMenu(e,t){(0,Ue.d4)(e,t)}",
+      "observed_render_tokens": [
+        "#Power",
+        "#Shutdown",
+        "#Quit_Shutdown",
+        "#Restart",
+        "#Quit_Restart",
+        "#RestartDevice"
+      ],
+      "use": "Local read-only inspection; no Steam source is copied into the plugin."
+    },
+    "context_manager": {
+      "assessment_relative_path": "host-source/SteamTracking-sp.js",
+      "sha256": "272dd474f31f0d7df7399e06a59a7b8c7b46f1c08daa255be0d41925bf4a0581",
+      "module": 13240,
+      "method": "CreateContextMenuInstance(element, parent, x, y, options)",
+      "use": "Confirms argument order and manager method signatures. Read-only inspection; no Steam source is copied into the plugin."
+    }
+  },
+  "supported_decky_contracts": {
+    "discovery": "@decky/ui findModuleExport scans cached webpack exports. The plugin discovers a class export through its prototype methods; it does not assign to getter-only webpack namespace exports.",
+    "patching": "@decky/ui replacePatch provides an original function and unpatch lifecycle. createReactTreePatcher clones memo/forwardRef type objects before wrapping their render/type method. The loader tabs-hook uses the same discovery and React tree-patching helpers.",
+    "unload": "@decky/api definePlugin returns Plugin.onDismount. Loader disable/unload invokes this function. The plugin deactivates handlers, hides its injected menus, closes confirmations, cancels pending tokens, and removes both runtime patches.",
+    "rpc": "@decky/api callable sends positional args to public Python methods. Loader rejects method names beginning with underscore. Websocket connection checks the auth query value against its CSRF token. Frontend preparation runs only after explicit entry selection."
+  },
+  "guard_limits": [
+    "No dedicated power-menu extension API exists in these inspected Decky sources; this plugin uses a bounded runtime hook.",
+    "The native OpenPowerMenu forwarder must match the inspected synchronous two-argument implementation. An autobound getter is accepted only when retained constructor source contains that exact method shape and the instance method is a bound native function.",
+    "The discovered context-menu manager must expose the inspected five-argument factory and known manager methods/body markers.",
+    "Only context-menu creation inside the synchronous native power-menu call is wrapped. Incoming element props must contain only onCancel and match options.onCancel.",
+    "The rendered root must be the native Menu and contain known shutdown and restart action tokens with callbacks. Unknown shapes remain unchanged.",
+    "No Steam bundle is modified. Steam client updates can disable this integration until the new runtime shape is reviewed.",
+    "Host mocks and production build are verified. Linux SteamUI rendering, controller navigation and backend runtime shapes require target verification."
+  ]
+}

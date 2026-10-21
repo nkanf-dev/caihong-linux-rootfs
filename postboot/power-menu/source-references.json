@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "steam_public_bundle": {
+    "assessment_relative_path": "proxy-research/steamui-public/chunk-main.js",
+    "sha256": "f9606b111203c9140dcdd6fc016a0ee00e4c8406aeb786187c42873f08d071fb",
+    "power_module": 38258,
+    "context_menu_module": 31084,
+    "use": "Inspected public runtime shape only; Steam source not copied or modified."
+  },
+  "qbootctl": {
+    "repository": "https://github.com/linux-msm/qbootctl",
+    "commit": "39a6e6daaf029fb0a083777679a15ea2c18f72de",
+    "source": "qbootctl.c",
+    "sha256": "2efd87644626465931f25e7f1095c8cafcc8badabc7d0507ab6d835c38037d8f",
+    "use": "Exact -c, -a, -b, -n read-only output strings; no source vendored."
+  },
+  "existing_slot_script": {
+    "repository_path": "rootfs/archlinuxarm/usr/local/sbin/caihong-slot",
+    "sha256": "a03bc5f6a136485b5aa7401f6523d57467bb4598f0f6777ac7b45159c4e96907",
+    "use": "Supported Linux-to-Android entrypoint android without --reboot; script verifies selected slot before separate backend readback."
+  },
+  "systemd": {
+    "reference": "https://github.com/systemd/systemd/tree/v257",
+    "sources": [
+      "man/org.freedesktop.login1.xml",
+      "src/login/logind-dbus.c",
+      "man/busctl.xml"
+    ],
+    "use": "login1 method/property signatures and disabled RebootToBootLoaderMenu UINT64_MAX; target JSON readback deferred to later Linux checklist."
+  }
+}

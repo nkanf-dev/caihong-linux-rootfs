@@ -71,3 +71,7 @@ python3 -B -m unittest discover -s postboot/launcher/tests -p 'test_*.py' -v
 ```
 
 The reviewed host count is 90. These cover mode isolation, original command and compatibility environment, cold/reused/starting runtime gates, one-request receipts, private-path races, pinned ALVR protocol freshness, and transactional bundle installation/rollback. Passing fixtures do not establish device cold-start acceptance.
+
+## Power-menu source preparation
+
+Run `python3 -B -m unittest discover -s postboot/power-menu/tests -p 'test_*.py' -v`, then from that package run `npm ci`, `npm test`, `npm run typecheck`, and `npm run build`. The reviewed author/root counts are 32 Python and 16 frontend checks. The commands test mocks or build source only. Never run an actual slot/reboot test while the user has paused device operations.

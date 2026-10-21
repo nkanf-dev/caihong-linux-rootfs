@@ -84,3 +84,9 @@ Ninety mocked host tests and an independent adversarial review passed. This is s
 ## Backup location update
 
 The user chose to keep backups on the Mac rather than duplicate them on the tablet. Sixty-four historical runtime backup files were copied and individually size/SHA256-verified before device copies were removed. Original boot/recovery/GPT/AVB rescue assets were also consolidated locally. They live under `.local-artifacts/backups/`, mode 0700/0600, excluded by the local `.git/info/exclude` rule. No private backup bytes are tracked or pushed; a fresh clone does not contain them. Historical references to device backup paths describe the earlier checkpoint, not the current storage location.
+
+## Prepared power-menu Android return
+
+`power-menu/` is a source-only Decky plugin that preserves the native desktop action and proposes a separate “返回 Android” menu item and confirmation. It uses the existing Linux slot tool, explicit approved Android A/Linux B mapping, trusted config/tool digests, typed reboot preflight, single-use confirmation, independent slot readback, and normal inhibitor-aware reboot. No action runs on module load or cancellation. Installer/removal are scoped and digest-checked.
+
+Host mock, frontend, typecheck, and build checks are recorded in its validation file. The source has not been installed on the tablet, and actual Decky/Steam shape, visible menu open/cancel, target boot-control/API readback, and Android boot remain deferred until the user resumes device testing. Do not treat source tests as a completed boot-switch acceptance.

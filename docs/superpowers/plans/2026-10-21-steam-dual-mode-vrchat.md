@@ -29,5 +29,5 @@
 ### Task 4: Validate, preserve, and publish
 - [x] Run mocked unit and integration tests without device access while the headset charges.
 - [x] Review secret/identifier/large-artifact audit and explicitly admit new source files.
-- [ ] Root commits and pushes reviewed source only to the user's existing feature branch.
+- [x] Root commits and pushes reviewed source only to the user's existing feature branch.
 - [ ] After charging, test Steam desktop, clean cold VR start, close/reopen VR, already-running reuse, headset absent, and audio/mic/overlay. Do not label one-click startup fully verified before these live checks.

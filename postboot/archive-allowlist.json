@@ -7,7 +7,7 @@
       "path": "docs/superpowers/plans/2026-10-21-steam-dual-mode-vrchat.md",
       "role": "Implementation plan for the reviewed source-only Steam dual-mode launcher; device acceptance pending",
       "bytes": 3196,
-      "sha256": "c8e9234d65f20ea0dadd861c182e33267a9895e9edd1e84c2cfb3c521f6c6973"
+      "sha256": "19b61cd55ceab90f440956b284e4bab42248b97a5b27584179a8c033b31441c5"
     },
     {
       "path": "postboot/.gitattributes",
@@ -378,8 +378,8 @@
     {
       "path": "postboot/docs/current-validation.md",
       "role": "archive documentation and policy",
-      "bytes": 11747,
-      "sha256": "cc3420cd20ced4ef67a4d0583cd2c9d9495c895131332327fe27f097a3ddf298"
+      "bytes": 12627,
+      "sha256": "b482021f21c4f0d31bf5a8263426db0a6a315dff5c17fb6b85342bf87f2c182c"
     },
     {
       "path": "postboot/docs/desktop-proxy.md",
@@ -396,8 +396,8 @@
     {
       "path": "postboot/docs/validation.md",
       "role": "archive documentation and policy",
-      "bytes": 3823,
-      "sha256": "3af85446e652b12b594f768b2a382388b9f21241435218637736f7e3964d1e38"
+      "bytes": 4233,
+      "sha256": "37fd416689bcc92402d04fb305d921e9cd04a893a3a810d062f1f434fa17215b"
     },
     {
       "path": "postboot/evidence/host-validation.json",
@@ -1190,6 +1190,156 @@
       "role": "PCVR exact patch/build/runtime/template/test/provenance",
       "bytes": 8794,
       "sha256": "9cc5a8d7d49d546846e1a06a16d6cfb6bacab23ff3e35a2d1513bfd0eb46c887"
+    },
+    {
+      "path": "postboot/power-menu/.gitignore",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 47,
+      "sha256": "5ee404d86bbe73e1db57be05554281c993f7c543b2d5dc6af9920733f1741568"
+    },
+    {
+      "path": "postboot/power-menu/LICENSE",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 1100,
+      "sha256": "0d6c299753694c801fd834ba3a0610fcb26739b9c88f488295ef64092bcea8cd"
+    },
+    {
+      "path": "postboot/power-menu/PLAN.md",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 1751,
+      "sha256": "8fc57571055441497638911e8b8c984161a76491d5af5d0689b51694eb8199b0"
+    },
+    {
+      "path": "postboot/power-menu/README.md",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 9075,
+      "sha256": "62208134b765fb7917386a96975bacd0996e81ba478c9e1e5fb1948a833274b3"
+    },
+    {
+      "path": "postboot/power-menu/VALIDATION.md",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 2438,
+      "sha256": "b7ee1b4f95c11c94a104a81fc229f2f7b6ac2972ca5441274307f8ff3f5f909b"
+    },
+    {
+      "path": "postboot/power-menu/config.example.json",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 200,
+      "sha256": "bc94fbdd9ab9560c9a6ce5d77f01017248f4cd942f1423d80086c658246cbde6"
+    },
+    {
+      "path": "postboot/power-menu/frontend-references.json",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 4585,
+      "sha256": "7a73e0674300ee8a29fbdfc9ba75efe271584d46fa3cb46612f0e0037d5504cf"
+    },
+    {
+      "path": "postboot/power-menu/install.py",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 11196,
+      "sha256": "2ab0c142fe9432cb4c4e40114dac825b936c7e4cd8a45e98a008fe9c663bc612"
+    },
+    {
+      "path": "postboot/power-menu/main.py",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 12660,
+      "sha256": "4364e088ffcf543b9c3e17c4dd12c775b2120162c54bcc7bd8e707a494fc944b"
+    },
+    {
+      "path": "postboot/power-menu/package-lock.json",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 88086,
+      "sha256": "4ba170eb2ea605830c179aad17aefc1b502fb8ed62681d8fb0c66e70c783d54c"
+    },
+    {
+      "path": "postboot/power-menu/package.json",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 691,
+      "sha256": "327e3d500eb59ac71f06426209e115acd328205b5b53dd7fd98aaad574cc5be1"
+    },
+    {
+      "path": "postboot/power-menu/plugin.json",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 255,
+      "sha256": "e9a76dd59811d87e4b6d8cbfc8845c5006b278dcc11e2a568bd51a1873f5a0e5"
+    },
+    {
+      "path": "postboot/power-menu/rollup.config.js",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 74,
+      "sha256": "95e1c5a32396bed80b2d4148507520b9504e277ff954e993979679b14336ea45"
+    },
+    {
+      "path": "postboot/power-menu/source-references.json",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 1373,
+      "sha256": "3127d3b04475503c451df435b31cd359a688167603cda36b730cbeb4231855fb"
+    },
+    {
+      "path": "postboot/power-menu/src/Confirmation.tsx",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 2085,
+      "sha256": "7d3a5e81fd930f7b37d2671ce30ea0ef1fd8db0e304b221a17130abea730fade"
+    },
+    {
+      "path": "postboot/power-menu/src/confirmation-core.ts",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 2069,
+      "sha256": "3f0bd251ed57b0a5a35d485863acc6e504bdf6ed77534d5228bc3f10748f4625"
+    },
+    {
+      "path": "postboot/power-menu/src/errors.ts",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 578,
+      "sha256": "168e37d6dc4bceb9f09fa90a6f5f44c4c725bc08f702aa7e5920d08a771df8ff"
+    },
+    {
+      "path": "postboot/power-menu/src/hook-core.ts",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 5425,
+      "sha256": "3af8edd88ef4a3a062dcb16fca6474cb1bae3b85aeed4894a3089bc8f200028e"
+    },
+    {
+      "path": "postboot/power-menu/src/index.tsx",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 4211,
+      "sha256": "58329fe37f04bb45df6088113ee3b2fa33ab60c76eca1db53ae63e9f95611fb0"
+    },
+    {
+      "path": "postboot/power-menu/tests/frontend/component.test.ts",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 3334,
+      "sha256": "fa039b6e47ae722e3b255a0bced949de2be15016f2f172517b66e37a6166266e"
+    },
+    {
+      "path": "postboot/power-menu/tests/frontend/confirmation.test.ts",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 2898,
+      "sha256": "6f8e3dfdb41c8fd518131d569ca15d9b9e488544739c6f95704293cc10229663"
+    },
+    {
+      "path": "postboot/power-menu/tests/frontend/hook.test.ts",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 4620,
+      "sha256": "3355bdf5dfcc12578530b72b9dc90071bec5ed60188fb5795e6f7c15d527514a"
+    },
+    {
+      "path": "postboot/power-menu/tests/test_backend.py",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 16368,
+      "sha256": "7be2283ed064624cbf3631a7e74f4ed25fd880eddf3a86a61b6a3e46bdc6488c"
+    },
+    {
+      "path": "postboot/power-menu/tests/test_install.py",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 5312,
+      "sha256": "3a1d203c2677c0438001349efa9a44f4d787e5c68f1bdc9396b6406298948089"
+    },
+    {
+      "path": "postboot/power-menu/tsconfig.json",
+      "role": "Prepared Decky Android-return power-menu source/build lock/tests; no device installation or slot operation verified",
+      "bytes": 333,
+      "sha256": "6d8989bba1ac570e04f69e965f31f33e194c415418f1c7f64542c4d8b5c76a00"
     },
     {
       "path": "postboot/proxy/20-preserve-armada.conf",

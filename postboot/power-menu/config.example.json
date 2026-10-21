@@ -1,0 +1,8 @@
+{
+  "schema": 1,
+  "approved": false,
+  "android_slot": "a",
+  "linux_slot": "b",
+  "slot_script_sha256": "a03bc5f6a136485b5aa7401f6523d57467bb4598f0f6777ac7b45159c4e96907",
+  "qbootctl_sha256": ""
+}
