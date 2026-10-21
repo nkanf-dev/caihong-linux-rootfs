@@ -6,11 +6,11 @@ on:
   workflow_dispatch:
     inputs:
       release_tag:
-        description: Release tag to update
+        description: Armada release tag to create or update
         required: true
-        default: v0.1.0
+        default: armada-latest
       publish_release:
-        description: Upload the Armada rootfs to the GitHub release
+        description: Publish matching Armada boot, kernel, and rootfs assets
         required: true
         type: boolean
         default: false
@@ -107,45 +107,42 @@ jobs:
           cp release/release-manifest.json \
             release/armada-assets/caihong-armada-release-manifest.json
           cp release/ARMADA_NOTES.md release/armada-assets/
+          cp release/SHA256SUMS release/armada-assets/SHA256SUMS.armada-full
           (
             cd release/armada-assets
             sha256sum caihong-armada-rootfs-* > SHA256SUMS.armada
           )
 
-      - name: Publish Armada rootfs to GitHub release
+      - name: Publish matching Armada assets to GitHub release
         if: inputs.publish_release
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_TAG: ${{ inputs.release_tag }}
         run: |
           set -euo pipefail
-          gh release view "$RELEASE_TAG" >/dev/null
+          case "$RELEASE_TAG" in
+            armada-?*) ;;
+            *) echo "Use an Armada-specific release tag (armada-*)." >&2; exit 1 ;;
+          esac
 
           publish=()
-          for path in \
-            release/armada-assets/caihong-armada-rootfs-* \
-            release/armada-assets/caihong-armada-release-manifest.json \
-            release/armada-assets/SHA256SUMS.armada \
-            release/armada-assets/ARMADA_NOTES.md; do
+          for path in release/armada-assets/*; do
             [[ -f $path ]] || continue
             publish+=("$path")
           done
-          ((${#publish[@]} > 3))
-          gh release upload "$RELEASE_TAG" "${publish[@]}" --clobber
+          if [[ ${#publish[@]} -le 3 ]]; then
+            echo "Incomplete Armada release assets." >&2
+            exit 1
+          fi
 
-          declare -A current_assets=()
-          for path in "${publish[@]}"; do
-            current_assets["${path##*/}"]=1
-          done
-          while IFS= read -r asset; do
-            case "$asset" in
-              caihong-armada-rootfs-*|caihong-armada-release-manifest.json|SHA256SUMS.armada|ARMADA_NOTES.md)
-                if [[ -z ${current_assets[$asset]+present} ]]; then
-                  gh release delete-asset "$RELEASE_TAG" "$asset" --yes
-                fi
-                ;;
-            esac
-          done < <(gh release view "$RELEASE_TAG" --json assets --jq '.assets[].name')
+          if ! gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release create "$RELEASE_TAG" \
+              --target "$GITHUB_SHA" \
+              --title "Experimental Caihong Armada rootfs ($RELEASE_TAG)" \
+              --notes-file release/ARMADA_NOTES.md \
+              --prerelease
+          fi
+          gh release upload "$RELEASE_TAG" "${publish[@]}" --clobber
 
       - name: Upload Armada boot artifacts
         uses: actions/upload-artifact@v4
@@ -184,6 +181,7 @@ jobs:
             release/armada-assets/caihong-armada-release-manifest.json
             release/armada-assets/ARMADA_NOTES.md
             release/armada-assets/SHA256SUMS.armada
+            release/armada-assets/SHA256SUMS.armada-full
           if-no-files-found: error
           compression-level: 0
           retention-days: 14
