@@ -100,6 +100,18 @@ grep -qx 'ID=armada' "$rootfs/usr/lib/os-release" || \
 [[ -x $rootfs/var/home/armada/.local/share/Steam/steamrtarm64/steam ]] || \
 	fail "Armada Steam Client bootstrap is missing"
 
+# Keep the resolved image's custom runtime packages through every DNF stage.
+# Fedora camera development dependencies can otherwise replace Armada Mesa.
+custom_package_baseline()
+{
+	python3 "$project_dir/postboot/network/image/assert_custom_package_baseline.py" \
+		"$1" --root "$rootfs" \
+		--baseline "$work_dir/armada-custom-package-baseline.json" \
+		--policy "$project_dir/rootfs/armada/etc/dnf/dnf.conf" \
+		--image-digest "$armada_digest"
+}
+custom_package_baseline capture
+
 # Armada targets btrfs bootc installations and intentionally keeps its base
 # small. The Android direct-root image needs ext4 growth, SSH, the Caihong
 # hotspot dependencies, sensors and the camera build/runtime dependencies.
@@ -139,6 +151,7 @@ SYSTEMD_OFFLINE=1 chroot "$rootfs" /usr/bin/env -i \
 	libcamera libcamera-ipa libcamera-tools libcamera-qcam \
 	libcamera-gstreamer plasma-camera \
 	"${camera_build_packages[@]}"
+custom_package_baseline check
 rm -f -- "$rootfs/etc/resolv.conf"
 if (( resolver_saved )); then
 	cp -a --no-dereference "$work_dir/resolv.conf.original" "$rootfs/etc/resolv.conf"
@@ -148,7 +161,10 @@ echo "overlaying Caihong board integration"
 rsync -aHAX --numeric-ids --chown=0:0 \
 	"$project_dir/rootfs/archlinuxarm/" "$rootfs/"
 rsync -aHAX --numeric-ids --chown=0:0 \
+	--exclude='/etc/dnf/dnf.conf' \
 	"$project_dir/rootfs/armada/" "$rootfs/"
+# Keep upstream DNF defaults and existing exclusions; add only exact holds.
+custom_package_baseline merge-policy
 rm -f -- "$rootfs/etc/sudoers.d/10-alarm"
 rm -f -- "$rootfs/etc/alsa/state-daemon.conf"
 
@@ -166,6 +182,7 @@ if (( ${#camera_build_remove[@]} )); then
 		HOME=/root LANG=C PATH=/usr/sbin:/usr/bin:/sbin:/bin \
 		/usr/bin/dnf5 -y remove "${camera_build_remove[@]}"
 fi
+custom_package_baseline check
 SYSTEMD_OFFLINE=1 chroot "$rootfs" /usr/bin/env -i \
 	HOME=/root LANG=C PATH=/usr/sbin:/usr/bin:/sbin:/bin \
 	/usr/bin/dnf5 clean all
@@ -315,6 +332,7 @@ rootfs_update_mode=rebuilt-image
 EOF
 chmod 0644 "$rootfs/etc/caihong-rootfs-build-info"
 
+custom_package_baseline check
 "$project_dir/scripts/verify-armada-rootfs.sh" "$rootfs"
 
 echo "creating $output"

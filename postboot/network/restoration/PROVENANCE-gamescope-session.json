@@ -1,0 +1,425 @@
+{
+  "header": {
+    "name": "gamescope-session",
+    "version": "0~20260920git.0232e0c",
+    "release": "1.100109.fc44.armada",
+    "epoch": null,
+    "buildtime": [
+      1790847517
+    ],
+    "buildhost": "armada-builder",
+    "vendor": "Armada",
+    "packager": "Tulip Blossom <tulilirockz@outlook.com>",
+    "url": "https://github.com/OpenGamingCollective/gamescope-session",
+    "arch": "noarch",
+    "sourcerpm": "gamescope-session-0~20260920git.0232e0c-1.100109.fc44.armada.src.rpm"
+  },
+  "files": [
+    {
+      "path": "/usr/bin/export-gpu",
+      "size": 2833,
+      "mode": 33261,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "5c71a4f20e345d131a74149bfe255f6e0ed86eeba87cfcca2ebe266a4f1a8590",
+      "sha256": "5c71a4f20e345d131a74149bfe255f6e0ed86eeba87cfcca2ebe266a4f1a8590"
+    },
+    {
+      "path": "/usr/bin/gamescope-session-plus",
+      "size": 1301,
+      "mode": 33261,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "b2ba5875508538527232fb2857f2edf0d64e8a33358d73d6095c714670a3c4ea",
+      "sha256": "b2ba5875508538527232fb2857f2edf0d64e8a33358d73d6095c714670a3c4ea"
+    },
+    {
+      "path": "/usr/lib/systemd/user/gamescope-session-plus@.service",
+      "size": 408,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "78ed8b074111026b5e3df99b15f26cec9f3b6cf8c5a1c32aed28580a432fc1bf",
+      "sha256": "78ed8b074111026b5e3df99b15f26cec9f3b6cf8c5a1c32aed28580a432fc1bf"
+    },
+    {
+      "path": "/usr/lib/systemd/user/gamescope-session.target",
+      "size": 44,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "f68d0e73ebc492b533664b624e4dbe867cf2daac154eeb0807992a16e267a590",
+      "sha256": "f68d0e73ebc492b533664b624e4dbe867cf2daac154eeb0807992a16e267a590"
+    },
+    {
+      "path": "/usr/share/doc/gamescope-session",
+      "size": 0,
+      "mode": 16877,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": ""
+    },
+    {
+      "path": "/usr/share/doc/gamescope-session/README.md",
+      "size": 5373,
+      "mode": 33188,
+      "flags": 2,
+      "link": "",
+      "rpm_digest": "5dbce0f8d5390c374ea372665c200260bf5d36ddaa6e9b8aa71b905fa9a23c8b",
+      "sha256": "5dbce0f8d5390c374ea372665c200260bf5d36ddaa6e9b8aa71b905fa9a23c8b"
+    },
+    {
+      "path": "/usr/share/gamescope-session-plus/device-quirks",
+      "size": 10689,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "4585778fea135749000827fa98a3f63f33280344ae2c74e2d7f73e4b72c7c0fd",
+      "sha256": "4585778fea135749000827fa98a3f63f33280344ae2c74e2d7f73e4b72c7c0fd"
+    },
+    {
+      "path": "/usr/share/gamescope-session-plus/gamescope-session-plus",
+      "size": 14023,
+      "mode": 33261,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "5293c06866e4fdc0231f59669b6f266b07e7030979f3bd93de4d04eac7b7ff11",
+      "sha256": "5293c06866e4fdc0231f59669b6f266b07e7030979f3bd93de4d04eac7b7ff11"
+    },
+    {
+      "path": "/usr/share/gamescope/scripts/50-custom/50-disable-explicit-sync.lua",
+      "size": 0,
+      "mode": 16877,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": ""
+    },
+    {
+      "path": "/usr/share/gamescope/scripts/50-custom/50-disable-explicit-sync.lua/50-disable-explicit-sync.lua",
+      "size": 370,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "e662f171bb06c63669dd3a539934164a13601ff9f4944f6953e7ed6c6a33f418",
+      "sha256": "e662f171bb06c63669dd3a539934164a13601ff9f4944f6953e7ed6c6a33f418"
+    },
+    {
+      "path": "/usr/share/licenses/gamescope-session",
+      "size": 0,
+      "mode": 16877,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": ""
+    },
+    {
+      "path": "/usr/share/licenses/gamescope-session/LICENSE",
+      "size": 1117,
+      "mode": 33188,
+      "flags": 128,
+      "link": "",
+      "rpm_digest": "d62fc383576f96d7771cebc2ef27b6ec9f372a96534f908f9c9cc5aed5e2a0a4",
+      "sha256": "d62fc383576f96d7771cebc2ef27b6ec9f372a96534f908f9c9cc5aed5e2a0a4"
+    }
+  ],
+  "requires": [
+    [
+      "/usr/bin/bash",
+      16384,
+      ""
+    ],
+    [
+      "gamescope",
+      0,
+      ""
+    ],
+    [
+      "rpmlib(CompressedFileNames)",
+      16777226,
+      "3.0.4-1"
+    ],
+    [
+      "rpmlib(FileDigests)",
+      16777226,
+      "4.6.0-1"
+    ],
+    [
+      "rpmlib(PayloadFilesHavePrefix)",
+      16777226,
+      "4.0-1"
+    ],
+    [
+      "rpmlib(PayloadIsZstd)",
+      16777226,
+      "5.4.18-1"
+    ],
+    [
+      "rpmlib(RichDependencies)",
+      16777226,
+      "4.12.0-1"
+    ],
+    [
+      "rpmlib(TildeInVersions)",
+      16777226,
+      "4.10.0-1"
+    ]
+  ],
+  "scripts": {
+    "1023": null,
+    "1024": null,
+    "1025": null,
+    "1026": null,
+    "1151": null,
+    "1152": null
+  },
+  "digest_algo": [
+    8
+  ],
+  "archive_members": [
+    {
+      "path": "usr",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/bin",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/lib",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/bin/export-gpu",
+      "kind": "file",
+      "size": 2833,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "5c71a4f20e345d131a74149bfe255f6e0ed86eeba87cfcca2ebe266a4f1a8590"
+    },
+    {
+      "path": "usr/bin/gamescope-session-plus",
+      "kind": "file",
+      "size": 1301,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "b2ba5875508538527232fb2857f2edf0d64e8a33358d73d6095c714670a3c4ea"
+    },
+    {
+      "path": "usr/lib/systemd",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/doc",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/gamescope",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/gamescope-session-plus",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/licenses",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/lib/systemd/user",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/doc/gamescope-session",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/gamescope-session-plus/device-quirks",
+      "kind": "file",
+      "size": 10689,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "4585778fea135749000827fa98a3f63f33280344ae2c74e2d7f73e4b72c7c0fd"
+    },
+    {
+      "path": "usr/share/gamescope-session-plus/gamescope-session-plus",
+      "kind": "file",
+      "size": 14023,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "5293c06866e4fdc0231f59669b6f266b07e7030979f3bd93de4d04eac7b7ff11"
+    },
+    {
+      "path": "usr/share/gamescope/scripts",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/licenses/gamescope-session",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/lib/systemd/user/gamescope-session-plus@.service",
+      "kind": "file",
+      "size": 408,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "78ed8b074111026b5e3df99b15f26cec9f3b6cf8c5a1c32aed28580a432fc1bf"
+    },
+    {
+      "path": "usr/lib/systemd/user/gamescope-session.target",
+      "kind": "file",
+      "size": 44,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "f68d0e73ebc492b533664b624e4dbe867cf2daac154eeb0807992a16e267a590"
+    },
+    {
+      "path": "usr/share/doc/gamescope-session/README.md",
+      "kind": "file",
+      "size": 5373,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "5dbce0f8d5390c374ea372665c200260bf5d36ddaa6e9b8aa71b905fa9a23c8b"
+    },
+    {
+      "path": "usr/share/gamescope/scripts/50-custom",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/licenses/gamescope-session/LICENSE",
+      "kind": "file",
+      "size": 1117,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "d62fc383576f96d7771cebc2ef27b6ec9f372a96534f908f9c9cc5aed5e2a0a4"
+    },
+    {
+      "path": "usr/share/gamescope/scripts/50-custom/50-disable-explicit-sync.lua",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/gamescope/scripts/50-custom/50-disable-explicit-sync.lua/50-disable-explicit-sync.lua",
+      "kind": "file",
+      "size": 370,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "e662f171bb06c63669dd3a539934164a13601ff9f4944f6953e7ed6c6a33f418"
+    }
+  ],
+  "source_archive": "gamescope-session-armada-original.tar.gz",
+  "source_archive_sha256": "c61e2b9dadb64c7ebc1ce01ae6d250a1a1e11580f305fbf2fe7b12d5fe26d77e",
+  "image_provenance": {
+    "manifest_digest": "sha256:f1be3089bb7c917adf41068704ce8dd9a679e3c47cab466b3d2832be1b2f0cde",
+    "image_labels": {
+      "containers.bootc": "1",
+      "org.opencontainers.image.created": "2026-10-10T16:50:16Z",
+      "org.opencontainers.image.description": "Armada: a gaming-focused, SteamOS-like Fedora bootc image for ARM64 handhelds",
+      "org.opencontainers.image.documentation": "https://raw.githubusercontent.com/armada-os/armada/c3d178c9e5cc7107aaa128b8c1f384a9c6bd8dfa/README.md",
+      "org.opencontainers.image.licenses": "GPL-2.0-or-later",
+      "org.opencontainers.image.revision": "c3d178c9e5cc7107aaa128b8c1f384a9c6bd8dfa",
+      "org.opencontainers.image.source": "https://github.com/armada-os/armada/blob/c3d178c9e5cc7107aaa128b8c1f384a9c6bd8dfa/Containerfile",
+      "org.opencontainers.image.title": "armada",
+      "org.opencontainers.image.url": "https://github.com/armada-os/armada/tree/c3d178c9e5cc7107aaa128b8c1f384a9c6bd8dfa",
+      "org.opencontainers.image.vendor": "armada-os",
+      "org.opencontainers.image.version": "20261010.c3d178c",
+      "ostree.bootable": "true",
+      "ostree.linux": "7.2.9-200.fc44.aarch64",
+      "rpmostree.inputhash": "12bb2a2d6b698d6d8360d6c615741ef9762b8a97b7301b40531a94b3680ffffa"
+    },
+    "layer_digest": "sha256:f1fddebf6469af8e15e7835a434cb13219d133908f98d91177cedbc63b405634",
+    "layer_digest_checked": true,
+    "rpmdb_chunk_digest": "sha256:21719cdd9d5081b6343a119509e8709eb1816709717335cc0be107cf2a155230"
+  },
+  "local_nevra": "gamescope-session-0~20260920git.0232e0c-3.fc44.caihong.noarch",
+  "spec": "gamescope-session.spec",
+  "spec_sha256": "9d5d2f157447c5ec80dd38e350213efcc35b1d069962649342da3e5d90df3d6a",
+  "rpm_owned_paths": [
+    "/usr/bin/export-gpu",
+    "/usr/bin/gamescope-session-plus",
+    "/usr/lib/systemd/user/gamescope-session-plus@.service",
+    "/usr/lib/systemd/user/gamescope-session.target",
+    "/usr/share/doc/gamescope-session",
+    "/usr/share/doc/gamescope-session/README.md",
+    "/usr/share/gamescope-session-plus/device-quirks",
+    "/usr/share/gamescope-session-plus/gamescope-session-plus",
+    "/usr/share/gamescope/scripts/50-custom/50-disable-explicit-sync.lua",
+    "/usr/share/gamescope/scripts/50-custom/50-disable-explicit-sync.lua/50-disable-explicit-sync.lua",
+    "/usr/share/licenses/gamescope-session",
+    "/usr/share/licenses/gamescope-session/LICENSE"
+  ],
+  "excluded_global_directory_ownership": [],
+  "no_original_rpm_signature_claim": true,
+  "license": "MIT",
+  "source_archive_storage": "Operator-selected private build directory; not stored in this repository"
+}

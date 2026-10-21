@@ -42,6 +42,9 @@ required_paths=(
 	var/home/armada
 	var/home/armada/.local/share/Steam/steamrtarm64/steam
 	usr/bin/gamescope
+	etc/NetworkManager/conf.d/99-valve-wifi-backend.conf
+	usr/lib/systemd/system/wpa_supplicant.service
+	usr/share/dbus-1/system-services/fi.w1.wpa_supplicant1.service
 	usr/bin/FEX
 	usr/bin/bootc
 	usr/bin/cam
@@ -120,6 +123,21 @@ required_paths=(
 for path in "${required_paths[@]}"; do
 	require_path "$path"
 done
+
+# Armada ships wpa_supplicant, not iwd. Keep Steam's selected backend usable
+# after a NetworkManager restart or a desktop/game-mode switch.
+wifi_backend_config="$target/etc/NetworkManager/conf.d/99-valve-wifi-backend.conf"
+if [[ -L $wifi_backend_config ]] || ! awk '
+	/^[[:space:]]*\[/ { section = $0 }
+	/^[[:space:]]*wifi\.backend[[:space:]]*=/ {
+		count++
+		if (section != "[device]" || $0 != "wifi.backend=wpa_supplicant") invalid = 1
+	}
+	END { exit (count != 1 || invalid) }
+' "$wifi_backend_config" 2>/dev/null; then
+	echo "Armada Wi-Fi backend must select the installed wpa_supplicant backend" >&2
+	failed=1
+fi
 
 if [[ -e $target/etc/alsa/state-daemon.conf ]]; then
 	echo "ALSA state daemon mode must be disabled in Armada" >&2

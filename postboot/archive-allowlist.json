@@ -36,8 +36,8 @@
     {
       "path": "postboot/README.md",
       "role": "archive documentation and policy",
-      "bytes": 2301,
-      "sha256": "e4485f09f9502fce30d4fe514c6122f523ce9b00493f085c8f9b52da4d56bf7c"
+      "bytes": 2417,
+      "sha256": "1bef4d3e3f0e43f350a4de1e8b3b0154fb0cd66c9ebc873fa6d1b30a6071fa04"
     },
     {
       "path": "postboot/android-switch/.gitignore",
@@ -378,8 +378,8 @@
     {
       "path": "postboot/docs/current-validation.md",
       "role": "archive documentation and policy",
-      "bytes": 12627,
-      "sha256": "b482021f21c4f0d31bf5a8263426db0a6a315dff5c17fb6b85342bf87f2c182c"
+      "bytes": 15579,
+      "sha256": "53348fb9b7ce9175ec1e8e003f8c907200a285585fcea5547840ddc6be586ad7"
     },
     {
       "path": "postboot/docs/desktop-proxy.md",
@@ -494,6 +494,120 @@
       "role": "Steam dual-mode launcher prepared source; 90 mocked tests and independent review passed; not device-deployed",
       "bytes": 2566,
       "sha256": "ea748208dc6a57b353ca7338fce2961bfe9895ca437b81ee0ff880388bbdf84a"
+    },
+    {
+      "path": "postboot/network/PLAN.md",
+      "role": "Reviewed network recovery/package-hold/image-guard source and original payload provenance",
+      "bytes": 1196,
+      "sha256": "493b3f2238d76e29ee22412947f5b0c81971f5f64960d60e2743682a6b8ffee5"
+    },
+    {
+      "path": "postboot/network/README.md",
+      "role": "Reviewed network recovery/package-hold/image-guard source and original payload provenance",
+      "bytes": 5975,
+      "sha256": "b6c9eaa847030bdae4c57db3b62577216068b38e9f8060fa23dd29459befbf43"
+    },
+    {
+      "path": "postboot/network/image/assert_custom_package_baseline.py",
+      "role": "Reviewed network recovery/package-hold/image-guard source and original payload provenance",
+      "bytes": 8467,
+      "sha256": "ff3875d0808b819cf220ab9d6fdf24fcd2371fb93f90ab07c2b37745064fb826"
+    },
+    {
+      "path": "postboot/network/image/test_assert_custom_package_baseline.py",
+      "role": "Reviewed network recovery/package-hold/image-guard source and original payload provenance",
+      "bytes": 10586,
+      "sha256": "1acf7ee5791d1fdb90442165b4fcd135f1ec0046e3be97bc6787da8b7c37cd02"
+    },
+    {
+      "path": "postboot/network/locks/README.md",
+      "role": "Reviewed network recovery/package-hold/image-guard source and original payload provenance",
+      "bytes": 2387,
+      "sha256": "6aa9ff5dfcbe2700d65c81549fd5e2835a0effcfb0958f8a1b7efaada220c24f"
+    },
+    {
+      "path": "postboot/network/locks/lock_caihong_custom_packages.py",
+      "role": "Reviewed network recovery/package-hold/image-guard source and original payload provenance",
+      "bytes": 13231,
+      "sha256": "77213c3d3e0fd146172415ff80e470047d206e1b2d874e49b8412c4232f97db7"
+    },
+    {
+      "path": "postboot/network/locks/test_lock_caihong_custom_packages.py",
+      "role": "Reviewed network recovery/package-hold/image-guard source and original payload provenance",
+      "bytes": 7219,
+      "sha256": "9ed1bbf6f3077c5937dae95c49716ec89a00e041475a9e9162fadd55d9f6fdce"
+    },
+    {
+      "path": "postboot/network/repair_missing_wifi_backend.py",
+      "role": "Reviewed network recovery/package-hold/image-guard source and original payload provenance",
+      "bytes": 11158,
+      "sha256": "9a35f3cea0c2b43c121a58f20654536484530ad78172687bb4de216e2bcd4f63"
+    },
+    {
+      "path": "postboot/network/restoration/PROVENANCE-gamescope-session.json",
+      "role": "Reviewed network recovery/package-hold/image-guard source and original payload provenance",
+      "bytes": 12150,
+      "sha256": "0aa73aa270e57a612969bff9ab20f5479815878876bfb99fa83b3ba48f7e40d7"
+    },
+    {
+      "path": "postboot/network/restoration/PROVENANCE-inputplumber.json",
+      "role": "Reviewed network recovery/package-hold/image-guard source and original payload provenance",
+      "bytes": 110788,
+      "sha256": "efc2d2893d77b581857774b0b1c61e71821ce14c28c8ba83583af22db2fe6d7d"
+    },
+    {
+      "path": "postboot/network/restoration/PROVENANCE-manager.json",
+      "role": "Reviewed network recovery/package-hold/image-guard source and original payload provenance",
+      "bytes": 18147,
+      "sha256": "1c7e610fb73802b5f38d35b58e0739bffb9452d3c47c4dc4cfbb900ef167f107"
+    },
+    {
+      "path": "postboot/network/restoration/README.md",
+      "role": "Reviewed network recovery/package-hold/image-guard source and original payload provenance",
+      "bytes": 6701,
+      "sha256": "10a08f5f419140499865688f05f8d3280c3ff7d7a43fb7796412f4e88dc16c3b"
+    },
+    {
+      "path": "postboot/network/restoration/gamescope-session.spec",
+      "role": "Reviewed network recovery/package-hold/image-guard source and original payload provenance",
+      "bytes": 1935,
+      "sha256": "9d5d2f157447c5ec80dd38e350213efcc35b1d069962649342da3e5d90df3d6a"
+    },
+    {
+      "path": "postboot/network/restoration/inputplumber.spec",
+      "role": "Reviewed network recovery/package-hold/image-guard source and original payload provenance",
+      "bytes": 9865,
+      "sha256": "b96d1906fc0737b4277f2c490514841685c37cae613b93cb13c081784a292af1"
+    },
+    {
+      "path": "postboot/network/restoration/manager.spec",
+      "role": "Reviewed network recovery/package-hold/image-guard source and original payload provenance",
+      "bytes": 3372,
+      "sha256": "2674b54b2552925f56f3ae6b236b16537f3c45acceff0530490d05066e35d9a5"
+    },
+    {
+      "path": "postboot/network/restoration/verify_repack_inputs_gamescope_session.py",
+      "role": "Reviewed network recovery/package-hold/image-guard source and original payload provenance",
+      "bytes": 2342,
+      "sha256": "ea9222fe6a00a135642360cea0d6119e174537673afe641fefd4cae666eab1f7"
+    },
+    {
+      "path": "postboot/network/restoration/verify_repack_inputs_inputplumber.py",
+      "role": "Reviewed network recovery/package-hold/image-guard source and original payload provenance",
+      "bytes": 2337,
+      "sha256": "ce58b99c973ebe121a8f398d5d6a4cf4e392247e89b1ac2009a179cc508c9022"
+    },
+    {
+      "path": "postboot/network/restoration/verify_repack_inputs_manager.py",
+      "role": "Reviewed network recovery/package-hold/image-guard source and original payload provenance",
+      "bytes": 2334,
+      "sha256": "319df21dfe6f18dfd7c725a21f5005a07d95061989ccffa1b5e3f8dcc21d629b"
+    },
+    {
+      "path": "postboot/network/test_repair_missing_wifi_backend.py",
+      "role": "Reviewed network recovery/package-hold/image-guard source and original payload provenance",
+      "bytes": 12793,
+      "sha256": "1f697c49ada1faacdbd31f7065c61ecd9e8a873478bd61ad16cbb75e9c10d3d9"
     },
     {
       "path": "postboot/pcvr/README.md",
@@ -1670,6 +1784,18 @@
       "role": "vrchat curated source/template/test/documentation",
       "bytes": 2689,
       "sha256": "94046ee12fa616f5765e52a4a254e68aad6b79673a198644df4c0f30588cfdfc"
+    },
+    {
+      "path": "rootfs/armada/etc/NetworkManager/conf.d/99-valve-wifi-backend.conf",
+      "role": "Reviewed Armada WPA backend or exact custom-package hold image policy",
+      "bytes": 150,
+      "sha256": "2ed09a13e64e43d226c4550b573d3fda5bae46dbc2056979ab8460d50757fbff"
+    },
+    {
+      "path": "rootfs/armada/etc/dnf/dnf.conf",
+      "role": "Reviewed Armada WPA backend or exact custom-package hold image policy",
+      "bytes": 708,
+      "sha256": "af5206bc5a6ffe9a36bff55d1c9d1baa0aeb64c397774ebc8e51734cf4cb8c48"
     }
   ]
 }

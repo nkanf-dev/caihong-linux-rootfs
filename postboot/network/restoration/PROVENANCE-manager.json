@@ -1,0 +1,609 @@
+{
+  "kind": "local-rpm-repack-inputs",
+  "original_rpm": {
+    "name": "steamos-manager",
+    "version": "26.4.1",
+    "release": "1.fc44.armada",
+    "epoch": null,
+    "buildtime": [
+      1791191930
+    ],
+    "buildhost": "armada-builder",
+    "vendor": "Armada",
+    "packager": "Armada",
+    "url": "https://gitlab.steamos.cloud/holo/steamos-manager",
+    "arch": "aarch64",
+    "sourcerpm": "steamos-manager-26.4.1-1.fc44.armada.src.rpm"
+  },
+  "manifest": {
+    "manifest_digest": "sha256:f1be3089bb7c917adf41068704ce8dd9a679e3c47cab466b3d2832be1b2f0cde",
+    "config": {
+      "digest": "sha256:5a24a0b624b6f1796a14a9f4273389463ce6c958bf2d903f77bd45c0fb5b5cfc",
+      "mediaType": "application/vnd.oci.image.config.v1+json",
+      "size": 38405
+    },
+    "manager_layers": [
+      {
+        "annotations": {
+          "org.chunkah.component": "rpm/steamos-manager",
+          "org.chunkah.stability": "0.000"
+        },
+        "digest": "sha256:328510883041b0aa75d50d848d38a1a3aacda5ae946ed587a0f1cf45d53860b9",
+        "mediaType": "application/vnd.oci.image.layer.v1.tar+gzip",
+        "size": 5859305
+      }
+    ],
+    "config_labels": {
+      "containers.bootc": "1",
+      "org.opencontainers.image.created": "2026-10-10T16:50:16Z",
+      "org.opencontainers.image.description": "Armada: a gaming-focused, SteamOS-like Fedora bootc image for ARM64 handhelds",
+      "org.opencontainers.image.documentation": "https://raw.githubusercontent.com/armada-os/armada/c3d178c9e5cc7107aaa128b8c1f384a9c6bd8dfa/README.md",
+      "org.opencontainers.image.licenses": "GPL-2.0-or-later",
+      "org.opencontainers.image.revision": "c3d178c9e5cc7107aaa128b8c1f384a9c6bd8dfa",
+      "org.opencontainers.image.source": "https://github.com/armada-os/armada/blob/c3d178c9e5cc7107aaa128b8c1f384a9c6bd8dfa/Containerfile",
+      "org.opencontainers.image.title": "armada",
+      "org.opencontainers.image.url": "https://github.com/armada-os/armada/tree/c3d178c9e5cc7107aaa128b8c1f384a9c6bd8dfa",
+      "org.opencontainers.image.vendor": "armada-os",
+      "org.opencontainers.image.version": "20261010.c3d178c",
+      "ostree.bootable": "true",
+      "ostree.linux": "7.2.9-200.fc44.aarch64",
+      "rpmostree.inputhash": "12bb2a2d6b698d6d8360d6c615741ef9762b8a97b7301b40531a94b3680ffffa"
+    },
+    "layer_sha256": "328510883041b0aa75d50d848d38a1a3aacda5ae946ed587a0f1cf45d53860b9",
+    "binary_sha256": "de0e93a85b0186b360757929c94521c40415b4594cc631bfe1145e5958d4299c",
+    "binary_size": 8337616,
+    "image_revision_pin_patch_present": true,
+    "image_revision_pin_patch_path": "packages/steamos-manager/patches/0012-wifi-Always-write-wpa_supplicant-as-the-backend.patch",
+    "elf_machine": 183,
+    "needed_libraries": [
+      "libspeechd.so.2",
+      "libgio-2.0.so.0",
+      "libgobject-2.0.so.0",
+      "libudev.so.1",
+      "libgcc_s.so.1",
+      "libm.so.6",
+      "libc.so.6",
+      "ld-linux-aarch64.so.1"
+    ],
+    "stable_steamos_manager_base": "COMMIT=8e2883d0d7e2fc3994e822ca9853c03561ca6eec\nVERSION=26.4.1\n",
+    "cli_size": 4221776,
+    "cli_sha256": "c37c474703ef823405bd9bcc579ea7f2fc3c593c62788ba957414f6d3141a319",
+    "rpm_header": {
+      "name": "steamos-manager",
+      "version": "26.4.1",
+      "release": "1.fc44.armada",
+      "epoch": null,
+      "buildtime": [
+        1791191930
+      ],
+      "buildhost": "armada-builder",
+      "vendor": "Armada",
+      "packager": "Armada",
+      "url": "https://gitlab.steamos.cloud/holo/steamos-manager",
+      "arch": "aarch64",
+      "sourcerpm": "steamos-manager-26.4.1-1.fc44.armada.src.rpm"
+    },
+    "rpmdb_chunk_sha256": "21719cdd9d5081b6343a119509e8709eb1816709717335cc0be107cf2a155230",
+    "rpmdb_chunk_digest_match": true
+  },
+  "source_archive": "steamos-manager-armada-26.4.1.tar.gz",
+  "source_archive_sha256": "6f3ad8811840c992db474df4e62154145a0c28761d45f87c3ed74279be99beb4",
+  "spec": "manager.spec",
+  "spec_sha256": "2674b54b2552925f56f3ae6b236b16537f3c45acceff0530490d05066e35d9a5",
+  "payload_files": [
+    {
+      "path": "usr/bin/steamosctl",
+      "size": 4221776,
+      "mode": "0o755",
+      "sha256": "c37c474703ef823405bd9bcc579ea7f2fc3c593c62788ba957414f6d3141a319"
+    },
+    {
+      "path": "usr/lib/steamos-manager",
+      "size": 8337616,
+      "mode": "0o755",
+      "sha256": "de0e93a85b0186b360757929c94521c40415b4594cc631bfe1145e5958d4299c"
+    },
+    {
+      "path": "usr/lib/systemd/system/steamos-manager.service",
+      "size": 400,
+      "mode": "0o644",
+      "sha256": "c34c7c1896df20abdc75cc0221047565e8a941b0b97285c21647eab70239966d"
+    },
+    {
+      "path": "usr/lib/systemd/user/steamos-manager-configure-cecd.service",
+      "size": 175,
+      "mode": "0o644",
+      "sha256": "48c026ee2b4442f598f566577c1b1b289053441b0c2f9e6b53c0383e06123643"
+    },
+    {
+      "path": "usr/lib/systemd/user/steamos-manager-session-cleanup.service",
+      "size": 263,
+      "mode": "0o644",
+      "sha256": "342d2d22c1991c4646a9639a5c4de185b7d0d7867d101000ab00ca021dfd653b"
+    },
+    {
+      "path": "usr/lib/systemd/user/steamos-manager.service",
+      "size": 332,
+      "mode": "0o644",
+      "sha256": "50d1efc0950f853dafe4f8a7402eb6b99e840b875da4ea238bd5e999fe2047a8"
+    },
+    {
+      "path": "usr/share/dbus-1/interfaces/com.steampowered.SteamOSManager1.xml",
+      "size": 28986,
+      "mode": "0o644",
+      "sha256": "0c8c181501d1e24480d2394369c362770d32424e1d107014aa86639e185d405c"
+    },
+    {
+      "path": "usr/share/dbus-1/services/com.steampowered.SteamOSManager1.service",
+      "size": 110,
+      "mode": "0o644",
+      "sha256": "48739f2612616aad0ea0b35fb5c3fd2ee8dd33cf0757d1be857d0c0facb87f65"
+    },
+    {
+      "path": "usr/share/dbus-1/system-services/com.steampowered.SteamOSManager1.service",
+      "size": 119,
+      "mode": "0o644",
+      "sha256": "6e838518c5a1d83465e44e8dcd731bb5a9f414eccf4af0fbe15580d07af1e1c7"
+    },
+    {
+      "path": "usr/share/dbus-1/system.d/com.steampowered.SteamOSManager1.conf",
+      "size": 497,
+      "mode": "0o644",
+      "sha256": "edf68febb5573f8048661fb7a2893302daeeeaff66bb6d4808fe03d8be43011f"
+    },
+    {
+      "path": "usr/share/doc/steamos-manager/README.md",
+      "size": 7398,
+      "mode": "0o644",
+      "sha256": "f550d98db701b84fbbfcfe9c69ce5039c66c1e5cc2dd454d59530ddfebb27fad"
+    },
+    {
+      "path": "usr/share/licenses/steamos-manager/LICENSE",
+      "size": 1128,
+      "mode": "0o644",
+      "sha256": "f53dcc321aae90730a5d8b831de34eca141ad277f352ab3f8ad5f860060cef77"
+    },
+    {
+      "path": "usr/share/steamos-manager/devices/sm8250.toml",
+      "size": 1277,
+      "mode": "0o644",
+      "sha256": "a576eb7ac64187f35e2f4103031d27c863d98d2f9e60fff45851f2aa70ccb4d6"
+    },
+    {
+      "path": "usr/share/steamos-manager/devices/sm8550.toml",
+      "size": 1899,
+      "mode": "0o644",
+      "sha256": "12f02e756d9fadc1065282ad83ebe8c3abcb94637ffa01e90a2f326a1ba5791e"
+    },
+    {
+      "path": "usr/share/steamos-manager/devices/sm8650.toml",
+      "size": 517,
+      "mode": "0o644",
+      "sha256": "59ae3d4c0637aaf47e82397d976182585e09fc5c0662bdc010d1cbe2b2a7b091"
+    },
+    {
+      "path": "usr/share/steamos-manager/devices/sm8750.toml",
+      "size": 518,
+      "mode": "0o644",
+      "sha256": "69cae1bf5c77ac11ba81c4383733ac423cd2abd6c243a7db2bc0ffdf623ba7c0"
+    },
+    {
+      "path": "usr/share/steamos-manager/platform.toml",
+      "size": 156,
+      "mode": "0o644",
+      "sha256": "550179b7c6323fc2021bdf1afa5dd02d34273485acc340f171c08de5ad04dd3e"
+    }
+  ],
+  "no_upstream_rpm_signature_claim": true,
+  "excluded": [
+    "global/shared directory ownership, including /usr/lib/.build-id parents",
+    "any local /etc configuration content"
+  ],
+  "scriptlets": "none; root operator coordinates both manager instances",
+  "archive_members": [
+    {
+      "path": "etc",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "etc/steamos-manager",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "etc/steamos-manager/remotes.d",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/bin",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/bin/steamosctl",
+      "kind": "file",
+      "size": 4221776,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "c37c474703ef823405bd9bcc579ea7f2fc3c593c62788ba957414f6d3141a319"
+    },
+    {
+      "path": "usr/lib",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/lib/.build-id",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/lib/.build-id/4e",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/lib/.build-id/4e/5660b83fc03aff0603ec000b8c0572fa99a5f5",
+      "kind": "symlink",
+      "size": 0,
+      "mode": "0o777",
+      "uid": 0,
+      "gid": 0,
+      "target": "../../../../usr/lib/steamos-manager",
+      "resolved_target": "usr/lib/steamos-manager"
+    },
+    {
+      "path": "usr/lib/.build-id/f3",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/lib/.build-id/f3/14ee3b21aa64fa22813216b26bd26ec0d84ef5",
+      "kind": "symlink",
+      "size": 0,
+      "mode": "0o777",
+      "uid": 0,
+      "gid": 0,
+      "target": "../../../../usr/bin/steamosctl",
+      "resolved_target": "usr/bin/steamosctl"
+    },
+    {
+      "path": "usr/lib/steamos-manager",
+      "kind": "file",
+      "size": 8337616,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "de0e93a85b0186b360757929c94521c40415b4594cc631bfe1145e5958d4299c"
+    },
+    {
+      "path": "usr/lib/systemd",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/lib/systemd/system",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/lib/systemd/system/steamos-manager.service",
+      "kind": "file",
+      "size": 400,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "c34c7c1896df20abdc75cc0221047565e8a941b0b97285c21647eab70239966d"
+    },
+    {
+      "path": "usr/lib/systemd/user",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/lib/systemd/user/steamos-manager-configure-cecd.service",
+      "kind": "file",
+      "size": 175,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "48c026ee2b4442f598f566577c1b1b289053441b0c2f9e6b53c0383e06123643"
+    },
+    {
+      "path": "usr/lib/systemd/user/steamos-manager-session-cleanup.service",
+      "kind": "file",
+      "size": 263,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "342d2d22c1991c4646a9639a5c4de185b7d0d7867d101000ab00ca021dfd653b"
+    },
+    {
+      "path": "usr/lib/systemd/user/steamos-manager.service",
+      "kind": "file",
+      "size": 332,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "50d1efc0950f853dafe4f8a7402eb6b99e840b875da4ea238bd5e999fe2047a8"
+    },
+    {
+      "path": "usr/share",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/dbus-1",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/dbus-1/interfaces",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/dbus-1/interfaces/com.steampowered.SteamOSManager1.xml",
+      "kind": "file",
+      "size": 28986,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "0c8c181501d1e24480d2394369c362770d32424e1d107014aa86639e185d405c"
+    },
+    {
+      "path": "usr/share/dbus-1/services",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/dbus-1/services/com.steampowered.SteamOSManager1.service",
+      "kind": "file",
+      "size": 110,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "48739f2612616aad0ea0b35fb5c3fd2ee8dd33cf0757d1be857d0c0facb87f65"
+    },
+    {
+      "path": "usr/share/dbus-1/system-services",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/dbus-1/system-services/com.steampowered.SteamOSManager1.service",
+      "kind": "file",
+      "size": 119,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "6e838518c5a1d83465e44e8dcd731bb5a9f414eccf4af0fbe15580d07af1e1c7"
+    },
+    {
+      "path": "usr/share/dbus-1/system.d",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/dbus-1/system.d/com.steampowered.SteamOSManager1.conf",
+      "kind": "file",
+      "size": 497,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "edf68febb5573f8048661fb7a2893302daeeeaff66bb6d4808fe03d8be43011f"
+    },
+    {
+      "path": "usr/share/doc",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/doc/steamos-manager",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/doc/steamos-manager/README.md",
+      "kind": "file",
+      "size": 7398,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "f550d98db701b84fbbfcfe9c69ce5039c66c1e5cc2dd454d59530ddfebb27fad"
+    },
+    {
+      "path": "usr/share/licenses",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/licenses/steamos-manager",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/licenses/steamos-manager/LICENSE",
+      "kind": "file",
+      "size": 1128,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "f53dcc321aae90730a5d8b831de34eca141ad277f352ab3f8ad5f860060cef77"
+    },
+    {
+      "path": "usr/share/steamos-manager",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/steamos-manager/devices",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/steamos-manager/devices/sm8250.toml",
+      "kind": "file",
+      "size": 1277,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "a576eb7ac64187f35e2f4103031d27c863d98d2f9e60fff45851f2aa70ccb4d6"
+    },
+    {
+      "path": "usr/share/steamos-manager/devices/sm8550.toml",
+      "kind": "file",
+      "size": 1899,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "12f02e756d9fadc1065282ad83ebe8c3abcb94637ffa01e90a2f326a1ba5791e"
+    },
+    {
+      "path": "usr/share/steamos-manager/devices/sm8650.toml",
+      "kind": "file",
+      "size": 517,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "59ae3d4c0637aaf47e82397d976182585e09fc5c0662bdc010d1cbe2b2a7b091"
+    },
+    {
+      "path": "usr/share/steamos-manager/devices/sm8750.toml",
+      "kind": "file",
+      "size": 518,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "69cae1bf5c77ac11ba81c4383733ac423cd2abd6c243a7db2bc0ffdf623ba7c0"
+    },
+    {
+      "path": "usr/share/steamos-manager/platform.toml",
+      "kind": "file",
+      "size": 156,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "550179b7c6323fc2021bdf1afa5dd02d34273485acc340f171c08de5ad04dd3e"
+    },
+    {
+      "path": "usr/share/steamos-manager/remotes.d",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    }
+  ],
+  "rpm_owned_paths": [
+    "/etc/steamos-manager",
+    "/etc/steamos-manager/remotes.d",
+    "/usr/share/doc/steamos-manager",
+    "/usr/share/licenses/steamos-manager",
+    "/usr/share/steamos-manager",
+    "/usr/share/steamos-manager/devices",
+    "/usr/share/steamos-manager/remotes.d",
+    "/usr/bin/steamosctl",
+    "/usr/lib/.build-id/4e/5660b83fc03aff0603ec000b8c0572fa99a5f5",
+    "/usr/lib/.build-id/f3/14ee3b21aa64fa22813216b26bd26ec0d84ef5",
+    "/usr/lib/steamos-manager",
+    "/usr/lib/systemd/system/steamos-manager.service",
+    "/usr/lib/systemd/user/steamos-manager-configure-cecd.service",
+    "/usr/lib/systemd/user/steamos-manager-session-cleanup.service",
+    "/usr/lib/systemd/user/steamos-manager.service",
+    "/usr/share/dbus-1/interfaces/com.steampowered.SteamOSManager1.xml",
+    "/usr/share/dbus-1/services/com.steampowered.SteamOSManager1.service",
+    "/usr/share/dbus-1/system-services/com.steampowered.SteamOSManager1.service",
+    "/usr/share/dbus-1/system.d/com.steampowered.SteamOSManager1.conf",
+    "/usr/share/doc/steamos-manager/README.md",
+    "/usr/share/licenses/steamos-manager/LICENSE",
+    "/usr/share/steamos-manager/devices/sm8250.toml",
+    "/usr/share/steamos-manager/devices/sm8550.toml",
+    "/usr/share/steamos-manager/devices/sm8650.toml",
+    "/usr/share/steamos-manager/devices/sm8750.toml",
+    "/usr/share/steamos-manager/platform.toml"
+  ],
+  "local_nevra": "steamos-manager-26.4.1-3.fc44.caihong.aarch64",
+  "runtime_behavior": "intended by confirmed source patch; not proven until parent live u0 gate",
+  "source_archive_storage": "Operator-selected private build directory; not stored in this repository"
+}

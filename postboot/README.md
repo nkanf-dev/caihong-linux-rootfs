@@ -11,7 +11,8 @@ The scripts use the user's home directory or explicit arguments. They do not dep
 3. Restore [desktop VRChat](vrchat/README.md) before attempting VRChat VR.
 4. Restore the [Android switch UI source](android-switch/README.md) when needed; no boot action is part of this archive.
 5. Read the [SteamVR/ALVR recovery guide](pcvr/README.md).
-6. Run the local checks in [validation](docs/validation.md).
+6. Read [Wi-Fi and custom-package recovery](network/README.md) and [package update holds](network/locks/README.md).
+7. Run the local checks in [validation](docs/validation.md).
 
 The full path is native ARM64 Steam → Valve runtime → stock app FEX → full x86_64 SteamVR 2.17.10 → ALVR 20.14.1 → PICO 4 Ultra.
 The private VRChat FEX route is separate. Do not substitute its FEX globally or into the SteamVR route.

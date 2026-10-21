@@ -1,0 +1,3404 @@
+{
+  "header": {
+    "name": "inputplumber",
+    "version": "0.81.0",
+    "release": "1.fc44.armada",
+    "epoch": null,
+    "buildtime": [
+      1791513060
+    ],
+    "buildhost": "armada-builder",
+    "vendor": "Armada",
+    "packager": "Armada",
+    "url": "https://github.com/ShadowBlip/InputPlumber",
+    "arch": "aarch64",
+    "sourcerpm": "inputplumber-0.81.0-1.fc44.armada.src.rpm"
+  },
+  "files": [
+    {
+      "path": "/usr/bin/inputplumber",
+      "size": 9861472,
+      "mode": 33261,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "8849270561c40090067689711dfaf78b49d21a092746496e5a539407efd6444f",
+      "sha256": "8849270561c40090067689711dfaf78b49d21a092746496e5a539407efd6444f"
+    },
+    {
+      "path": "/usr/lib/.build-id",
+      "size": 0,
+      "mode": 16877,
+      "flags": 4096,
+      "link": "",
+      "rpm_digest": ""
+    },
+    {
+      "path": "/usr/lib/.build-id/52",
+      "size": 0,
+      "mode": 16877,
+      "flags": 4096,
+      "link": "",
+      "rpm_digest": ""
+    },
+    {
+      "path": "/usr/lib/.build-id/52/451e7c0e2356f5728a9d46bafd400defd771a4",
+      "size": 32,
+      "mode": 41471,
+      "flags": 4096,
+      "link": "../../../../usr/bin/inputplumber",
+      "rpm_digest": "",
+      "resolved_target": "/usr/bin/inputplumber"
+    },
+    {
+      "path": "/usr/lib/systemd/system/inputplumber-suspend.service",
+      "size": 422,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "e5e8f506f381cd881aa831a50aa2d72d2e9708a3fb92e9eb1165278d742d63c4",
+      "sha256": "e5e8f506f381cd881aa831a50aa2d72d2e9708a3fb92e9eb1165278d742d63c4"
+    },
+    {
+      "path": "/usr/lib/systemd/system/inputplumber.service",
+      "size": 213,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "8cd2e594aaed9e0a5ba9bcaf6417b63a19a7b7b9f233a34152ddb49da35a5647",
+      "sha256": "8cd2e594aaed9e0a5ba9bcaf6417b63a19a7b7b9f233a34152ddb49da35a5647"
+    },
+    {
+      "path": "/usr/lib/udev/hwdb.d/59-inputplumber.hwdb",
+      "size": 504,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "443129fc6b73aa53a1c41e0a8f9654e1964784b8a9dc41a0d0c740c72b4efa3f",
+      "sha256": "443129fc6b73aa53a1c41e0a8f9654e1964784b8a9dc41a0d0c740c72b4efa3f"
+    },
+    {
+      "path": "/usr/lib/udev/hwdb.d/60-inputplumber-autostart.hwdb",
+      "size": 3465,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "977fc93a0a517ba940dd98826aec43b5b4112ee6c3d032d63f53e1b01b320bcd",
+      "sha256": "977fc93a0a517ba940dd98826aec43b5b4112ee6c3d032d63f53e1b01b320bcd"
+    },
+    {
+      "path": "/usr/lib/udev/rules.d/50-8bitdo-u2-controller.rules",
+      "size": 228,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "2b3f619ecb00b7df677c2d14995137e19e16f6d11967b9e96a63371be2897213",
+      "sha256": "2b3f619ecb00b7df677c2d14995137e19e16f6d11967b9e96a63371be2897213"
+    },
+    {
+      "path": "/usr/lib/udev/rules.d/60-inputplumber-uaccess.rules",
+      "size": 208,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "883f9f96976dea4235be78568916fd1a0041dae9189df4386ed5f7e6678c52cc",
+      "sha256": "883f9f96976dea4235be78568916fd1a0041dae9189df4386ed5f7e6678c52cc"
+    },
+    {
+      "path": "/usr/lib/udev/rules.d/90-inputplumber-autostart.rules",
+      "size": 103,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "076e3dd6b74eb438d0a4e0c07504b890230fd88368706eadae4f588d35a49124",
+      "sha256": "076e3dd6b74eb438d0a4e0c07504b890230fd88368706eadae4f588d35a49124"
+    },
+    {
+      "path": "/usr/lib/udev/rules.d/99-inputplumber-device-setup.rules",
+      "size": 3713,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "6003bfd16373d2a966894333295e31ab07b36534dd92abcb9e8e3507d64d410e",
+      "sha256": "6003bfd16373d2a966894333295e31ab07b36534dd92abcb9e8e3507d64d410e"
+    },
+    {
+      "path": "/usr/share/dbus-1/system.d/org.shadowblip.InputPlumber.conf",
+      "size": 904,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "5376460e56a865ae6e1e1de5806ea6aac99c8a55290354e80c00ec89fc1bcf55",
+      "sha256": "5376460e56a865ae6e1e1de5806ea6aac99c8a55290354e80c00ec89fc1bcf55"
+    },
+    {
+      "path": "/usr/share/doc/inputplumber",
+      "size": 0,
+      "mode": 16877,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": ""
+    },
+    {
+      "path": "/usr/share/doc/inputplumber/README.md",
+      "size": 1868,
+      "mode": 33188,
+      "flags": 2,
+      "link": "",
+      "rpm_digest": "71644795e2a8cc00be194774b818027b95d0df6421b0c3308059104f14c71ed2",
+      "sha256": "71644795e2a8cc00be194774b818027b95d0df6421b0c3308059104f14c71ed2"
+    },
+    {
+      "path": "/usr/share/inputplumber",
+      "size": 0,
+      "mode": 16877,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": ""
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps",
+      "size": 0,
+      "mode": 16877,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": ""
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/ally_type1.yaml",
+      "size": 1644,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "308885ded656c4e0c6687641e7b1d9904c20035e88ceab8079afe89d8841da9d",
+      "sha256": "308885ded656c4e0c6687641e7b1d9904c20035e88ceab8079afe89d8841da9d"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/ally_type2.yaml",
+      "size": 1328,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "77b97923125aac9b5d79c83589463709f4cbe9f687881635b44b3f57edf2dd7d",
+      "sha256": "77b97923125aac9b5d79c83589463709f4cbe9f687881635b44b3f57edf2dd7d"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/anbernic_type1.yaml",
+      "size": 2702,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "9338cd2b0a9a3f71a2b9198e923ad74b78e90bce9271f0674798098648e3dd30",
+      "sha256": "9338cd2b0a9a3f71a2b9198e923ad74b78e90bce9271f0674798098648e3dd30"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/ayaneo_type1.yaml",
+      "size": 1013,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "b8f23ec9cd8f1df0dee16376d282266a75ac332af63d4b0e1296c761e0aa17a4",
+      "sha256": "b8f23ec9cd8f1df0dee16376d282266a75ac332af63d4b0e1296c761e0aa17a4"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/ayaneo_type10.yaml",
+      "size": 2519,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "9659a0a3b0238a825a1337ffb1b080c002c22d7b873bc0d4db76737ac5875599",
+      "sha256": "9659a0a3b0238a825a1337ffb1b080c002c22d7b873bc0d4db76737ac5875599"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/ayaneo_type11.yaml",
+      "size": 496,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "8e671b18c5ed76089e97454b383e02968456ef3f397c2f6c27bfb44710fea9d6",
+      "sha256": "8e671b18c5ed76089e97454b383e02968456ef3f397c2f6c27bfb44710fea9d6"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/ayaneo_type2.yaml",
+      "size": 1190,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "d710238d5e22c3bce6cceef35fa2c4d2505d1cd7299e0f093bb4722817c48024",
+      "sha256": "d710238d5e22c3bce6cceef35fa2c4d2505d1cd7299e0f093bb4722817c48024"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/ayaneo_type3.yaml",
+      "size": 1199,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "cab9db4f89ba2e9a00e86b535db71f40ae1c5a90429507adcaf08bd3f8a0500d",
+      "sha256": "cab9db4f89ba2e9a00e86b535db71f40ae1c5a90429507adcaf08bd3f8a0500d"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/ayaneo_type4.yaml",
+      "size": 1401,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "9a52d806f4824e6fd3f45e1f0636a9a4ccaf31e605382f416e1a25b6b1d2a0cd",
+      "sha256": "9a52d806f4824e6fd3f45e1f0636a9a4ccaf31e605382f416e1a25b6b1d2a0cd"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/ayaneo_type5.yaml",
+      "size": 1196,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "6dceb6ac637c4d1da927748ddedd298c679303c0dc8a86653538c00fb2b5f536",
+      "sha256": "6dceb6ac637c4d1da927748ddedd298c679303c0dc8a86653538c00fb2b5f536"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/ayaneo_type6.yaml",
+      "size": 1416,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "648e239d14079c4e8a44f770305ebbe255e7e2c10c4048e5ada62bc5d5b7482d",
+      "sha256": "648e239d14079c4e8a44f770305ebbe255e7e2c10c4048e5ada62bc5d5b7482d"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/ayaneo_type7.yaml",
+      "size": 994,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "f45a04b479ff77f42fcaf966d33264c11b0511beb3474e5baa09aaf9cbbaed9a",
+      "sha256": "f45a04b479ff77f42fcaf966d33264c11b0511beb3474e5baa09aaf9cbbaed9a"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/ayaneo_type8.yaml",
+      "size": 1183,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "f23bcd16431d5b93a98391888b1f8e985a9913385633854261b3b081ae383955",
+      "sha256": "f23bcd16431d5b93a98391888b1f8e985a9913385633854261b3b081ae383955"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/ayaneo_type9.yaml",
+      "size": 1280,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "9377f76731d694fd5f8310917a78da627257c401898498414758df17d87142e4",
+      "sha256": "9377f76731d694fd5f8310917a78da627257c401898498414758df17d87142e4"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/ayn_type1.yaml",
+      "size": 874,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "37c1575bbf911506f698555d3d69c3b6715060d0027e733766c0d9edafb47b21",
+      "sha256": "37c1575bbf911506f698555d3d69c3b6715060d0027e733766c0d9edafb47b21"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/ayn_type2.yaml",
+      "size": 2051,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "b86525bb71854a7d9953e1c17db49fa04cdb06bb8100131a76e7946dee8431ab",
+      "sha256": "b86525bb71854a7d9953e1c17db49fa04cdb06bb8100131a76e7946dee8431ab"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/ayn_type3.yaml",
+      "size": 1851,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "28be310ebda2e30ae2ef0994e7e66b2a4f8f6ca06c8f492313cef91550ce2f36",
+      "sha256": "28be310ebda2e30ae2ef0994e7e66b2a4f8f6ca06c8f492313cef91550ce2f36"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/cec.yaml",
+      "size": 1653,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "ff72c3260d720eb02dc2514b38a9651e2b661522154cfaab475e5498840aba62",
+      "sha256": "ff72c3260d720eb02dc2514b38a9651e2b661522154cfaab475e5498840aba62"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/dinput_generic.yaml",
+      "size": 5054,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "e12b6a7fea2618d5154df3c2bad85ad4105b2691bf20d03c0ac4481e431b9cbe",
+      "sha256": "e12b6a7fea2618d5154df3c2bad85ad4105b2691bf20d03c0ac4481e431b9cbe"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/flow_type1.yaml",
+      "size": 661,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "1e98bf40755e8e3c8d46be85f288f0fde8fa55a1075ee13b3822db1c9b1ff9f4",
+      "sha256": "1e98bf40755e8e3c8d46be85f288f0fde8fa55a1075ee13b3822db1c9b1ff9f4"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/flydigi_vader_4_pro.yaml",
+      "size": 907,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "ecad54d2c94c0372e5ab4dc5fbe227d261ae4346290570127850dd3f10845535",
+      "sha256": "ecad54d2c94c0372e5ab4dc5fbe227d261ae4346290570127850dd3f10845535"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/gpd_menu.yaml",
+      "size": 647,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "1fb10436c4ee885c7205f279467e1d00b4045b4279a22025fe628faa27351318",
+      "sha256": "1fb10436c4ee885c7205f279467e1d00b4045b4279a22025fe628faa27351318"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/gpd_type1.yaml",
+      "size": 833,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "9969205b582ce4ac80f06fea0dab2d5aa658abbb85728d285d661b69805a7e92",
+      "sha256": "9969205b582ce4ac80f06fea0dab2d5aa658abbb85728d285d661b69805a7e92"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/gpd_type2.yaml",
+      "size": 767,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "1c94ff03c5fbb7ce79cff49f0269f36e09f54140ea0f61b76e754404e7e3bff2",
+      "sha256": "1c94ff03c5fbb7ce79cff49f0269f36e09f54140ea0f61b76e754404e7e3bff2"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/gpd_type3.yaml",
+      "size": 666,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "10092def52af14f372bde0c6e46b0e2467bb161e4d7bdcc8c4f924a414e25f5f",
+      "sha256": "10092def52af14f372bde0c6e46b0e2467bb161e4d7bdcc8c4f924a414e25f5f"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/gpd_type4.yaml",
+      "size": 1486,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "605b7c67c389ce4ac67a2e2be832a6f45cf3f05bdb2a227732dc4432483da857",
+      "sha256": "605b7c67c389ce4ac67a2e2be832a6f45cf3f05bdb2a227732dc4432483da857"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/imu_generic.yaml",
+      "size": 1211,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "3441ee06d6dbc36a02456bfd3a565c25ff830ebaeac2b5fe6825aff857ed2790",
+      "sha256": "3441ee06d6dbc36a02456bfd3a565c25ff830ebaeac2b5fe6825aff857ed2790"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/konkr_type1.yaml",
+      "size": 1438,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "43fc3ba40edf78002d5e0f2a9727d2f840420a0518b197b1b30ea6992d744a3c",
+      "sha256": "43fc3ba40edf78002d5e0f2a9727d2f840420a0518b197b1b30ea6992d744a3c"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/konkr_type2.yaml",
+      "size": 2981,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "5e1be7c3f9956b1cd341c0398e6ec61f9a8de32c0604fbd9ce3afb2dde311e18",
+      "sha256": "5e1be7c3f9956b1cd341c0398e6ec61f9a8de32c0604fbd9ce3afb2dde311e18"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/konkr_type3.yaml",
+      "size": 1625,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "3bd2e52223a63883633b11b254020253f33455e434b4b61beeaa31e4801ba6e5",
+      "sha256": "3bd2e52223a63883633b11b254020253f33455e434b4b61beeaa31e4801ba6e5"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/logitech_dualaction.yaml",
+      "size": 4679,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "40060bccf19cb90e89b2b951ca6de3b4ef43782ba9f8c5a88dc97e3a9e59bff9",
+      "sha256": "40060bccf19cb90e89b2b951ca6de3b4ef43782ba9f8c5a88dc97e3a9e59bff9"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/msiclaw_type1.yaml",
+      "size": 1481,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "ff70954530b3863ceed51cd5f60d0d07be601c563b314a3d2184858d98f2d56c",
+      "sha256": "ff70954530b3863ceed51cd5f60d0d07be601c563b314a3d2184858d98f2d56c"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/msiclaw_type2.yaml",
+      "size": 1267,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "3b7082bc5cf85e42df76440e4ba76f014011ea72d6bbf3a70ffcc04d6ad096b2",
+      "sha256": "3b7082bc5cf85e42df76440e4ba76f014011ea72d6bbf3a70ffcc04d6ad096b2"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/onexplayer_type1.yaml",
+      "size": 1248,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "8763c9239195d3b81cf79eebfcd145fd03e907d46285fc39f27cb732f7311f4f",
+      "sha256": "8763c9239195d3b81cf79eebfcd145fd03e907d46285fc39f27cb732f7311f4f"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/onexplayer_type2.yaml",
+      "size": 1412,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "216b2cf39d3168e7e4cff71c8eb748de4198921298543873ec1990e1c21cff4c",
+      "sha256": "216b2cf39d3168e7e4cff71c8eb748de4198921298543873ec1990e1c21cff4c"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/onexplayer_type3.yaml",
+      "size": 1577,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "2bb23ee445ce452501b71b3506db01112ef9c49328b1e0b11b2536a10f889f73",
+      "sha256": "2bb23ee445ce452501b71b3506db01112ef9c49328b1e0b11b2536a10f889f73"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/onexplayer_type4.yaml",
+      "size": 1017,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "0b39340496c864be13b42c6b22f9b2c10dc352633c21fb9f2e9c336bb6441288",
+      "sha256": "0b39340496c864be13b42c6b22f9b2c10dc352633c21fb9f2e9c336bb6441288"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/onexplayer_type5.yaml",
+      "size": 1086,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "0fb4d8dae02fb7468f4000c8b5c3baf861c4e7f8e7be6a4396c8367c5bb8cb83",
+      "sha256": "0fb4d8dae02fb7468f4000c8b5c3baf861c4e7f8e7be6a4396c8367c5bb8cb83"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/onexplayer_type6.yaml",
+      "size": 1026,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "a67b353d3cb845a66b89fb33e09c4375438aefefc6231bc1522dab621b98b0cd",
+      "sha256": "a67b353d3cb845a66b89fb33e09c4375438aefefc6231bc1522dab621b98b0cd"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/onexplayer_type7.yaml",
+      "size": 1712,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "2f66b76fc97e246e8b89c9b0b255b8d8379e3a995ebd01a1b0a2ad9ddfab4eb3",
+      "sha256": "2f66b76fc97e246e8b89c9b0b255b8d8379e3a995ebd01a1b0a2ad9ddfab4eb3"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/onexplayer_type8.yaml",
+      "size": 2410,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "319ec1a70b13bf4c03cb45d803caa6e1f290d675ec2bf9b054bea3128c50a670",
+      "sha256": "319ec1a70b13bf4c03cb45d803caa6e1f290d675ec2bf9b054bea3128c50a670"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/orangepi_type1.yaml",
+      "size": 991,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "ddb11c81ad30dd3e341b4b3554925629f0ff94c79f0480c35da2d05a6ee255e3",
+      "sha256": "ddb11c81ad30dd3e341b4b3554925629f0ff94c79f0480c35da2d05a6ee255e3"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/retroid_type1.yaml",
+      "size": 2356,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "95a0fcc2bcf3dbe8a96241a8271f4e4cb46d22c08a9ad8551c908e04ad32f723",
+      "sha256": "95a0fcc2bcf3dbe8a96241a8271f4e4cb46d22c08a9ad8551c908e04ad32f723"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/retroid_type2.yaml",
+      "size": 2152,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "95d1195004b60da46cef3944acfb7d8c2e6bf4b26719b6dca1b690077ab83500",
+      "sha256": "95d1195004b60da46cef3944acfb7d8c2e6bf4b26719b6dca1b690077ab83500"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/rsinput_type1.yaml",
+      "size": 2273,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "0eeb93734f36cfac544e7496c1f02cb278adf56fc98642011944699f037af8f2",
+      "sha256": "0eeb93734f36cfac544e7496c1f02cb278adf56fc98642011944699f037af8f2"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/swap_west_north.yaml",
+      "size": 810,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "8f0a35dbe15c5142530e18296fe5cf06d3d2dbc8ea7abeac40320d95c772c5fa",
+      "sha256": "8f0a35dbe15c5142530e18296fe5cf06d3d2dbc8ea7abeac40320d95c772c5fa"
+    },
+    {
+      "path": "/usr/share/inputplumber/capability_maps/zone_type1.yaml",
+      "size": 2508,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "9705c013f62129c57e7e7e24f51d154e9f8eb4bb087028010d90a49bf71764ff",
+      "sha256": "9705c013f62129c57e7e7e24f51d154e9f8eb4bb087028010d90a49bf71764ff"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices",
+      "size": 0,
+      "mode": 16877,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": ""
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/10-ignore_unsupported.yaml",
+      "size": 966,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "550bb1a00c82f06baf4766bc8237f78a5f07feba8c915b43d2a1bff805cc9ec5",
+      "sha256": "550bb1a00c82f06baf4766bc8237f78a5f07feba8c915b43d2a1bff805cc9ec5"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-anbernic_win600.yaml",
+      "size": 1541,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "953b0101506304fc89d8331c57cacf10af8c26071073f04d56e2e55e2f0febe3",
+      "sha256": "953b0101506304fc89d8331c57cacf10af8c26071073f04d56e2e55e2f0febe3"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-aokzoe_a1.yaml",
+      "size": 2066,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "92fe892aebdb074ce272995ed3ae01dff8b57335d35fe9e1a060e4a6106b03f4",
+      "sha256": "92fe892aebdb074ce272995ed3ae01dff8b57335d35fe9e1a060e4a6106b03f4"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayaneo_2.yaml",
+      "size": 2697,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "497733168e11bb075cb7cccc6caa191df3bf5ed35bf62f2cc7f3a34c513cc087",
+      "sha256": "497733168e11bb075cb7cccc6caa191df3bf5ed35bf62f2cc7f3a34c513cc087"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayaneo_2021.yaml",
+      "size": 2414,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "c9f19f1723899c2c96c250e47acdb478638b61a0585c6ad2817e6c5f405f39fe",
+      "sha256": "c9f19f1723899c2c96c250e47acdb478638b61a0585c6ad2817e6c5f405f39fe"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayaneo_2s.yaml",
+      "size": 2776,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "6263d2a0e49254c52157edd5d4bac11cfa924c627800012605a5e4aad9ad1d76",
+      "sha256": "6263d2a0e49254c52157edd5d4bac11cfa924c627800012605a5e4aad9ad1d76"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayaneo_3.yaml",
+      "size": 2810,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "976f6705c65d687b21be132a531d8e273a2ceb2aefc7edf8208539f116ea5764",
+      "sha256": "976f6705c65d687b21be132a531d8e273a2ceb2aefc7edf8208539f116ea5764"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayaneo_air.yaml",
+      "size": 2336,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "86a8c96e2bb3ffba80df8553414a6f5781ed23bf199369f686dcfde7c505b2bd",
+      "sha256": "86a8c96e2bb3ffba80df8553414a6f5781ed23bf199369f686dcfde7c505b2bd"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayaneo_air_1s.yaml",
+      "size": 2531,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "ba42e13eb3bca1e3582ce9309fb2ab6bdb603d647b6e80f28cb98001fec83397",
+      "sha256": "ba42e13eb3bca1e3582ce9309fb2ab6bdb603d647b6e80f28cb98001fec83397"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayaneo_air_plus.yaml",
+      "size": 2607,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "1acaff8175ba8b43448cfc7a927991530cb107ad86de60846c08f9a105bd8578",
+      "sha256": "1acaff8175ba8b43448cfc7a927991530cb107ad86de60846c08f9a105bd8578"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayaneo_air_plus_mendo.yaml",
+      "size": 2406,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "d8ee77337a1735cf346847cc74ca815e913beb503ea92a9d43db54de6cedd685",
+      "sha256": "d8ee77337a1735cf346847cc74ca815e913beb503ea92a9d43db54de6cedd685"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayaneo_flip.yaml",
+      "size": 2689,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "62feb7138be2b7c2df93e4051ae7aa2657e405170feac29aa3036d09c25921ed",
+      "sha256": "62feb7138be2b7c2df93e4051ae7aa2657e405170feac29aa3036d09c25921ed"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayaneo_flip_1s.yaml",
+      "size": 2847,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "ecaa49f20c0ad893e77bd3152c5489f3df6aad3f7e1d08643a7dc444a794cbb2",
+      "sha256": "ecaa49f20c0ad893e77bd3152c5489f3df6aad3f7e1d08643a7dc444a794cbb2"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayaneo_kun.yaml",
+      "size": 2270,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "0c5fa8ba4331f25f947a9e73e30782b775cfd47b0cc68365c70f762e53ff88e0",
+      "sha256": "0c5fa8ba4331f25f947a9e73e30782b775cfd47b0cc68365c70f762e53ff88e0"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayaneo_next.yaml",
+      "size": 2555,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "acfaaeb0c4e765927c5dd1338d0c1d7c8033064928c1b4b277394205377971eb",
+      "sha256": "acfaaeb0c4e765927c5dd1338d0c1d7c8033064928c1b4b277394205377971eb"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayaneo_pocket_ds.yaml",
+      "size": 1014,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "1d582fc8b9fe60bdf3c48c0cf5917dc44c47f3c254e4c908c754d14888406d84",
+      "sha256": "1d582fc8b9fe60bdf3c48c0cf5917dc44c47f3c254e4c908c754d14888406d84"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayaneo_pocket_s2.yaml",
+      "size": 915,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "5e8bfa75271c9ef19cc98611c876b7c0d07957160e1dc17462f2cc30b0cef5f0",
+      "sha256": "5e8bfa75271c9ef19cc98611c876b7c0d07957160e1dc17462f2cc30b0cef5f0"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayaneo_slide.yaml",
+      "size": 2277,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "06ba5b9d592fe61818140d0407c1738bc14ccc95ee231abbc24defc134095bd0",
+      "sha256": "06ba5b9d592fe61818140d0407c1738bc14ccc95ee231abbc24defc134095bd0"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayn_loki_max.yaml",
+      "size": 1935,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "89fe951639748d581505a921e526a117a19cf87ab304a2cb26e14335e4979df9",
+      "sha256": "89fe951639748d581505a921e526a117a19cf87ab304a2cb26e14335e4979df9"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayn_loki_mini_pro.yaml",
+      "size": 1986,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "22c3e155dc62a907cc62c66c8a16160d5251af70ce5ad3a9f9888a866654a3d4",
+      "sha256": "22c3e155dc62a907cc62c66c8a16160d5251af70ce5ad3a9f9888a866654a3d4"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayn_loki_zero.yaml",
+      "size": 2032,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "a7c14c12d023a939815c3f881b7f0c66b5d82fa6b4c50792fc2a5e7de358be9b",
+      "sha256": "a7c14c12d023a939815c3f881b7f0c66b5d82fa6b4c50792fc2a5e7de358be9b"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayn_odin2.yaml",
+      "size": 877,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "f0bc12b2cf5e4f6d509808d14c3c8839305cab0b0d95a09b883fe9dde277cbe7",
+      "sha256": "f0bc12b2cf5e4f6d509808d14c3c8839305cab0b0d95a09b883fe9dde277cbe7"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayn_odin2_mini.yaml",
+      "size": 632,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "bc617bcb06bbcafa820ff35f88c6aa1bfc6dc110f1cd3c6a5e2bfb547f5e295a",
+      "sha256": "bc617bcb06bbcafa820ff35f88c6aa1bfc6dc110f1cd3c6a5e2bfb547f5e295a"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayn_odin3.yaml",
+      "size": 968,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "4525593474bc54a0fe70d5b4f3b847aafec1bc2502eb8cdff115341c2f59199c",
+      "sha256": "4525593474bc54a0fe70d5b4f3b847aafec1bc2502eb8cdff115341c2f59199c"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayn_thor.yaml",
+      "size": 761,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "fd3543e20b9c7d2bff089d8fb0f9808483348ccd78b5130ba47f1b38af01ab88",
+      "sha256": "fd3543e20b9c7d2bff089d8fb0f9808483348ccd78b5130ba47f1b38af01ab88"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-ayn_thor_lite.yaml",
+      "size": 749,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "8b46a845d661aec0137f58667b086dedb3e2cdf74ec1d23bb82a43c798f801eb",
+      "sha256": "8b46a845d661aec0137f58667b086dedb3e2cdf74ec1d23bb82a43c798f801eb"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-gpd_win3.yaml",
+      "size": 1638,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "881d2f105f8b27fdf5c6adb21870f326bb0bd63feebe2bf01b61520b6808d1a0",
+      "sha256": "881d2f105f8b27fdf5c6adb21870f326bb0bd63feebe2bf01b61520b6808d1a0"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-gpd_win4.yaml",
+      "size": 2194,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "0482e3a5268f892954423777be0514ea2161fe4d971af543d7faa431bc9bdc29",
+      "sha256": "0482e3a5268f892954423777be0514ea2161fe4d971af543d7faa431bc9bdc29"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-gpd_win5.yaml",
+      "size": 2037,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "c8b6d6315893009b970a6afd1a08256ca0ada1ee320728438f05c142acad20a7",
+      "sha256": "c8b6d6315893009b970a6afd1a08256ca0ada1ee320728438f05c142acad20a7"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-gpd_winmax2.yaml",
+      "size": 2469,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "db8c445e281570f29c72d1e89f3bd7552e085f7c2d05f304fcfeee5d0ca643b4",
+      "sha256": "db8c445e281570f29c72d1e89f3bd7552e085f7c2d05f304fcfeee5d0ca643b4"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-gpd_winmini.yaml",
+      "size": 2163,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "97c9c2d7b864b83c88122df34797750100b70d8174376b42edcc822645d7278b",
+      "sha256": "97c9c2d7b864b83c88122df34797750100b70d8174376b42edcc822645d7278b"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-konkr-fit.yaml",
+      "size": 2780,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "7a82b1ad1821dac09d9ae8012d57fde3e08fe81e13eb43e35f7f71ceb30c3869",
+      "sha256": "7a82b1ad1821dac09d9ae8012d57fde3e08fe81e13eb43e35f7f71ceb30c3869"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-konkr_pocket_fit.yaml",
+      "size": 1318,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "dc03c483d11422db3bb0b2ef396f500be232338c8abfd590d2be3c70397d1397",
+      "sha256": "dc03c483d11422db3bb0b2ef396f500be232338c8abfd590d2be3c70397d1397"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-konkr_pocket_fit_elite.yaml",
+      "size": 746,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "aaa2910e7fe6c122b2926d5aae6808157db36608e30e0eb9eac005ac46e2e3bf",
+      "sha256": "aaa2910e7fe6c122b2926d5aae6808157db36608e30e0eb9eac005ac46e2e3bf"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-legion_go.yaml",
+      "size": 5836,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "5c427d040005792c666df35a83ea1ded0e2824a7db820a8298a888a72acc7e07",
+      "sha256": "5c427d040005792c666df35a83ea1ded0e2824a7db820a8298a888a72acc7e07"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-legion_go_2.yaml",
+      "size": 4200,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "1b7a5f0e948309523d9e4ae32ec29970e0105ecb06b78bd2c2cf2f54d4cce4ba",
+      "sha256": "1b7a5f0e948309523d9e4ae32ec29970e0105ecb06b78bd2c2cf2f54d4cce4ba"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-legion_go_s.yaml",
+      "size": 2960,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "8b82fe59ac93b7edf582e68f732260b626397473a6576754d4c41e20b66d829d",
+      "sha256": "8b82fe59ac93b7edf582e68f732260b626397473a6576754d4c41e20b66d829d"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-msi_claw7_a2vm.yaml",
+      "size": 3680,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "e060120116d840db550beb88f7e9cd64361d5e35c5f8d506152f7280c19b6a22",
+      "sha256": "e060120116d840db550beb88f7e9cd64361d5e35c5f8d506152f7280c19b6a22"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-msi_claw8_a2vm.yaml",
+      "size": 3689,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "9087c3b2833172c12a8b40d7e143d8ba761226c6b2edb2fcf9627868b33033f1",
+      "sha256": "9087c3b2833172c12a8b40d7e143d8ba761226c6b2edb2fcf9627868b33033f1"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-msi_claw8_ex_ai_cg3em.yaml",
+      "size": 3662,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "450dd35d4abad50e9abe76124e39e5cc6032a68a6242bd9e4a432eefda220d47",
+      "sha256": "450dd35d4abad50e9abe76124e39e5cc6032a68a6242bd9e4a432eefda220d47"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-msi_claw_a1m.yaml",
+      "size": 4234,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "edfc137146f22d6d556eb120e243a5ae15253d1ec3421dbffb78041cd428ae1a",
+      "sha256": "edfc137146f22d6d556eb120e243a5ae15253d1ec3421dbffb78041cd428ae1a"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-msi_claw_a8_bz2e.yaml",
+      "size": 3838,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "7ed6cf8135e3e80f7aaaf04713ae1bd567fafc427ccb100c07d29a371d53673c",
+      "sha256": "7ed6cf8135e3e80f7aaaf04713ae1bd567fafc427ccb100c07d29a371d53673c"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-onexplayer_2.yaml",
+      "size": 2161,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "069e71c3e57df9c80122d27fc60df14010090835a1923d33e5b8feb0aa33874d",
+      "sha256": "069e71c3e57df9c80122d27fc60df14010090835a1923d33e5b8feb0aa33874d"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-onexplayer_amd.yaml",
+      "size": 2329,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "4a56f69fd1275584e934717713e10244dc988b385f7543c8024bc4862f8705c9",
+      "sha256": "4a56f69fd1275584e934717713e10244dc988b385f7543c8024bc4862f8705c9"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-onexplayer_apex.yaml",
+      "size": 2211,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "2eba271bfc7cc6a8107fc2db1a80c214ff39b27bd8e3cb60e38973839bbfac87",
+      "sha256": "2eba271bfc7cc6a8107fc2db1a80c214ff39b27bd8e3cb60e38973839bbfac87"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-onexplayer_g1.yaml",
+      "size": 1824,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "610e8632a0346800d9f240de668ce12bd73775aec44304c97e49e2dea2831d80",
+      "sha256": "610e8632a0346800d9f240de668ce12bd73775aec44304c97e49e2dea2831d80"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-onexplayer_intel.yaml",
+      "size": 1766,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "d2807ec0adfaaaa88a77e65b30feb9d7dc9642134123de0c2166f295d6d28479",
+      "sha256": "d2807ec0adfaaaa88a77e65b30feb9d7dc9642134123de0c2166f295d6d28479"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-onexplayer_mini_a07.yaml",
+      "size": 1706,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "fc98ee20b3477ca63bae0f7438ba6caaa82ec02e60cf42f586da00439536fc56",
+      "sha256": "fc98ee20b3477ca63bae0f7438ba6caaa82ec02e60cf42f586da00439536fc56"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-onexplayer_mini_pro.yaml",
+      "size": 1670,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "e24412e61bad6ae36a2174d056036324913b55f62c1c7137044ccb246c7dd8db",
+      "sha256": "e24412e61bad6ae36a2174d056036324913b55f62c1c7137044ccb246c7dd8db"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-onexplayer_onexfly.yaml",
+      "size": 2140,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "a2d51e306cb21af645c66d8a706644663324480f3c8b8163b03a28c4f3cc04bc",
+      "sha256": "a2d51e306cb21af645c66d8a706644663324480f3c8b8163b03a28c4f3cc04bc"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-onexplayer_x1.yaml",
+      "size": 2863,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "cc507743c9d2183e353f3a1dee126cd4277830b30ab41d854350fa78321253a4",
+      "sha256": "cc507743c9d2183e353f3a1dee126cd4277830b30ab41d854350fa78321253a4"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-orangepi_neo.yaml",
+      "size": 2481,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "d0badb07c43664dd1a90f41a256d6ce2e312de48039bf2287fbb0c269b74ac4a",
+      "sha256": "d0badb07c43664dd1a90f41a256d6ce2e312de48039bf2287fbb0c269b74ac4a"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-retroid_pocket5.yaml",
+      "size": 649,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "17f87fc9d4dfdd0301ae3d5772e213b5568492fafa654b4131318342982fb812",
+      "sha256": "17f87fc9d4dfdd0301ae3d5772e213b5568492fafa654b4131318342982fb812"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-retroid_pocket6.yaml",
+      "size": 914,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "a371cae054f394efeb42815cd52da366f1e07a0114c0e3b3d864933038ab2db0",
+      "sha256": "a371cae054f394efeb42815cd52da366f1e07a0114c0e3b3d864933038ab2db0"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-retroid_pocket_flip2.yaml",
+      "size": 658,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "8fb65f1e191d80a4b9ec9ea4223bba8b7cb051efa6256ef7680364fbf496ef05",
+      "sha256": "8fb65f1e191d80a4b9ec9ea4223bba8b7cb051efa6256ef7680364fbf496ef05"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-retroid_pocket_mini.yaml",
+      "size": 796,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "4c10de870573dce08cb41eb719fa0cc36f3370ee98526bf4f06f6af7142ef4a6",
+      "sha256": "4c10de870573dce08cb41eb719fa0cc36f3370ee98526bf4f06f6af7142ef4a6"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-retroid_pocket_nova.yaml",
+      "size": 920,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "cebcd0a7abb157b904ccc14e285977d1749724b439e4659e6909b8649061816c",
+      "sha256": "cebcd0a7abb157b904ccc14e285977d1749724b439e4659e6909b8649061816c"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-rog_ally.yaml",
+      "size": 1950,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "4da7761c737fa99580e8c14cd67b510fd78b6ea49dc35b276850e1838f90225b",
+      "sha256": "4da7761c737fa99580e8c14cd67b510fd78b6ea49dc35b276850e1838f90225b"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-rog_ally_x.yaml",
+      "size": 1961,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "fb4168fea4574638bb8a989ec45e22863e788ba0344873ffeeb6452661036d59",
+      "sha256": "fb4168fea4574638bb8a989ec45e22863e788ba0344873ffeeb6452661036d59"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-rog_flow_z13.yaml",
+      "size": 1457,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "0cb6189be027d6d88129c3136582c37b7186e4c962b07e581a6dc65aac4663ab",
+      "sha256": "0cb6189be027d6d88129c3136582c37b7186e4c962b07e581a6dc65aac4663ab"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-rog_xbox_ally.yaml",
+      "size": 2043,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "51ed98df293f175209d77112c23157ec4662328fc45fa7238521cef996574a6b",
+      "sha256": "51ed98df293f175209d77112c23157ec4662328fc45fa7238521cef996574a6b"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-steam_deck.yaml",
+      "size": 1920,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "63f9adaf830408986c346530f90ca2c57a1bdc229d0a1ccc0471627e34da94eb",
+      "sha256": "63f9adaf830408986c346530f90ca2c57a1bdc229d0a1ccc0471627e34da94eb"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-suiplay_0x1.yaml",
+      "size": 1483,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "b076890a7398e308ef2fef2da6f23bc05c15f328da02c4b7e7163c8db6a1e780",
+      "sha256": "b076890a7398e308ef2fef2da6f23bc05c15f328da02c4b7e7163c8db6a1e780"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/50-zotac-zone.yaml",
+      "size": 2423,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "c31587cda404892dbd11c7f42c91b776c8435e35beaa3d19b7b21d47a87d14a1",
+      "sha256": "c31587cda404892dbd11c7f42c91b776c8435e35beaa3d19b7b21d47a87d14a1"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/60-8bit_do_pro_2.yaml",
+      "size": 1092,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "8b7dc9d3fea331dfd6be80b7288c90b82002cc2fb5f8dc1443f65420b67e1265",
+      "sha256": "8b7dc9d3fea331dfd6be80b7288c90b82002cc2fb5f8dc1443f65420b67e1265"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/60-8bit_do_ultimate_2.yaml",
+      "size": 1386,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "8b3e58484a8dd2266d1df9c5c8543f1df3f7a47e66b1f027a9d1bc3b64ca8468",
+      "sha256": "8b3e58484a8dd2266d1df9c5c8543f1df3f7a47e66b1f027a9d1bc3b64ca8468"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/60-LogitechDualAction.yaml",
+      "size": 1098,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "8eebc0e47707b72e44377922b3dfab6464fc6e6d090897c37941838bdf7a3991",
+      "sha256": "8eebc0e47707b72e44377922b3dfab6464fc6e6d090897c37941838bdf7a3991"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/60-cec.yaml",
+      "size": 477,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "43eeb60bb7bf7e19db9eea29785345edb241c4b9efcb531890896782a08f8e44",
+      "sha256": "43eeb60bb7bf7e19db9eea29785345edb241c4b9efcb531890896782a08f8e44"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/60-flydigi_vader_4_pro.yaml",
+      "size": 1367,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "7167635696c002423768e664a6ac456686fb90f74d64a061c0d9e62ad56e9865",
+      "sha256": "7167635696c002423768e664a6ac456686fb90f74d64a061c0d9e62ad56e9865"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/60-horipad_steam.yaml",
+      "size": 1361,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "eb5ddaa4c78ab53ee1abfcf7fd417c1b9f585107b9c5efadbc7bc8e870e523e6",
+      "sha256": "eb5ddaa4c78ab53ee1abfcf7fd417c1b9f585107b9c5efadbc7bc8e870e523e6"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/60-ps4_gamepad.yaml",
+      "size": 1873,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "50115cb3abecd836e69fcfc0cd01eb481b0fd467a7da39a18e512b7fb3cc9181",
+      "sha256": "50115cb3abecd836e69fcfc0cd01eb481b0fd467a7da39a18e512b7fb3cc9181"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/60-ps5_ds-edge_gamepad.yaml",
+      "size": 1333,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "78e4eaf030ad398f07ef36860945774c46a97d54eb4a11ed7362d683d7d76c15",
+      "sha256": "78e4eaf030ad398f07ef36860945774c46a97d54eb4a11ed7362d683d7d76c15"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/60-ps5_ds_gamepad.yaml",
+      "size": 1323,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "3f31f6f11d62a38b5a9c18a078b9111e57bc628099b9ef95e9fc00071e132327",
+      "sha256": "3f31f6f11d62a38b5a9c18a078b9111e57bc628099b9ef95e9fc00071e132327"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/60-switch_pro.yaml",
+      "size": 1025,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "ff077f2811e1850a8594b4427685df77328f475d933c8bb06169b26c047e155f",
+      "sha256": "ff077f2811e1850a8594b4427685df77328f475d933c8bb06169b26c047e155f"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/60-xbox_360_gamepad.yaml",
+      "size": 5198,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "b0b702199cd90daf447a76eca3a7b02fc773f83c2b483f2636cb5bd3184fe9ac",
+      "sha256": "b0b702199cd90daf447a76eca3a7b02fc773f83c2b483f2636cb5bd3184fe9ac"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/60-xbox_gamepad.yaml",
+      "size": 3099,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "8be81098047240c0919e779d5d4301e7c1cd22e3a9c7ddbba4ede5e75f70cb99",
+      "sha256": "8be81098047240c0919e779d5d4301e7c1cd22e3a9c7ddbba4ede5e75f70cb99"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/60-xbox_one_bt_gamepad.yaml",
+      "size": 1494,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "8e8823266c6ef7adba1303d90af5101265a402ce4ae1c702d379f0f14aca2fc1",
+      "sha256": "8e8823266c6ef7adba1303d90af5101265a402ce4ae1c702d379f0f14aca2fc1"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/60-xbox_one_elite_gamepad.yaml",
+      "size": 992,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "f6ba250ac8a210d234c26965fffe24a1cd05bf60282c61adef503c5a9f6e6131",
+      "sha256": "f6ba250ac8a210d234c26965fffe24a1cd05bf60282c61adef503c5a9f6e6131"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/60-xbox_one_gamepad.yaml",
+      "size": 2705,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "5ea9f77a25c8e91f10f9f357a80deaf97ea6397bc6ac463807d589851b9cdf6f",
+      "sha256": "5ea9f77a25c8e91f10f9f357a80deaf97ea6397bc6ac463807d589851b9cdf6f"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/65-generic_gamepad.yaml",
+      "size": 1373,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "9a1d84128e5e2a659da6fd06c55fba4bd75b97df7b4ee227be7dde2077c8db48",
+      "sha256": "9a1d84128e5e2a659da6fd06c55fba4bd75b97df7b4ee227be7dde2077c8db48"
+    },
+    {
+      "path": "/usr/share/inputplumber/devices/69-ignore_generic.yaml",
+      "size": 1016,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "1ffa9de0e1b09e10414d20f98fde16b241e801f171481d4a477288c38bb27fff",
+      "sha256": "1ffa9de0e1b09e10414d20f98fde16b241e801f171481d4a477288c38bb27fff"
+    },
+    {
+      "path": "/usr/share/inputplumber/profiles",
+      "size": 0,
+      "mode": 16877,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": ""
+    },
+    {
+      "path": "/usr/share/inputplumber/profiles/debug.yaml",
+      "size": 320,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "6067a0d377f54c2055ed58a282a7d21ea361b7e86eda12289ff1125cce3b426c",
+      "sha256": "6067a0d377f54c2055ed58a282a7d21ea361b7e86eda12289ff1125cce3b426c"
+    },
+    {
+      "path": "/usr/share/inputplumber/profiles/default.yaml",
+      "size": 1888,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "f73795f5292f21ea183add122d88dbdf02dfd2f3f7df8227f5b72fc5da92df40",
+      "sha256": "f73795f5292f21ea183add122d88dbdf02dfd2f3f7df8227f5b72fc5da92df40"
+    },
+    {
+      "path": "/usr/share/inputplumber/profiles/mouse_keyboard_wasd.yaml",
+      "size": 3548,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "5839cd71786b8c1f36bfde58314f612faccc698411b512ac8e6c30b61ddcce62",
+      "sha256": "5839cd71786b8c1f36bfde58314f612faccc698411b512ac8e6c30b61ddcce62"
+    },
+    {
+      "path": "/usr/share/inputplumber/profiles/test.yaml",
+      "size": 2338,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "ec6d1262012f6cf5530a65ed49fd51e9bf7ffded3cc6cc9fec209e925182e12e",
+      "sha256": "ec6d1262012f6cf5530a65ed49fd51e9bf7ffded3cc6cc9fec209e925182e12e"
+    },
+    {
+      "path": "/usr/share/inputplumber/schema",
+      "size": 0,
+      "mode": 16877,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": ""
+    },
+    {
+      "path": "/usr/share/inputplumber/schema/capability_map_v1.json",
+      "size": 13673,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "2a4ade0c0fe24f7d989bcac6d703bb2c258de2ca7722050ba1a2adcc72cb0e07",
+      "sha256": "2a4ade0c0fe24f7d989bcac6d703bb2c258de2ca7722050ba1a2adcc72cb0e07"
+    },
+    {
+      "path": "/usr/share/inputplumber/schema/capability_map_v2.json",
+      "size": 33551,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "5b9a12a4e19fe837f42b9c87fbe3fd5396701c57dfe37d76bc8217c25fc51723",
+      "sha256": "5b9a12a4e19fe837f42b9c87fbe3fd5396701c57dfe37d76bc8217c25fc51723"
+    },
+    {
+      "path": "/usr/share/inputplumber/schema/composite_device_v1.json",
+      "size": 17018,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "b894e7e0d8a9f8373fb19657de2aad04b505a9c33f9003eb909ebec51c3cfccd",
+      "sha256": "b894e7e0d8a9f8373fb19657de2aad04b505a9c33f9003eb909ebec51c3cfccd"
+    },
+    {
+      "path": "/usr/share/inputplumber/schema/device_profile_v1.json",
+      "size": 14492,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "8a38f15b424fa649aa1c1bde4f095d00498709eda74c5a7e27781da883f0ed51",
+      "sha256": "8a38f15b424fa649aa1c1bde4f095d00498709eda74c5a7e27781da883f0ed51"
+    },
+    {
+      "path": "/usr/share/licenses/inputplumber",
+      "size": 0,
+      "mode": 16877,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": ""
+    },
+    {
+      "path": "/usr/share/licenses/inputplumber/LICENSE",
+      "size": 35150,
+      "mode": 33188,
+      "flags": 128,
+      "link": "",
+      "rpm_digest": "e57f1c320b8cf8798a7d2ff83a6f9e06a33a03585f6e065fea97f1d86db84052",
+      "sha256": "e57f1c320b8cf8798a7d2ff83a6f9e06a33a03585f6e065fea97f1d86db84052"
+    },
+    {
+      "path": "/usr/share/polkit-1/actions/org.shadowblip.InputPlumber.policy",
+      "size": 38573,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "3c6fffc69ef9f24ba1971c37e65e427dd28b66210e7d8f7664877fb34b9479a6",
+      "sha256": "3c6fffc69ef9f24ba1971c37e65e427dd28b66210e7d8f7664877fb34b9479a6"
+    },
+    {
+      "path": "/usr/share/polkit-1/rules.d/org.shadowblip.InputPlumber.rules",
+      "size": 419,
+      "mode": 33188,
+      "flags": 0,
+      "link": "",
+      "rpm_digest": "a005e2eda619f839cf07dcda1ff4a92e685ea913c54295885d7831821fbacb4b",
+      "sha256": "a005e2eda619f839cf07dcda1ff4a92e685ea913c54295885d7831821fbacb4b"
+    }
+  ],
+  "requires": [
+    [
+      "/bin/sh",
+      1280,
+      ""
+    ],
+    [
+      "/bin/sh",
+      2304,
+      ""
+    ],
+    [
+      "/bin/sh",
+      4352,
+      ""
+    ],
+    [
+      "dbus",
+      0,
+      ""
+    ],
+    [
+      "ld-linux-aarch64.so.1()(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "ld-linux-aarch64.so.1(GLIBC_2.17)(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libc.so.6()(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libc.so.6(GLIBC_2.17)(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libc.so.6(GLIBC_2.18)(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libc.so.6(GLIBC_2.25)(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libc.so.6(GLIBC_2.28)(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libc.so.6(GLIBC_2.29)(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libc.so.6(GLIBC_2.30)(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libc.so.6(GLIBC_2.32)(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libc.so.6(GLIBC_2.33)(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libc.so.6(GLIBC_2.34)(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libc.so.6(GLIBC_2.38)(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libc.so.6(GLIBC_2.39)(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libgcc_s.so.1()(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libgcc_s.so.1(GCC_3.0)(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libgcc_s.so.1(GCC_3.3)(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libgcc_s.so.1(GCC_4.2.0)(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libiio.so.0()(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libm.so.6()(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libm.so.6(GLIBC_2.17)(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libm.so.6(GLIBC_2.29)(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libudev.so.1()(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libudev.so.1(LIBUDEV_183)(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "libudev.so.1(LIBUDEV_199)(64bit)",
+      16384,
+      ""
+    ],
+    [
+      "rpmlib(CompressedFileNames)",
+      16777226,
+      "3.0.4-1"
+    ],
+    [
+      "rpmlib(FileDigests)",
+      16777226,
+      "4.6.0-1"
+    ],
+    [
+      "rpmlib(PayloadFilesHavePrefix)",
+      16777226,
+      "4.0-1"
+    ],
+    [
+      "rpmlib(PayloadIsZstd)",
+      16777226,
+      "5.4.18-1"
+    ],
+    [
+      "rtld(GNU_HASH)",
+      16384,
+      ""
+    ],
+    [
+      "systemd",
+      1024,
+      ""
+    ],
+    [
+      "systemd",
+      2048,
+      ""
+    ],
+    [
+      "systemd",
+      4096,
+      ""
+    ]
+  ],
+  "scripts": {
+    "1023": null,
+    "1024": "\n \nif [ $1 -eq 1 ] && [ -x \"/usr/lib/systemd/systemd-update-helper\" ]; then \n    # Initial installation \n    /usr/lib/systemd/systemd-update-helper install-system-units inputplumber.service || : \nfi",
+    "1025": "\n \nif [ $1 -eq 0 ] && [ -x \"/usr/lib/systemd/systemd-update-helper\" ]; then \n    # Package removal, not upgrade \n    /usr/lib/systemd/systemd-update-helper remove-system-units inputplumber.service || : \nfi",
+    "1026": "\n \nif [ $1 -ge 1 ] && [ -x \"/usr/lib/systemd/systemd-update-helper\" ]; then \n    # Package upgrade, not uninstall \n    /usr/lib/systemd/systemd-update-helper mark-restart-system-units inputplumber.service || : \nfi",
+    "1151": null,
+    "1152": null
+  },
+  "digest_algo": [
+    8
+  ],
+  "archive_members": [
+    {
+      "path": "usr",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/bin",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/lib",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/bin/inputplumber",
+      "kind": "file",
+      "size": 9861472,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "8849270561c40090067689711dfaf78b49d21a092746496e5a539407efd6444f"
+    },
+    {
+      "path": "usr/lib/.build-id",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/lib/systemd",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/lib/udev",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/dbus-1",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/doc",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/inputplumber",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/licenses",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/polkit-1",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/lib/.build-id/52",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/lib/systemd/system",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/lib/udev/hwdb.d",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/lib/udev/rules.d",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/dbus-1/system.d",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/doc/inputplumber",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/inputplumber/devices",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/inputplumber/profiles",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/inputplumber/schema",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/licenses/inputplumber",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/polkit-1/actions",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/share/polkit-1/rules.d",
+      "kind": "directory",
+      "size": 0,
+      "mode": "0o755",
+      "uid": 0,
+      "gid": 0
+    },
+    {
+      "path": "usr/lib/.build-id/52/451e7c0e2356f5728a9d46bafd400defd771a4",
+      "kind": "symlink",
+      "size": 0,
+      "mode": "0o777",
+      "uid": 0,
+      "gid": 0,
+      "target": "../../../../usr/bin/inputplumber",
+      "resolved_target": "usr/bin/inputplumber"
+    },
+    {
+      "path": "usr/lib/systemd/system/inputplumber-suspend.service",
+      "kind": "file",
+      "size": 422,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "e5e8f506f381cd881aa831a50aa2d72d2e9708a3fb92e9eb1165278d742d63c4"
+    },
+    {
+      "path": "usr/lib/systemd/system/inputplumber.service",
+      "kind": "file",
+      "size": 213,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "8cd2e594aaed9e0a5ba9bcaf6417b63a19a7b7b9f233a34152ddb49da35a5647"
+    },
+    {
+      "path": "usr/lib/udev/hwdb.d/59-inputplumber.hwdb",
+      "kind": "file",
+      "size": 504,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "443129fc6b73aa53a1c41e0a8f9654e1964784b8a9dc41a0d0c740c72b4efa3f"
+    },
+    {
+      "path": "usr/lib/udev/hwdb.d/60-inputplumber-autostart.hwdb",
+      "kind": "file",
+      "size": 3465,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "977fc93a0a517ba940dd98826aec43b5b4112ee6c3d032d63f53e1b01b320bcd"
+    },
+    {
+      "path": "usr/lib/udev/rules.d/50-8bitdo-u2-controller.rules",
+      "kind": "file",
+      "size": 228,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "2b3f619ecb00b7df677c2d14995137e19e16f6d11967b9e96a63371be2897213"
+    },
+    {
+      "path": "usr/lib/udev/rules.d/60-inputplumber-uaccess.rules",
+      "kind": "file",
+      "size": 208,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "883f9f96976dea4235be78568916fd1a0041dae9189df4386ed5f7e6678c52cc"
+    },
+    {
+      "path": "usr/lib/udev/rules.d/90-inputplumber-autostart.rules",
+      "kind": "file",
+      "size": 103,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "076e3dd6b74eb438d0a4e0c07504b890230fd88368706eadae4f588d35a49124"
+    },
+    {
+      "path": "usr/lib/udev/rules.d/99-inputplumber-device-setup.rules",
+      "kind": "file",
+      "size": 3713,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "6003bfd16373d2a966894333295e31ab07b36534dd92abcb9e8e3507d64d410e"
+    },
+    {
+      "path": "usr/share/dbus-1/system.d/org.shadowblip.InputPlumber.conf",
+      "kind": "file",
+      "size": 904,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "5376460e56a865ae6e1e1de5806ea6aac99c8a55290354e80c00ec89fc1bcf55"
+    },
+    {
+      "path": "usr/share/doc/inputplumber/README.md",
+      "kind": "file",
+      "size": 1868,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "71644795e2a8cc00be194774b818027b95d0df6421b0c3308059104f14c71ed2"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/ally_type1.yaml",
+      "kind": "file",
+      "size": 1644,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "308885ded656c4e0c6687641e7b1d9904c20035e88ceab8079afe89d8841da9d"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/ally_type2.yaml",
+      "kind": "file",
+      "size": 1328,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "77b97923125aac9b5d79c83589463709f4cbe9f687881635b44b3f57edf2dd7d"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/anbernic_type1.yaml",
+      "kind": "file",
+      "size": 2702,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "9338cd2b0a9a3f71a2b9198e923ad74b78e90bce9271f0674798098648e3dd30"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/ayaneo_type1.yaml",
+      "kind": "file",
+      "size": 1013,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "b8f23ec9cd8f1df0dee16376d282266a75ac332af63d4b0e1296c761e0aa17a4"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/ayaneo_type10.yaml",
+      "kind": "file",
+      "size": 2519,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "9659a0a3b0238a825a1337ffb1b080c002c22d7b873bc0d4db76737ac5875599"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/ayaneo_type11.yaml",
+      "kind": "file",
+      "size": 496,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "8e671b18c5ed76089e97454b383e02968456ef3f397c2f6c27bfb44710fea9d6"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/ayaneo_type2.yaml",
+      "kind": "file",
+      "size": 1190,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "d710238d5e22c3bce6cceef35fa2c4d2505d1cd7299e0f093bb4722817c48024"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/ayaneo_type3.yaml",
+      "kind": "file",
+      "size": 1199,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "cab9db4f89ba2e9a00e86b535db71f40ae1c5a90429507adcaf08bd3f8a0500d"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/ayaneo_type4.yaml",
+      "kind": "file",
+      "size": 1401,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "9a52d806f4824e6fd3f45e1f0636a9a4ccaf31e605382f416e1a25b6b1d2a0cd"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/ayaneo_type5.yaml",
+      "kind": "file",
+      "size": 1196,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "6dceb6ac637c4d1da927748ddedd298c679303c0dc8a86653538c00fb2b5f536"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/ayaneo_type6.yaml",
+      "kind": "file",
+      "size": 1416,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "648e239d14079c4e8a44f770305ebbe255e7e2c10c4048e5ada62bc5d5b7482d"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/ayaneo_type7.yaml",
+      "kind": "file",
+      "size": 994,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "f45a04b479ff77f42fcaf966d33264c11b0511beb3474e5baa09aaf9cbbaed9a"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/ayaneo_type8.yaml",
+      "kind": "file",
+      "size": 1183,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "f23bcd16431d5b93a98391888b1f8e985a9913385633854261b3b081ae383955"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/ayaneo_type9.yaml",
+      "kind": "file",
+      "size": 1280,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "9377f76731d694fd5f8310917a78da627257c401898498414758df17d87142e4"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/ayn_type1.yaml",
+      "kind": "file",
+      "size": 874,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "37c1575bbf911506f698555d3d69c3b6715060d0027e733766c0d9edafb47b21"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/ayn_type2.yaml",
+      "kind": "file",
+      "size": 2051,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "b86525bb71854a7d9953e1c17db49fa04cdb06bb8100131a76e7946dee8431ab"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/ayn_type3.yaml",
+      "kind": "file",
+      "size": 1851,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "28be310ebda2e30ae2ef0994e7e66b2a4f8f6ca06c8f492313cef91550ce2f36"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/cec.yaml",
+      "kind": "file",
+      "size": 1653,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "ff72c3260d720eb02dc2514b38a9651e2b661522154cfaab475e5498840aba62"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/dinput_generic.yaml",
+      "kind": "file",
+      "size": 5054,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "e12b6a7fea2618d5154df3c2bad85ad4105b2691bf20d03c0ac4481e431b9cbe"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/flow_type1.yaml",
+      "kind": "file",
+      "size": 661,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "1e98bf40755e8e3c8d46be85f288f0fde8fa55a1075ee13b3822db1c9b1ff9f4"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/flydigi_vader_4_pro.yaml",
+      "kind": "file",
+      "size": 907,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "ecad54d2c94c0372e5ab4dc5fbe227d261ae4346290570127850dd3f10845535"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/gpd_menu.yaml",
+      "kind": "file",
+      "size": 647,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "1fb10436c4ee885c7205f279467e1d00b4045b4279a22025fe628faa27351318"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/gpd_type1.yaml",
+      "kind": "file",
+      "size": 833,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "9969205b582ce4ac80f06fea0dab2d5aa658abbb85728d285d661b69805a7e92"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/gpd_type2.yaml",
+      "kind": "file",
+      "size": 767,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "1c94ff03c5fbb7ce79cff49f0269f36e09f54140ea0f61b76e754404e7e3bff2"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/gpd_type3.yaml",
+      "kind": "file",
+      "size": 666,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "10092def52af14f372bde0c6e46b0e2467bb161e4d7bdcc8c4f924a414e25f5f"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/gpd_type4.yaml",
+      "kind": "file",
+      "size": 1486,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "605b7c67c389ce4ac67a2e2be832a6f45cf3f05bdb2a227732dc4432483da857"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/imu_generic.yaml",
+      "kind": "file",
+      "size": 1211,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "3441ee06d6dbc36a02456bfd3a565c25ff830ebaeac2b5fe6825aff857ed2790"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/konkr_type1.yaml",
+      "kind": "file",
+      "size": 1438,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "43fc3ba40edf78002d5e0f2a9727d2f840420a0518b197b1b30ea6992d744a3c"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/konkr_type2.yaml",
+      "kind": "file",
+      "size": 2981,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "5e1be7c3f9956b1cd341c0398e6ec61f9a8de32c0604fbd9ce3afb2dde311e18"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/konkr_type3.yaml",
+      "kind": "file",
+      "size": 1625,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "3bd2e52223a63883633b11b254020253f33455e434b4b61beeaa31e4801ba6e5"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/logitech_dualaction.yaml",
+      "kind": "file",
+      "size": 4679,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "40060bccf19cb90e89b2b951ca6de3b4ef43782ba9f8c5a88dc97e3a9e59bff9"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/msiclaw_type1.yaml",
+      "kind": "file",
+      "size": 1481,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "ff70954530b3863ceed51cd5f60d0d07be601c563b314a3d2184858d98f2d56c"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/msiclaw_type2.yaml",
+      "kind": "file",
+      "size": 1267,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "3b7082bc5cf85e42df76440e4ba76f014011ea72d6bbf3a70ffcc04d6ad096b2"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/onexplayer_type1.yaml",
+      "kind": "file",
+      "size": 1248,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "8763c9239195d3b81cf79eebfcd145fd03e907d46285fc39f27cb732f7311f4f"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/onexplayer_type2.yaml",
+      "kind": "file",
+      "size": 1412,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "216b2cf39d3168e7e4cff71c8eb748de4198921298543873ec1990e1c21cff4c"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/onexplayer_type3.yaml",
+      "kind": "file",
+      "size": 1577,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "2bb23ee445ce452501b71b3506db01112ef9c49328b1e0b11b2536a10f889f73"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/onexplayer_type4.yaml",
+      "kind": "file",
+      "size": 1017,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "0b39340496c864be13b42c6b22f9b2c10dc352633c21fb9f2e9c336bb6441288"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/onexplayer_type5.yaml",
+      "kind": "file",
+      "size": 1086,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "0fb4d8dae02fb7468f4000c8b5c3baf861c4e7f8e7be6a4396c8367c5bb8cb83"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/onexplayer_type6.yaml",
+      "kind": "file",
+      "size": 1026,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "a67b353d3cb845a66b89fb33e09c4375438aefefc6231bc1522dab621b98b0cd"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/onexplayer_type7.yaml",
+      "kind": "file",
+      "size": 1712,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "2f66b76fc97e246e8b89c9b0b255b8d8379e3a995ebd01a1b0a2ad9ddfab4eb3"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/onexplayer_type8.yaml",
+      "kind": "file",
+      "size": 2410,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "319ec1a70b13bf4c03cb45d803caa6e1f290d675ec2bf9b054bea3128c50a670"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/orangepi_type1.yaml",
+      "kind": "file",
+      "size": 991,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "ddb11c81ad30dd3e341b4b3554925629f0ff94c79f0480c35da2d05a6ee255e3"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/retroid_type1.yaml",
+      "kind": "file",
+      "size": 2356,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "95a0fcc2bcf3dbe8a96241a8271f4e4cb46d22c08a9ad8551c908e04ad32f723"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/retroid_type2.yaml",
+      "kind": "file",
+      "size": 2152,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "95d1195004b60da46cef3944acfb7d8c2e6bf4b26719b6dca1b690077ab83500"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/rsinput_type1.yaml",
+      "kind": "file",
+      "size": 2273,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "0eeb93734f36cfac544e7496c1f02cb278adf56fc98642011944699f037af8f2"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/swap_west_north.yaml",
+      "kind": "file",
+      "size": 810,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "8f0a35dbe15c5142530e18296fe5cf06d3d2dbc8ea7abeac40320d95c772c5fa"
+    },
+    {
+      "path": "usr/share/inputplumber/capability_maps/zone_type1.yaml",
+      "kind": "file",
+      "size": 2508,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "9705c013f62129c57e7e7e24f51d154e9f8eb4bb087028010d90a49bf71764ff"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/10-ignore_unsupported.yaml",
+      "kind": "file",
+      "size": 966,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "550bb1a00c82f06baf4766bc8237f78a5f07feba8c915b43d2a1bff805cc9ec5"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-anbernic_win600.yaml",
+      "kind": "file",
+      "size": 1541,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "953b0101506304fc89d8331c57cacf10af8c26071073f04d56e2e55e2f0febe3"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-aokzoe_a1.yaml",
+      "kind": "file",
+      "size": 2066,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "92fe892aebdb074ce272995ed3ae01dff8b57335d35fe9e1a060e4a6106b03f4"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayaneo_2.yaml",
+      "kind": "file",
+      "size": 2697,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "497733168e11bb075cb7cccc6caa191df3bf5ed35bf62f2cc7f3a34c513cc087"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayaneo_2021.yaml",
+      "kind": "file",
+      "size": 2414,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "c9f19f1723899c2c96c250e47acdb478638b61a0585c6ad2817e6c5f405f39fe"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayaneo_2s.yaml",
+      "kind": "file",
+      "size": 2776,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "6263d2a0e49254c52157edd5d4bac11cfa924c627800012605a5e4aad9ad1d76"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayaneo_3.yaml",
+      "kind": "file",
+      "size": 2810,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "976f6705c65d687b21be132a531d8e273a2ceb2aefc7edf8208539f116ea5764"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayaneo_air.yaml",
+      "kind": "file",
+      "size": 2336,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "86a8c96e2bb3ffba80df8553414a6f5781ed23bf199369f686dcfde7c505b2bd"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayaneo_air_1s.yaml",
+      "kind": "file",
+      "size": 2531,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "ba42e13eb3bca1e3582ce9309fb2ab6bdb603d647b6e80f28cb98001fec83397"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayaneo_air_plus.yaml",
+      "kind": "file",
+      "size": 2607,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "1acaff8175ba8b43448cfc7a927991530cb107ad86de60846c08f9a105bd8578"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayaneo_air_plus_mendo.yaml",
+      "kind": "file",
+      "size": 2406,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "d8ee77337a1735cf346847cc74ca815e913beb503ea92a9d43db54de6cedd685"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayaneo_flip.yaml",
+      "kind": "file",
+      "size": 2689,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "62feb7138be2b7c2df93e4051ae7aa2657e405170feac29aa3036d09c25921ed"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayaneo_flip_1s.yaml",
+      "kind": "file",
+      "size": 2847,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "ecaa49f20c0ad893e77bd3152c5489f3df6aad3f7e1d08643a7dc444a794cbb2"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayaneo_kun.yaml",
+      "kind": "file",
+      "size": 2270,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "0c5fa8ba4331f25f947a9e73e30782b775cfd47b0cc68365c70f762e53ff88e0"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayaneo_next.yaml",
+      "kind": "file",
+      "size": 2555,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "acfaaeb0c4e765927c5dd1338d0c1d7c8033064928c1b4b277394205377971eb"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayaneo_pocket_ds.yaml",
+      "kind": "file",
+      "size": 1014,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "1d582fc8b9fe60bdf3c48c0cf5917dc44c47f3c254e4c908c754d14888406d84"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayaneo_pocket_s2.yaml",
+      "kind": "file",
+      "size": 915,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "5e8bfa75271c9ef19cc98611c876b7c0d07957160e1dc17462f2cc30b0cef5f0"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayaneo_slide.yaml",
+      "kind": "file",
+      "size": 2277,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "06ba5b9d592fe61818140d0407c1738bc14ccc95ee231abbc24defc134095bd0"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayn_loki_max.yaml",
+      "kind": "file",
+      "size": 1935,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "89fe951639748d581505a921e526a117a19cf87ab304a2cb26e14335e4979df9"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayn_loki_mini_pro.yaml",
+      "kind": "file",
+      "size": 1986,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "22c3e155dc62a907cc62c66c8a16160d5251af70ce5ad3a9f9888a866654a3d4"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayn_loki_zero.yaml",
+      "kind": "file",
+      "size": 2032,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "a7c14c12d023a939815c3f881b7f0c66b5d82fa6b4c50792fc2a5e7de358be9b"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayn_odin2.yaml",
+      "kind": "file",
+      "size": 877,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "f0bc12b2cf5e4f6d509808d14c3c8839305cab0b0d95a09b883fe9dde277cbe7"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayn_odin2_mini.yaml",
+      "kind": "file",
+      "size": 632,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "bc617bcb06bbcafa820ff35f88c6aa1bfc6dc110f1cd3c6a5e2bfb547f5e295a"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayn_odin3.yaml",
+      "kind": "file",
+      "size": 968,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "4525593474bc54a0fe70d5b4f3b847aafec1bc2502eb8cdff115341c2f59199c"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayn_thor.yaml",
+      "kind": "file",
+      "size": 761,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "fd3543e20b9c7d2bff089d8fb0f9808483348ccd78b5130ba47f1b38af01ab88"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-ayn_thor_lite.yaml",
+      "kind": "file",
+      "size": 749,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "8b46a845d661aec0137f58667b086dedb3e2cdf74ec1d23bb82a43c798f801eb"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-gpd_win3.yaml",
+      "kind": "file",
+      "size": 1638,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "881d2f105f8b27fdf5c6adb21870f326bb0bd63feebe2bf01b61520b6808d1a0"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-gpd_win4.yaml",
+      "kind": "file",
+      "size": 2194,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "0482e3a5268f892954423777be0514ea2161fe4d971af543d7faa431bc9bdc29"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-gpd_win5.yaml",
+      "kind": "file",
+      "size": 2037,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "c8b6d6315893009b970a6afd1a08256ca0ada1ee320728438f05c142acad20a7"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-gpd_winmax2.yaml",
+      "kind": "file",
+      "size": 2469,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "db8c445e281570f29c72d1e89f3bd7552e085f7c2d05f304fcfeee5d0ca643b4"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-gpd_winmini.yaml",
+      "kind": "file",
+      "size": 2163,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "97c9c2d7b864b83c88122df34797750100b70d8174376b42edcc822645d7278b"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-konkr-fit.yaml",
+      "kind": "file",
+      "size": 2780,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "7a82b1ad1821dac09d9ae8012d57fde3e08fe81e13eb43e35f7f71ceb30c3869"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-konkr_pocket_fit.yaml",
+      "kind": "file",
+      "size": 1318,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "dc03c483d11422db3bb0b2ef396f500be232338c8abfd590d2be3c70397d1397"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-konkr_pocket_fit_elite.yaml",
+      "kind": "file",
+      "size": 746,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "aaa2910e7fe6c122b2926d5aae6808157db36608e30e0eb9eac005ac46e2e3bf"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-legion_go.yaml",
+      "kind": "file",
+      "size": 5836,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "5c427d040005792c666df35a83ea1ded0e2824a7db820a8298a888a72acc7e07"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-legion_go_2.yaml",
+      "kind": "file",
+      "size": 4200,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "1b7a5f0e948309523d9e4ae32ec29970e0105ecb06b78bd2c2cf2f54d4cce4ba"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-legion_go_s.yaml",
+      "kind": "file",
+      "size": 2960,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "8b82fe59ac93b7edf582e68f732260b626397473a6576754d4c41e20b66d829d"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-msi_claw7_a2vm.yaml",
+      "kind": "file",
+      "size": 3680,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "e060120116d840db550beb88f7e9cd64361d5e35c5f8d506152f7280c19b6a22"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-msi_claw8_a2vm.yaml",
+      "kind": "file",
+      "size": 3689,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "9087c3b2833172c12a8b40d7e143d8ba761226c6b2edb2fcf9627868b33033f1"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-msi_claw8_ex_ai_cg3em.yaml",
+      "kind": "file",
+      "size": 3662,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "450dd35d4abad50e9abe76124e39e5cc6032a68a6242bd9e4a432eefda220d47"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-msi_claw_a1m.yaml",
+      "kind": "file",
+      "size": 4234,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "edfc137146f22d6d556eb120e243a5ae15253d1ec3421dbffb78041cd428ae1a"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-msi_claw_a8_bz2e.yaml",
+      "kind": "file",
+      "size": 3838,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "7ed6cf8135e3e80f7aaaf04713ae1bd567fafc427ccb100c07d29a371d53673c"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-onexplayer_2.yaml",
+      "kind": "file",
+      "size": 2161,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "069e71c3e57df9c80122d27fc60df14010090835a1923d33e5b8feb0aa33874d"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-onexplayer_amd.yaml",
+      "kind": "file",
+      "size": 2329,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "4a56f69fd1275584e934717713e10244dc988b385f7543c8024bc4862f8705c9"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-onexplayer_apex.yaml",
+      "kind": "file",
+      "size": 2211,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "2eba271bfc7cc6a8107fc2db1a80c214ff39b27bd8e3cb60e38973839bbfac87"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-onexplayer_g1.yaml",
+      "kind": "file",
+      "size": 1824,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "610e8632a0346800d9f240de668ce12bd73775aec44304c97e49e2dea2831d80"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-onexplayer_intel.yaml",
+      "kind": "file",
+      "size": 1766,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "d2807ec0adfaaaa88a77e65b30feb9d7dc9642134123de0c2166f295d6d28479"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-onexplayer_mini_a07.yaml",
+      "kind": "file",
+      "size": 1706,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "fc98ee20b3477ca63bae0f7438ba6caaa82ec02e60cf42f586da00439536fc56"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-onexplayer_mini_pro.yaml",
+      "kind": "file",
+      "size": 1670,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "e24412e61bad6ae36a2174d056036324913b55f62c1c7137044ccb246c7dd8db"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-onexplayer_onexfly.yaml",
+      "kind": "file",
+      "size": 2140,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "a2d51e306cb21af645c66d8a706644663324480f3c8b8163b03a28c4f3cc04bc"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-onexplayer_x1.yaml",
+      "kind": "file",
+      "size": 2863,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "cc507743c9d2183e353f3a1dee126cd4277830b30ab41d854350fa78321253a4"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-orangepi_neo.yaml",
+      "kind": "file",
+      "size": 2481,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "d0badb07c43664dd1a90f41a256d6ce2e312de48039bf2287fbb0c269b74ac4a"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-retroid_pocket5.yaml",
+      "kind": "file",
+      "size": 649,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "17f87fc9d4dfdd0301ae3d5772e213b5568492fafa654b4131318342982fb812"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-retroid_pocket6.yaml",
+      "kind": "file",
+      "size": 914,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "a371cae054f394efeb42815cd52da366f1e07a0114c0e3b3d864933038ab2db0"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-retroid_pocket_flip2.yaml",
+      "kind": "file",
+      "size": 658,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "8fb65f1e191d80a4b9ec9ea4223bba8b7cb051efa6256ef7680364fbf496ef05"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-retroid_pocket_mini.yaml",
+      "kind": "file",
+      "size": 796,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "4c10de870573dce08cb41eb719fa0cc36f3370ee98526bf4f06f6af7142ef4a6"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-retroid_pocket_nova.yaml",
+      "kind": "file",
+      "size": 920,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "cebcd0a7abb157b904ccc14e285977d1749724b439e4659e6909b8649061816c"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-rog_ally.yaml",
+      "kind": "file",
+      "size": 1950,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "4da7761c737fa99580e8c14cd67b510fd78b6ea49dc35b276850e1838f90225b"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-rog_ally_x.yaml",
+      "kind": "file",
+      "size": 1961,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "fb4168fea4574638bb8a989ec45e22863e788ba0344873ffeeb6452661036d59"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-rog_flow_z13.yaml",
+      "kind": "file",
+      "size": 1457,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "0cb6189be027d6d88129c3136582c37b7186e4c962b07e581a6dc65aac4663ab"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-rog_xbox_ally.yaml",
+      "kind": "file",
+      "size": 2043,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "51ed98df293f175209d77112c23157ec4662328fc45fa7238521cef996574a6b"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-steam_deck.yaml",
+      "kind": "file",
+      "size": 1920,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "63f9adaf830408986c346530f90ca2c57a1bdc229d0a1ccc0471627e34da94eb"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-suiplay_0x1.yaml",
+      "kind": "file",
+      "size": 1483,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "b076890a7398e308ef2fef2da6f23bc05c15f328da02c4b7e7163c8db6a1e780"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/50-zotac-zone.yaml",
+      "kind": "file",
+      "size": 2423,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "c31587cda404892dbd11c7f42c91b776c8435e35beaa3d19b7b21d47a87d14a1"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/60-8bit_do_pro_2.yaml",
+      "kind": "file",
+      "size": 1092,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "8b7dc9d3fea331dfd6be80b7288c90b82002cc2fb5f8dc1443f65420b67e1265"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/60-8bit_do_ultimate_2.yaml",
+      "kind": "file",
+      "size": 1386,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "8b3e58484a8dd2266d1df9c5c8543f1df3f7a47e66b1f027a9d1bc3b64ca8468"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/60-LogitechDualAction.yaml",
+      "kind": "file",
+      "size": 1098,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "8eebc0e47707b72e44377922b3dfab6464fc6e6d090897c37941838bdf7a3991"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/60-cec.yaml",
+      "kind": "file",
+      "size": 477,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "43eeb60bb7bf7e19db9eea29785345edb241c4b9efcb531890896782a08f8e44"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/60-flydigi_vader_4_pro.yaml",
+      "kind": "file",
+      "size": 1367,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "7167635696c002423768e664a6ac456686fb90f74d64a061c0d9e62ad56e9865"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/60-horipad_steam.yaml",
+      "kind": "file",
+      "size": 1361,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "eb5ddaa4c78ab53ee1abfcf7fd417c1b9f585107b9c5efadbc7bc8e870e523e6"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/60-ps4_gamepad.yaml",
+      "kind": "file",
+      "size": 1873,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "50115cb3abecd836e69fcfc0cd01eb481b0fd467a7da39a18e512b7fb3cc9181"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/60-ps5_ds-edge_gamepad.yaml",
+      "kind": "file",
+      "size": 1333,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "78e4eaf030ad398f07ef36860945774c46a97d54eb4a11ed7362d683d7d76c15"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/60-ps5_ds_gamepad.yaml",
+      "kind": "file",
+      "size": 1323,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "3f31f6f11d62a38b5a9c18a078b9111e57bc628099b9ef95e9fc00071e132327"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/60-switch_pro.yaml",
+      "kind": "file",
+      "size": 1025,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "ff077f2811e1850a8594b4427685df77328f475d933c8bb06169b26c047e155f"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/60-xbox_360_gamepad.yaml",
+      "kind": "file",
+      "size": 5198,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "b0b702199cd90daf447a76eca3a7b02fc773f83c2b483f2636cb5bd3184fe9ac"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/60-xbox_gamepad.yaml",
+      "kind": "file",
+      "size": 3099,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "8be81098047240c0919e779d5d4301e7c1cd22e3a9c7ddbba4ede5e75f70cb99"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/60-xbox_one_bt_gamepad.yaml",
+      "kind": "file",
+      "size": 1494,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "8e8823266c6ef7adba1303d90af5101265a402ce4ae1c702d379f0f14aca2fc1"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/60-xbox_one_elite_gamepad.yaml",
+      "kind": "file",
+      "size": 992,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "f6ba250ac8a210d234c26965fffe24a1cd05bf60282c61adef503c5a9f6e6131"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/60-xbox_one_gamepad.yaml",
+      "kind": "file",
+      "size": 2705,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "5ea9f77a25c8e91f10f9f357a80deaf97ea6397bc6ac463807d589851b9cdf6f"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/65-generic_gamepad.yaml",
+      "kind": "file",
+      "size": 1373,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "9a1d84128e5e2a659da6fd06c55fba4bd75b97df7b4ee227be7dde2077c8db48"
+    },
+    {
+      "path": "usr/share/inputplumber/devices/69-ignore_generic.yaml",
+      "kind": "file",
+      "size": 1016,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "1ffa9de0e1b09e10414d20f98fde16b241e801f171481d4a477288c38bb27fff"
+    },
+    {
+      "path": "usr/share/inputplumber/profiles/debug.yaml",
+      "kind": "file",
+      "size": 320,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "6067a0d377f54c2055ed58a282a7d21ea361b7e86eda12289ff1125cce3b426c"
+    },
+    {
+      "path": "usr/share/inputplumber/profiles/default.yaml",
+      "kind": "file",
+      "size": 1888,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "f73795f5292f21ea183add122d88dbdf02dfd2f3f7df8227f5b72fc5da92df40"
+    },
+    {
+      "path": "usr/share/inputplumber/profiles/mouse_keyboard_wasd.yaml",
+      "kind": "file",
+      "size": 3548,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "5839cd71786b8c1f36bfde58314f612faccc698411b512ac8e6c30b61ddcce62"
+    },
+    {
+      "path": "usr/share/inputplumber/profiles/test.yaml",
+      "kind": "file",
+      "size": 2338,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "ec6d1262012f6cf5530a65ed49fd51e9bf7ffded3cc6cc9fec209e925182e12e"
+    },
+    {
+      "path": "usr/share/inputplumber/schema/capability_map_v1.json",
+      "kind": "file",
+      "size": 13673,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "2a4ade0c0fe24f7d989bcac6d703bb2c258de2ca7722050ba1a2adcc72cb0e07"
+    },
+    {
+      "path": "usr/share/inputplumber/schema/capability_map_v2.json",
+      "kind": "file",
+      "size": 33551,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "5b9a12a4e19fe837f42b9c87fbe3fd5396701c57dfe37d76bc8217c25fc51723"
+    },
+    {
+      "path": "usr/share/inputplumber/schema/composite_device_v1.json",
+      "kind": "file",
+      "size": 17018,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "b894e7e0d8a9f8373fb19657de2aad04b505a9c33f9003eb909ebec51c3cfccd"
+    },
+    {
+      "path": "usr/share/inputplumber/schema/device_profile_v1.json",
+      "kind": "file",
+      "size": 14492,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "8a38f15b424fa649aa1c1bde4f095d00498709eda74c5a7e27781da883f0ed51"
+    },
+    {
+      "path": "usr/share/licenses/inputplumber/LICENSE",
+      "kind": "file",
+      "size": 35150,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "e57f1c320b8cf8798a7d2ff83a6f9e06a33a03585f6e065fea97f1d86db84052"
+    },
+    {
+      "path": "usr/share/polkit-1/actions/org.shadowblip.InputPlumber.policy",
+      "kind": "file",
+      "size": 38573,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "3c6fffc69ef9f24ba1971c37e65e427dd28b66210e7d8f7664877fb34b9479a6"
+    },
+    {
+      "path": "usr/share/polkit-1/rules.d/org.shadowblip.InputPlumber.rules",
+      "kind": "file",
+      "size": 419,
+      "mode": "0o644",
+      "uid": 0,
+      "gid": 0,
+      "sha256": "a005e2eda619f839cf07dcda1ff4a92e685ea913c54295885d7831821fbacb4b"
+    }
+  ],
+  "source_archive": "inputplumber-armada-original.tar.gz",
+  "source_archive_sha256": "47b3674e759b8aafafd3c594b7063236f2d4901454a3723e7cef3b3844633b42",
+  "image_provenance": {
+    "manifest_digest": "sha256:f1be3089bb7c917adf41068704ce8dd9a679e3c47cab466b3d2832be1b2f0cde",
+    "image_labels": {
+      "containers.bootc": "1",
+      "org.opencontainers.image.created": "2026-10-10T16:50:16Z",
+      "org.opencontainers.image.description": "Armada: a gaming-focused, SteamOS-like Fedora bootc image for ARM64 handhelds",
+      "org.opencontainers.image.documentation": "https://raw.githubusercontent.com/armada-os/armada/c3d178c9e5cc7107aaa128b8c1f384a9c6bd8dfa/README.md",
+      "org.opencontainers.image.licenses": "GPL-2.0-or-later",
+      "org.opencontainers.image.revision": "c3d178c9e5cc7107aaa128b8c1f384a9c6bd8dfa",
+      "org.opencontainers.image.source": "https://github.com/armada-os/armada/blob/c3d178c9e5cc7107aaa128b8c1f384a9c6bd8dfa/Containerfile",
+      "org.opencontainers.image.title": "armada",
+      "org.opencontainers.image.url": "https://github.com/armada-os/armada/tree/c3d178c9e5cc7107aaa128b8c1f384a9c6bd8dfa",
+      "org.opencontainers.image.vendor": "armada-os",
+      "org.opencontainers.image.version": "20261010.c3d178c",
+      "ostree.bootable": "true",
+      "ostree.linux": "7.2.9-200.fc44.aarch64",
+      "rpmostree.inputhash": "12bb2a2d6b698d6d8360d6c615741ef9762b8a97b7301b40531a94b3680ffffa"
+    },
+    "layer_digest": "sha256:6aa193f0441ea3b28b81f8665ab02a1c9aa08a86a25e05b350091fbf84b02120",
+    "layer_digest_checked": true,
+    "rpmdb_chunk_digest": "sha256:21719cdd9d5081b6343a119509e8709eb1816709717335cc0be107cf2a155230"
+  },
+  "local_nevra": "inputplumber-0.81.0-3.fc44.caihong.aarch64",
+  "spec": "inputplumber.spec",
+  "spec_sha256": "b96d1906fc0737b4277f2c490514841685c37cae613b93cb13c081784a292af1",
+  "rpm_owned_paths": [
+    "/usr/bin/inputplumber",
+    "/usr/lib/.build-id/52/451e7c0e2356f5728a9d46bafd400defd771a4",
+    "/usr/lib/systemd/system/inputplumber-suspend.service",
+    "/usr/lib/systemd/system/inputplumber.service",
+    "/usr/lib/udev/hwdb.d/59-inputplumber.hwdb",
+    "/usr/lib/udev/hwdb.d/60-inputplumber-autostart.hwdb",
+    "/usr/lib/udev/rules.d/50-8bitdo-u2-controller.rules",
+    "/usr/lib/udev/rules.d/60-inputplumber-uaccess.rules",
+    "/usr/lib/udev/rules.d/90-inputplumber-autostart.rules",
+    "/usr/lib/udev/rules.d/99-inputplumber-device-setup.rules",
+    "/usr/share/dbus-1/system.d/org.shadowblip.InputPlumber.conf",
+    "/usr/share/doc/inputplumber",
+    "/usr/share/doc/inputplumber/README.md",
+    "/usr/share/inputplumber",
+    "/usr/share/inputplumber/capability_maps",
+    "/usr/share/inputplumber/capability_maps/ally_type1.yaml",
+    "/usr/share/inputplumber/capability_maps/ally_type2.yaml",
+    "/usr/share/inputplumber/capability_maps/anbernic_type1.yaml",
+    "/usr/share/inputplumber/capability_maps/ayaneo_type1.yaml",
+    "/usr/share/inputplumber/capability_maps/ayaneo_type10.yaml",
+    "/usr/share/inputplumber/capability_maps/ayaneo_type11.yaml",
+    "/usr/share/inputplumber/capability_maps/ayaneo_type2.yaml",
+    "/usr/share/inputplumber/capability_maps/ayaneo_type3.yaml",
+    "/usr/share/inputplumber/capability_maps/ayaneo_type4.yaml",
+    "/usr/share/inputplumber/capability_maps/ayaneo_type5.yaml",
+    "/usr/share/inputplumber/capability_maps/ayaneo_type6.yaml",
+    "/usr/share/inputplumber/capability_maps/ayaneo_type7.yaml",
+    "/usr/share/inputplumber/capability_maps/ayaneo_type8.yaml",
+    "/usr/share/inputplumber/capability_maps/ayaneo_type9.yaml",
+    "/usr/share/inputplumber/capability_maps/ayn_type1.yaml",
+    "/usr/share/inputplumber/capability_maps/ayn_type2.yaml",
+    "/usr/share/inputplumber/capability_maps/ayn_type3.yaml",
+    "/usr/share/inputplumber/capability_maps/cec.yaml",
+    "/usr/share/inputplumber/capability_maps/dinput_generic.yaml",
+    "/usr/share/inputplumber/capability_maps/flow_type1.yaml",
+    "/usr/share/inputplumber/capability_maps/flydigi_vader_4_pro.yaml",
+    "/usr/share/inputplumber/capability_maps/gpd_menu.yaml",
+    "/usr/share/inputplumber/capability_maps/gpd_type1.yaml",
+    "/usr/share/inputplumber/capability_maps/gpd_type2.yaml",
+    "/usr/share/inputplumber/capability_maps/gpd_type3.yaml",
+    "/usr/share/inputplumber/capability_maps/gpd_type4.yaml",
+    "/usr/share/inputplumber/capability_maps/imu_generic.yaml",
+    "/usr/share/inputplumber/capability_maps/konkr_type1.yaml",
+    "/usr/share/inputplumber/capability_maps/konkr_type2.yaml",
+    "/usr/share/inputplumber/capability_maps/konkr_type3.yaml",
+    "/usr/share/inputplumber/capability_maps/logitech_dualaction.yaml",
+    "/usr/share/inputplumber/capability_maps/msiclaw_type1.yaml",
+    "/usr/share/inputplumber/capability_maps/msiclaw_type2.yaml",
+    "/usr/share/inputplumber/capability_maps/onexplayer_type1.yaml",
+    "/usr/share/inputplumber/capability_maps/onexplayer_type2.yaml",
+    "/usr/share/inputplumber/capability_maps/onexplayer_type3.yaml",
+    "/usr/share/inputplumber/capability_maps/onexplayer_type4.yaml",
+    "/usr/share/inputplumber/capability_maps/onexplayer_type5.yaml",
+    "/usr/share/inputplumber/capability_maps/onexplayer_type6.yaml",
+    "/usr/share/inputplumber/capability_maps/onexplayer_type7.yaml",
+    "/usr/share/inputplumber/capability_maps/onexplayer_type8.yaml",
+    "/usr/share/inputplumber/capability_maps/orangepi_type1.yaml",
+    "/usr/share/inputplumber/capability_maps/retroid_type1.yaml",
+    "/usr/share/inputplumber/capability_maps/retroid_type2.yaml",
+    "/usr/share/inputplumber/capability_maps/rsinput_type1.yaml",
+    "/usr/share/inputplumber/capability_maps/swap_west_north.yaml",
+    "/usr/share/inputplumber/capability_maps/zone_type1.yaml",
+    "/usr/share/inputplumber/devices",
+    "/usr/share/inputplumber/devices/10-ignore_unsupported.yaml",
+    "/usr/share/inputplumber/devices/50-anbernic_win600.yaml",
+    "/usr/share/inputplumber/devices/50-aokzoe_a1.yaml",
+    "/usr/share/inputplumber/devices/50-ayaneo_2.yaml",
+    "/usr/share/inputplumber/devices/50-ayaneo_2021.yaml",
+    "/usr/share/inputplumber/devices/50-ayaneo_2s.yaml",
+    "/usr/share/inputplumber/devices/50-ayaneo_3.yaml",
+    "/usr/share/inputplumber/devices/50-ayaneo_air.yaml",
+    "/usr/share/inputplumber/devices/50-ayaneo_air_1s.yaml",
+    "/usr/share/inputplumber/devices/50-ayaneo_air_plus.yaml",
+    "/usr/share/inputplumber/devices/50-ayaneo_air_plus_mendo.yaml",
+    "/usr/share/inputplumber/devices/50-ayaneo_flip.yaml",
+    "/usr/share/inputplumber/devices/50-ayaneo_flip_1s.yaml",
+    "/usr/share/inputplumber/devices/50-ayaneo_kun.yaml",
+    "/usr/share/inputplumber/devices/50-ayaneo_next.yaml",
+    "/usr/share/inputplumber/devices/50-ayaneo_pocket_ds.yaml",
+    "/usr/share/inputplumber/devices/50-ayaneo_pocket_s2.yaml",
+    "/usr/share/inputplumber/devices/50-ayaneo_slide.yaml",
+    "/usr/share/inputplumber/devices/50-ayn_loki_max.yaml",
+    "/usr/share/inputplumber/devices/50-ayn_loki_mini_pro.yaml",
+    "/usr/share/inputplumber/devices/50-ayn_loki_zero.yaml",
+    "/usr/share/inputplumber/devices/50-ayn_odin2.yaml",
+    "/usr/share/inputplumber/devices/50-ayn_odin2_mini.yaml",
+    "/usr/share/inputplumber/devices/50-ayn_odin3.yaml",
+    "/usr/share/inputplumber/devices/50-ayn_thor.yaml",
+    "/usr/share/inputplumber/devices/50-ayn_thor_lite.yaml",
+    "/usr/share/inputplumber/devices/50-gpd_win3.yaml",
+    "/usr/share/inputplumber/devices/50-gpd_win4.yaml",
+    "/usr/share/inputplumber/devices/50-gpd_win5.yaml",
+    "/usr/share/inputplumber/devices/50-gpd_winmax2.yaml",
+    "/usr/share/inputplumber/devices/50-gpd_winmini.yaml",
+    "/usr/share/inputplumber/devices/50-konkr-fit.yaml",
+    "/usr/share/inputplumber/devices/50-konkr_pocket_fit.yaml",
+    "/usr/share/inputplumber/devices/50-konkr_pocket_fit_elite.yaml",
+    "/usr/share/inputplumber/devices/50-legion_go.yaml",
+    "/usr/share/inputplumber/devices/50-legion_go_2.yaml",
+    "/usr/share/inputplumber/devices/50-legion_go_s.yaml",
+    "/usr/share/inputplumber/devices/50-msi_claw7_a2vm.yaml",
+    "/usr/share/inputplumber/devices/50-msi_claw8_a2vm.yaml",
+    "/usr/share/inputplumber/devices/50-msi_claw8_ex_ai_cg3em.yaml",
+    "/usr/share/inputplumber/devices/50-msi_claw_a1m.yaml",
+    "/usr/share/inputplumber/devices/50-msi_claw_a8_bz2e.yaml",
+    "/usr/share/inputplumber/devices/50-onexplayer_2.yaml",
+    "/usr/share/inputplumber/devices/50-onexplayer_amd.yaml",
+    "/usr/share/inputplumber/devices/50-onexplayer_apex.yaml",
+    "/usr/share/inputplumber/devices/50-onexplayer_g1.yaml",
+    "/usr/share/inputplumber/devices/50-onexplayer_intel.yaml",
+    "/usr/share/inputplumber/devices/50-onexplayer_mini_a07.yaml",
+    "/usr/share/inputplumber/devices/50-onexplayer_mini_pro.yaml",
+    "/usr/share/inputplumber/devices/50-onexplayer_onexfly.yaml",
+    "/usr/share/inputplumber/devices/50-onexplayer_x1.yaml",
+    "/usr/share/inputplumber/devices/50-orangepi_neo.yaml",
+    "/usr/share/inputplumber/devices/50-retroid_pocket5.yaml",
+    "/usr/share/inputplumber/devices/50-retroid_pocket6.yaml",
+    "/usr/share/inputplumber/devices/50-retroid_pocket_flip2.yaml",
+    "/usr/share/inputplumber/devices/50-retroid_pocket_mini.yaml",
+    "/usr/share/inputplumber/devices/50-retroid_pocket_nova.yaml",
+    "/usr/share/inputplumber/devices/50-rog_ally.yaml",
+    "/usr/share/inputplumber/devices/50-rog_ally_x.yaml",
+    "/usr/share/inputplumber/devices/50-rog_flow_z13.yaml",
+    "/usr/share/inputplumber/devices/50-rog_xbox_ally.yaml",
+    "/usr/share/inputplumber/devices/50-steam_deck.yaml",
+    "/usr/share/inputplumber/devices/50-suiplay_0x1.yaml",
+    "/usr/share/inputplumber/devices/50-zotac-zone.yaml",
+    "/usr/share/inputplumber/devices/60-8bit_do_pro_2.yaml",
+    "/usr/share/inputplumber/devices/60-8bit_do_ultimate_2.yaml",
+    "/usr/share/inputplumber/devices/60-LogitechDualAction.yaml",
+    "/usr/share/inputplumber/devices/60-cec.yaml",
+    "/usr/share/inputplumber/devices/60-flydigi_vader_4_pro.yaml",
+    "/usr/share/inputplumber/devices/60-horipad_steam.yaml",
+    "/usr/share/inputplumber/devices/60-ps4_gamepad.yaml",
+    "/usr/share/inputplumber/devices/60-ps5_ds-edge_gamepad.yaml",
+    "/usr/share/inputplumber/devices/60-ps5_ds_gamepad.yaml",
+    "/usr/share/inputplumber/devices/60-switch_pro.yaml",
+    "/usr/share/inputplumber/devices/60-xbox_360_gamepad.yaml",
+    "/usr/share/inputplumber/devices/60-xbox_gamepad.yaml",
+    "/usr/share/inputplumber/devices/60-xbox_one_bt_gamepad.yaml",
+    "/usr/share/inputplumber/devices/60-xbox_one_elite_gamepad.yaml",
+    "/usr/share/inputplumber/devices/60-xbox_one_gamepad.yaml",
+    "/usr/share/inputplumber/devices/65-generic_gamepad.yaml",
+    "/usr/share/inputplumber/devices/69-ignore_generic.yaml",
+    "/usr/share/inputplumber/profiles",
+    "/usr/share/inputplumber/profiles/debug.yaml",
+    "/usr/share/inputplumber/profiles/default.yaml",
+    "/usr/share/inputplumber/profiles/mouse_keyboard_wasd.yaml",
+    "/usr/share/inputplumber/profiles/test.yaml",
+    "/usr/share/inputplumber/schema",
+    "/usr/share/inputplumber/schema/capability_map_v1.json",
+    "/usr/share/inputplumber/schema/capability_map_v2.json",
+    "/usr/share/inputplumber/schema/composite_device_v1.json",
+    "/usr/share/inputplumber/schema/device_profile_v1.json",
+    "/usr/share/licenses/inputplumber",
+    "/usr/share/licenses/inputplumber/LICENSE",
+    "/usr/share/polkit-1/actions/org.shadowblip.InputPlumber.policy",
+    "/usr/share/polkit-1/rules.d/org.shadowblip.InputPlumber.rules"
+  ],
+  "excluded_global_directory_ownership": [
+    "/usr/lib/.build-id",
+    "/usr/lib/.build-id/52"
+  ],
+  "no_original_rpm_signature_claim": true,
+  "license": "GPL-3.0-or-later",
+  "source_archive_storage": "Operator-selected private build directory; not stored in this repository"
+}
