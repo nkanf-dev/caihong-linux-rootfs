@@ -1,0 +1,17 @@
+{
+  "source": "https://api.steamcmd.net/v1/info/438100",
+  "retrieved_utc": "2026-10-21T09:36:00Z",
+  "appid": 438100,
+  "launch": {
+    "0": {
+      "executable": "launch.exe",
+      "type": "vr"
+    },
+    "1": {
+      "executable": "launch.exe",
+      "type": "option1",
+      "description": "in Desktop (Non-VR) Mode",
+      "arguments": "--no-vr"
+    }
+  }
+}

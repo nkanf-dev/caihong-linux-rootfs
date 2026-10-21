@@ -46,7 +46,10 @@ def findings(path, data):
     except UnicodeDecodeError:
         return errors + ["non-utf8"]
     for name, pattern in RULES.items():
-        if pattern.search(text):
+        # RFC6455's fixed public WebSocket handshake GUID is protocol data,
+        # not a device/account identifier. Keep rejecting all other UUIDs.
+        scanned = text.replace("258EAFA5-E914-47DA-95CA-C5AB0DC85B11", "") if name == "uuid" else text
+        if pattern.search(scanned):
             errors.append(name)
     for match in ASSIGNMENT.finditer(text):
         if not PLACEHOLDER.search(match.group(1)):

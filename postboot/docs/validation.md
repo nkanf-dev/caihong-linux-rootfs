@@ -63,3 +63,11 @@ python3 -B -m unittest discover -s postboot/pcvr/overlay -p 'test_*.py' -v
 ```
 
 The reviewed counts are 31 audio, 23 stereo, and 10 overlay checks. These validate source safety and fixtures only; headset playback, microphone, visual repair, and native Steam UI remain charged-device tests.
+
+## Launcher source preparation
+
+```sh
+python3 -B -m unittest discover -s postboot/launcher/tests -p 'test_*.py' -v
+```
+
+The reviewed host count is 90. These cover mode isolation, original command and compatibility environment, cold/reused/starting runtime gates, one-request receipts, private-path races, pinned ALVR protocol freshness, and transactional bundle installation/rollback. Passing fixtures do not establish device cold-start acceptance.

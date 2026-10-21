@@ -72,3 +72,15 @@ The user paused headset testing for charging. No headset wake, stream reconnect,
 - A Steam VR/desktop convenience launcher is being prepared separately. Its source tests and cold-start design do not establish device acceptance. The existing manual desktop and VR routes remain the rollback baseline.
 
 The previously verified native ARM64 client extension is installed as one architecture-specific file only. Native Steam library/overlay UI is still unverified. Do not report the four user issues as fixed by these host-only tools.
+
+## Prepared Steam VR/desktop convenience entry
+
+`launcher/` now preserves both real Steam choices through one app-scoped wrapper. Desktop forwards the original protected command with `--no-vr` and never creates a runtime backend. VR reuses a healthy existing runtime or admits one clean SteamVR start, then requires same-run ALVR loading, Ready, mapped driver, exact API version, and fresh decode/video events before the unchanged game command.
+
+Both app 438100 and app 250820 launch-option templates are required because Steam may auto-start SteamVR first. The templates retain the verified EAC paths, WINEDEBUG/Xalia settings, AVPro argument, separate private FEX/prefix, and exact original launcher chain. An unexplained crash/safe-mode block stops rather than auto-clearing it. Receipt-generation and process-generation claims prevent duplicate starts; checked private dirfds protect local state.
+
+Ninety mocked host tests and an independent adversarial review passed. This is source-preparation acceptance only. The new bundle and launch-option templates have NOT been deployed on the device; normal cold VR start, desktop start, close/reopen, healthy reuse, headset absence, audio and overlay must be checked after the charging pause. The core launcher does not yet auto-apply the separately prepared audio namespace route.
+
+## Backup location update
+
+The user chose to keep backups on the Mac rather than duplicate them on the tablet. Sixty-four historical runtime backup files were copied and individually size/SHA256-verified before device copies were removed. Original boot/recovery/GPT/AVB rescue assets were also consolidated locally. They live under `.local-artifacts/backups/`, mode 0700/0600, excluded by the local `.git/info/exclude` rule. No private backup bytes are tracked or pushed; a fresh clone does not contain them. Historical references to device backup paths describe the earlier checkpoint, not the current storage location.

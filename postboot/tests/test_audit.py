@@ -26,6 +26,12 @@ class AuditTests(unittest.TestCase):
             with self.subTest(rule=rule):
                 self.assertIn(rule, audit.findings("postboot/example.txt", value.encode()))
 
+    def test_public_websocket_guid_only_is_allowed(self):
+        public = b"258EAFA5-E914-47DA-95CA-C5AB0DC85B11"
+        self.assertNotIn("uuid", audit.findings("postboot/example.py", public))
+        other = ("00000000" + "-0000" * 3 + "-000000000001").encode()
+        self.assertIn("uuid", audit.findings("postboot/example.py", other))
+
     def test_artifacts_and_size(self):
         self.assertIn("forbidden-artifact-path", audit.findings("postboot/capture.so", b"abc"))
         self.assertIn("binary-content", audit.findings("postboot/core.txt", bytes([0, 1])))

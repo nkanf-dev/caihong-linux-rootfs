@@ -4,6 +4,12 @@
   "max_file_bytes": 524288,
   "files": [
     {
+      "path": "docs/superpowers/plans/2026-10-21-steam-dual-mode-vrchat.md",
+      "role": "Implementation plan for the reviewed source-only Steam dual-mode launcher; device acceptance pending",
+      "bytes": 3196,
+      "sha256": "c8e9234d65f20ea0dadd861c182e33267a9895e9edd1e84c2cfb3c521f6c6973"
+    },
+    {
       "path": "postboot/.gitattributes",
       "role": "archive documentation and policy",
       "bytes": 486,
@@ -30,8 +36,8 @@
     {
       "path": "postboot/README.md",
       "role": "archive documentation and policy",
-      "bytes": 1972,
-      "sha256": "c0d2a590db96e91b5cec1b93e84c5945d659ed4119f3dbeaf36b04709f614e71"
+      "bytes": 2301,
+      "sha256": "e4485f09f9502fce30d4fe514c6122f523ce9b00493f085c8f9b52da4d56bf7c"
     },
     {
       "path": "postboot/android-switch/.gitignore",
@@ -372,8 +378,8 @@
     {
       "path": "postboot/docs/current-validation.md",
       "role": "archive documentation and policy",
-      "bytes": 9794,
-      "sha256": "a0125cb7488df034e87e4113e282706eabfc0fc69f274797927d077974b91bdb"
+      "bytes": 11747,
+      "sha256": "cc3420cd20ced4ef67a4d0583cd2c9d9495c895131332327fe27f097a3ddf298"
     },
     {
       "path": "postboot/docs/desktop-proxy.md",
@@ -390,8 +396,8 @@
     {
       "path": "postboot/docs/validation.md",
       "role": "archive documentation and policy",
-      "bytes": 3373,
-      "sha256": "2bb7da29b51423ef3e4b4e198e91e8793547b0ffb113887efa147fdd1ae82204"
+      "bytes": 3823,
+      "sha256": "3af85446e652b12b594f768b2a382388b9f21241435218637736f7e3964d1e38"
     },
     {
       "path": "postboot/evidence/host-validation.json",
@@ -404,6 +410,90 @@
       "role": "sanitized compact validation summary",
       "bytes": 1379,
       "sha256": "f14696aeb6fd8350473ba3a32a06a4c59d7132936b4dcf28faf48beff2052dbe"
+    },
+    {
+      "path": "postboot/launcher/README.md",
+      "role": "Steam dual-mode launcher prepared source; 90 mocked tests and independent review passed; not device-deployed",
+      "bytes": 6797,
+      "sha256": "2241016c7316cf8ba71c3baf95187c0cef2825a279b640c4c612d6ee16819335"
+    },
+    {
+      "path": "postboot/launcher/SPEC.md",
+      "role": "Steam dual-mode launcher prepared source; 90 mocked tests and independent review passed; not device-deployed",
+      "bytes": 2959,
+      "sha256": "a5ef9b284adf69c7d49bcf8b7c6fbaaa2d95a63924853b95275ebd47425c7028"
+    },
+    {
+      "path": "postboot/launcher/alvr_events.py",
+      "role": "Steam dual-mode launcher prepared source; 90 mocked tests and independent review passed; not device-deployed",
+      "bytes": 16988,
+      "sha256": "dd8837a0740ce28ffc86b3a7c0c82013d5b594c9d94721a5903682411c0cc2a8"
+    },
+    {
+      "path": "postboot/launcher/clean_gate.py",
+      "role": "Steam dual-mode launcher prepared source; 90 mocked tests and independent review passed; not device-deployed",
+      "bytes": 7746,
+      "sha256": "4ac24900b039fffd54ae7d5c9dc1dc3e2f84db87914b15bfc323cd2b02235436"
+    },
+    {
+      "path": "postboot/launcher/dual_mode.py",
+      "role": "Steam dual-mode launcher prepared source; 90 mocked tests and independent review passed; not device-deployed",
+      "bytes": 9302,
+      "sha256": "433905bced97e80602b9d8bd77b5f5b5a839493ba3fa3c1c6f4817c30cce8715"
+    },
+    {
+      "path": "postboot/launcher/install.py",
+      "role": "Steam dual-mode launcher prepared source; 90 mocked tests and independent review passed; not device-deployed",
+      "bytes": 18206,
+      "sha256": "e441b63faaa423f0e54091a174a5e76241e9f6c5616fa9b24d822405c2392188"
+    },
+    {
+      "path": "postboot/launcher/runtime_backend.py",
+      "role": "Steam dual-mode launcher prepared source; 90 mocked tests and independent review passed; not device-deployed",
+      "bytes": 12557,
+      "sha256": "8cb8b9a56571b48d24095f15d0e8a03f3d12da11c5af5be556e5d6793c14f781"
+    },
+    {
+      "path": "postboot/launcher/steam-launch-choices.json",
+      "role": "Steam dual-mode launcher prepared source; 90 mocked tests and independent review passed; not device-deployed",
+      "bytes": 364,
+      "sha256": "03ede5d30d1fdbe649ccc5d62bba4ba2d3b696809939c5f82e215d35b3030969"
+    },
+    {
+      "path": "postboot/launcher/steamvr_auto.py",
+      "role": "Steam dual-mode launcher prepared source; 90 mocked tests and independent review passed; not device-deployed",
+      "bytes": 2798,
+      "sha256": "bbb336c41e0cfc573a733c6441bf0a0b196bfeda475882707ebd2dabaea1402e"
+    },
+    {
+      "path": "postboot/launcher/tests/test_alvr_events.py",
+      "role": "Steam dual-mode launcher prepared source; 90 mocked tests and independent review passed; not device-deployed",
+      "bytes": 21059,
+      "sha256": "e023c1bff2cfe39cde5cdaf0d82a608ca796a4f531bf07acf2e9dd841a5ea553"
+    },
+    {
+      "path": "postboot/launcher/tests/test_dual_mode.py",
+      "role": "Steam dual-mode launcher prepared source; 90 mocked tests and independent review passed; not device-deployed",
+      "bytes": 8691,
+      "sha256": "213071c2a92d0b587b042440c2ed568925355db8f41a9237e5561abbe3f3c0e3"
+    },
+    {
+      "path": "postboot/launcher/tests/test_install.py",
+      "role": "Steam dual-mode launcher prepared source; 90 mocked tests and independent review passed; not device-deployed",
+      "bytes": 15409,
+      "sha256": "968eb72ecf6006d010b1f7f7bc71e38b4d545c591418a43c2e63fe0b077d363a"
+    },
+    {
+      "path": "postboot/launcher/tests/test_runtime_backend.py",
+      "role": "Steam dual-mode launcher prepared source; 90 mocked tests and independent review passed; not device-deployed",
+      "bytes": 14806,
+      "sha256": "3f57f02304a9300234e07fac14636156a392359b1390ea8a6ddc18644251c2fa"
+    },
+    {
+      "path": "postboot/launcher/tests/test_steamvr_auto.py",
+      "role": "Steam dual-mode launcher prepared source; 90 mocked tests and independent review passed; not device-deployed",
+      "bytes": 2566,
+      "sha256": "ea748208dc6a57b353ca7338fce2961bfe9895ca437b81ee0ff880388bbdf84a"
     },
     {
       "path": "postboot/pcvr/README.md",
@@ -1158,20 +1248,26 @@
     {
       "path": "postboot/tests/test_audit.py",
       "role": "archive validation tooling",
-      "bytes": 1646,
-      "sha256": "092c8545a709fa5fa9689043a14e5bb0399c4baf20df04c44d1920b834249669"
+      "bytes": 1988,
+      "sha256": "a4887f2f1a56cfa9ac983bfa87451617a128d5b19ff873a407fff02c27b5f8f4"
+    },
+    {
+      "path": "postboot/tests/test_source_checker.py",
+      "role": "Source checker regression for authored-source versus build-dependency traversal",
+      "bytes": 1671,
+      "sha256": "6dee72e0a3be5b0c671831b7985a0d763421f0fb9bda7f30c6a5e47c749fd8e1"
     },
     {
       "path": "postboot/tools/audit_archive.py",
       "role": "archive validation tooling",
-      "bytes": 4659,
-      "sha256": "9c8549a75a1f84a66a2f363550117c5730e12dbb91f159aa1bf3d4a7a8102a3c"
+      "bytes": 4916,
+      "sha256": "c2c545403fe7bd21353bb8f11bb1c28eaf204431d2b622688f7975c911fe1c6e"
     },
     {
       "path": "postboot/tools/check_sources.py",
       "role": "archive validation tooling",
-      "bytes": 1179,
-      "sha256": "2ce804b029a85ef3246f8fad8a070893e513a5d5b4dce9a9188d3a98daa86755"
+      "bytes": 1699,
+      "sha256": "0e89b0d5540d32dab30178a57e28b6631754f94448244651058e5feaddb82d2d"
     },
     {
       "path": "postboot/tools/refresh_allowlist.py",

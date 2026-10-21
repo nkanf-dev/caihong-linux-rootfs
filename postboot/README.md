@@ -18,8 +18,9 @@ The private VRChat FEX route is separate. Do not substitute its FEX globally or 
 
 ## Storage boundary
 
-Keep device backups, prefixes, Steam data, ALVR client identities, proxy subscriptions, and build outputs outside this checkout.
-Use a private directory with mode 0700. Keep original boot, AVB, GPT, and partition backups.
+Keep private backups, prefixes, Steam data, ALVR client identities, proxy subscriptions, and build outputs out of Git.
+The current local-only backup location is `.local-artifacts/backups/` inside this checkout, excluded through `.git/info/exclude`; it is not included in a clone or push.
+Use private directories with mode 0700 and files with mode 0600. Original boot, AVB, GPT, partition, prefix and runtime backups were moved to the Mac after file-size and SHA256 verification; duplicate runtime backup directories were then removed from the device.
 No cleanup command in this directory deletes those backups.
 
 Hardware, kernel, image creation, and partition installation remain covered by the repository's existing [English README](../README.md), [Chinese README](../README.zh-CN.md), `scripts/`, and `rootfs/` sources.
