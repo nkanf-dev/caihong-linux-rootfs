@@ -5,8 +5,8 @@
 Type=Application
 Name=切换到 Android
 Name[en]=Switch to Android
-Comment=切换到当前 Linux 所在槽的另一启动槽并重启
-Comment[en]=Select the boot slot opposite the running Linux slot and reboot
+Comment=核对已配置的 Android 启动槽并重启
+Comment[en]=Verify the configured Android boot slot and reboot
 Exec=/usr/bin/pkexec /usr/local/sbin/caihong-slot android --reboot
 Icon=system-reboot
 Terminal=false

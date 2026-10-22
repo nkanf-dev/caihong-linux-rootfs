@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "approved": false,
+  "android_slot": "a",
+  "linux_slot": "b",
+  "linux_partlabel": "linux",
+  "linux_bytes": 68719476736,
+  "kernel_release": "7.2.0-g80730b2e1754",
+  "qbootctl_sha256": "fc5e3ce376ed5b5ba52ee786c3769ccbc3782649b16cd1e23911159cbc3bf474",
+  "ufs_boot_lun_path": "/sys/devices/platform/soc@0/1d84000.ufshc/attributes/boot_lun_enabled"
+}
