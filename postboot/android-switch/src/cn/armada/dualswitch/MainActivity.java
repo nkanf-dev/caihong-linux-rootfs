@@ -123,5 +123,5 @@ public final class MainActivity extends Activity {
         for (int i=0;i<blocks.length();i++) { if(i>0)lines.append('\n'); lines.append("• ").append(blocks.getString(i)); }
         reasons.setText(ready ? "设备、分区、镜像与启动设置已通过检查。" : lines.toString());
     }
-    @Override protected void onDestroy() { worker.shutdown(); super.onDestroy(); }
+    @Override protected void onDestroy() { worker.shutdownNow(); super.onDestroy(); }
 }

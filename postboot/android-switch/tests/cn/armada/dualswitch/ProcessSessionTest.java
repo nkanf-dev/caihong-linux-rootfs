@@ -29,6 +29,19 @@ public final class ProcessSessionTest {
   public void destroy(){destroyed=true;alive=false;}
   public Process destroyForcibly(){destroy();return this;}
  }
+ static final class ObservedProcess extends Process {
+  final Process child;final CountDownLatch waiting=new CountDownLatch(1);
+  ObservedProcess(Process child){this.child=child;}
+  public OutputStream getOutputStream(){return child.getOutputStream();}
+  public InputStream getInputStream(){return child.getInputStream();}
+  public InputStream getErrorStream(){return child.getErrorStream();}
+  public int waitFor()throws InterruptedException{return child.waitFor();}
+  public boolean waitFor(long time,TimeUnit unit)throws InterruptedException{waiting.countDown();return child.waitFor(time,unit);}
+  public int exitValue(){return child.exitValue();}
+  public boolean isAlive(){return child.isAlive();}
+  public void destroy(){child.destroy();}
+  public Process destroyForcibly(){child.destroyForcibly();return this;}
+ }
  static void cleaned(FakeProcess p){
   require(p.input.closed && p.out.closed && p.err.closed,"all process streams closed");
   require(!p.alive,"su is no longer alive");
@@ -63,6 +76,25 @@ public final class ProcessSessionTest {
   boolean nativeTimeout=false;try{ProcessSession.execute(nativeChild,100);}catch(IOException e){nativeTimeout=true;}
   require(nativeTimeout,"native waiting child times out");
   require(nativeChild.waitFor(2,TimeUnit.SECONDS),"native process terminated after timeout");
+  Process interruptedChild=new ProcessBuilder(java,"-cp",System.getProperty("java.class.path"),ProcessSessionTest.class.getName(),"child","hold").start();
+  ObservedProcess observed=new ObservedProcess(interruptedChild);
+  ExecutorService owner=Executors.newSingleThreadExecutor();
+  try{
+   Future<Boolean> interruptedResult=owner.submit(()->{
+    try{ProcessSession.execute(observed,5000);return false;}catch(InterruptedException e){return true;}
+   });
+   require(observed.waiting.await(2,TimeUnit.SECONDS),"native root session reached process wait");
+   owner.shutdownNow();
+   require(interruptedResult.get(2,TimeUnit.SECONDS),"owner shutdownNow interrupts active native session");
+   require(owner.awaitTermination(2,TimeUnit.SECONDS),"interrupted session worker stops");
+   require(interruptedChild.waitFor(2,TimeUnit.SECONDS),"interrupted native child terminated");
+   boolean drainsStopped=true;
+   for(Thread t:Thread.getAllStackTraces().keySet())
+    if(t.isAlive() && (t.getName().equals("Armada-stdout") || t.getName().equals("Armada-stderr")))drainsStopped=false;
+   require(drainsStopped,"interrupted native session leaves no drain threads");
+  }finally{
+   owner.shutdownNow();interruptedChild.destroyForcibly();
+  }
   System.out.println("ProcessSessionTest: PASS ("+assertions+" assertions)");
  }
 }
