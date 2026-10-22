@@ -1,0 +1,73 @@
+{
+  "component": "Caihong SDDM config reload correction",
+  "upstream": {
+    "repository": "https://github.com/sddm/sddm",
+    "tag": "v0.21.0",
+    "files": [
+      "src/common/ConfigReader.cpp",
+      "src/common/ConfigReader.h"
+    ]
+  },
+  "fedora_source_rpm": {
+    "nevra": "sddm-0.21.0-13.fc44.src",
+    "sha256": "644dd505e52e94547b52715ef4257f178ff5c12e408db7870cb41557e28c61cb",
+    "url": "https://mirrors.huaweicloud.com/repository/fedora/releases/44/Everything/source/tree/Packages/s/sddm-0.21.0-13.fc44.src.rpm",
+    "signature_verification": "Parent native rpmkeys --checksig reported digests signatures OK; original evidence remains in private device-readonly archive."
+  },
+  "fedora_patch_ids": [
+    0,
+    1,
+    2,
+    11,
+    101,
+    103,
+    104,
+    105
+  ],
+  "change": "Explicit ConfigBase::load rebuilds values from defaults and current ordered files without a wall-clock mtime cache.",
+  "regression": "Eight native QtCore tests link the actual Fedora prepared ConfigReader.cpp.",
+  "native_build_required": true,
+  "deployment": "Private daemon plus dedicated ExecStart override, no RPM-owned binary overwrite, no automatic service action.",
+  "excluded": [
+    "Android",
+    "boot slot helpers",
+    "Wi-Fi/backend changes",
+    "system clock/service changes",
+    "automatic SDDM restart"
+  ],
+  "local_inputs": {
+    "README.md": {
+      "bytes": 6287,
+      "sha256": "56fc4465e0342fc2796f3fab30dca3ade588f4011271d83f353f355e9e140d2c"
+    },
+    "build_native.py": {
+      "bytes": 8069,
+      "sha256": "891824a65d9eea571f4b8723232513230ce8089fb902d9da373b8680d9376972"
+    },
+    "install.py": {
+      "bytes": 23438,
+      "sha256": "136ea081ac0c97bc68a40648152df55592f2de4ffe70befae85860aad897855c"
+    },
+    "patches/0001-reload-config-without-wall-clock-cache.patch": {
+      "bytes": 3583,
+      "sha256": "81207bb62da1bc84063c8bc78a818b4cf35315d45c8a1fe46a54f81e134928ee"
+    },
+    "test_install.py": {
+      "bytes": 13123,
+      "sha256": "69235a4475dd9e8cf7e941b4b01d83e2c6782062a4bc9e80c166082bdde379e8"
+    },
+    "tests/CMakeLists.txt": {
+      "bytes": 750,
+      "sha256": "2d6f5f3dbb7db1c4767c8ef505ac466a239b0bb40d2846531be016e9c0dba3f4"
+    },
+    "tests/config_reload_regression.cpp": {
+      "bytes": 8455,
+      "sha256": "cf37c0129282992be1721ad64b1eec346e7f243188b99476e82c4a9a25ecb6de"
+    }
+  },
+  "native_validation": {
+    "regression": "Parent-native real Fedora ConfigReader test: unpatched six expected failures, patched 8/8 pass.",
+    "evidence": "private device-readonly/caihong-sddm-config-cache-native-red-green.txt",
+    "daemon_build": "Parent reported native two-job Release daemon target build completed; artifact validation/deployment owned by parent."
+  }
+}

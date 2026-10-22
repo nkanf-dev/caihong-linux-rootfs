@@ -1,0 +1,82 @@
+--- a/src/common/ConfigReader.cpp
++++ b/src/common/ConfigReader.cpp
+@@ -142,49 +142,28 @@
+ 
+     void ConfigBase::load()
+     {
+-        //order of priority from least influence to most influence, is
+-        // * m_sysConfigDir (system settings /usr/lib/sddm/sddm.conf.d/) in alphabetical order
+-        // * m_configDir (user settings in /etc/sddm.conf.d/) in alphabetical order
+-        // * m_path (classic fallback /etc/sddm.conf)
+-
++        // Session selection calls load() explicitly. Re-read all small config
++        // files even when the wall clock moved backwards or a file was removed.
++        // Rebuild from defaults so deleted keys and files cannot leave stale values.
++        wipe();
++        m_unusedVariables = false;
++        m_unusedSections = false;
++
++        // Order from least to most influence: system directory, local directory,
++        // then the single config file. Preserve the existing directory ordering.
+         QStringList files;
+-        QDateTime latestModificationTime = QFileInfo(m_path).lastModified();
+-
+-        if (!m_sysConfigDir.isEmpty()) {
+-            //include the configDir in modification time so we also reload on any files added/removed
+-            QDir dir(m_sysConfigDir);
+-            if (dir.exists()) {
+-                latestModificationTime = std::max(latestModificationTime,  QFileInfo(m_sysConfigDir).lastModified());
+-                const auto dirFiles = dir.entryInfoList(QDir::Files | QDir::NoDotAndDotDot, QDir::LocaleAware);
+-                for (const QFileInfo &file : dirFiles) {
+-                    files << (file.absoluteFilePath());
+-                    latestModificationTime = std::max(latestModificationTime, file.lastModified());
+-                }
+-            }
+-        }
+-        if (!m_configDir.isEmpty()) {
+-            //include the configDir in modification time so we also reload on any files added/removed
+-            QDir dir(m_configDir);
+-            if (dir.exists()) {
+-                latestModificationTime = std::max(latestModificationTime,  QFileInfo(m_configDir).lastModified());
+-                const auto dirFiles = dir.entryInfoList(QDir::Files | QDir::NoDotAndDotDot, QDir::LocaleAware);
+-                for (const QFileInfo &file : dirFiles) {
+-                    files << (file.absoluteFilePath());
+-                    latestModificationTime = std::max(latestModificationTime, file.lastModified());
+-                }
+-            }
+-        }
+-
++        for (const QString &configDir : {m_sysConfigDir, m_configDir}) {
++            if (configDir.isEmpty())
++                continue;
++            QDir dir(configDir);
++            const auto dirFiles = dir.entryInfoList(QDir::Files | QDir::NoDotAndDotDot, QDir::LocaleAware);
++            for (const QFileInfo &file : dirFiles)
++                files << file.absoluteFilePath();
++        }
+         files << m_path;
+ 
+-        if (latestModificationTime <= m_fileModificationTime) {
+-            return;
+-        }
+-        m_fileModificationTime = latestModificationTime;
+-
+-        for (const QString &filepath : qAsConst(files)) {
++        for (const QString &filepath : qAsConst(files))
+             loadInternal(filepath);
+-        }
+     }
+ 
+ 
+--- a/src/common/ConfigReader.h
++++ b/src/common/ConfigReader.h
+@@ -203,9 +203,7 @@
+         QMap<QString, ConfigSection*> m_sections;
+         friend class ConfigSection;
+     private:
+-        QDateTime dirLatestModifiedTime(const QString &directory);
+         void loadInternal(const QString &filepath);
+-        QDateTime m_fileModificationTime;
+     };
+ }
+ 
