@@ -1,0 +1,296 @@
+diff --git a/src/inputmethod.cpp b/src/inputmethod.cpp
+--- a/src/inputmethod.cpp
++++ b/src/inputmethod.cpp
+@@ -143,6 +143,11 @@
+ 
+ void InputMethod::show()
+ {
++    showPanel(ShowReason::Explicit);
++}
++
++void InputMethod::showPanel(ShowReason reason)
++{
+     m_shouldShowPanel = true;
+ 
+     // If the panel has something to display, show it (e.g. if we hid it from kwin rather than the IM hiding itself)
+@@ -152,6 +157,7 @@
+         m_panel->show();
+         updateInputPanelState();
+     } else {
++        const bool reactivateUnmappedPanel = reason == ShowReason::Explicit && isActive() && m_panel && m_panel->wasUnmapped();
+         // making the input context current will trigger the IM
+         // to show the panel (if there is something to show)
+         if (!isActive()) {
+@@ -160,6 +166,14 @@
+ 
+         // refreshActive affects the result of isActive
+         if (isActive()) {
++            if (reactivateUnmappedPanel) {
++                // An explicit show must also recall a panel unmapped by the IM.
++                // Keep logical activation unchanged, but give the IM a fresh context.
++                setPreeditString(0, QString(), QString());
++                auto inputMethod = waylandServer()->inputMethod();
++                inputMethod->sendDeactivate();
++                inputMethod->sendActivate();
++            }
+             adoptInputMethodContext();
+         }
+     }
+@@ -308,7 +322,7 @@
+     Q_EMIT panelChanged();
+ 
+     if (m_shouldShowPanel) {
+-        show();
++        showPanel(ShowReason::Implicit);
+     }
+ }
+ 
+@@ -431,7 +445,7 @@
+     auto t3 = waylandServer()->seat()->textInputV3();
+     refreshActive();
+     if (t3->isEnabled() && t3->implicitShowPanelRequired()) {
+-        show();
++        showPanel(ShowReason::Implicit);
+     } else {
+         // reset value of preedit when textinput is disabled
+         resetPendingPreedit();
+@@ -1015,7 +1029,7 @@
+     refreshActive();
+     auto t3 = waylandServer()->seat()->textInputV3();
+     if (t3->implicitShowPanelRequired()) {
+-        show();
++        showPanel(ShowReason::Implicit);
+     }
+ }
+ 
+diff --git a/src/inputmethod.h b/src/inputmethod.h
+--- a/src/inputmethod.h
++++ b/src/inputmethod.h
+@@ -123,6 +123,11 @@
+     void modifiers(quint32 serial, quint32 mods_depressed, quint32 mods_latched, quint32 mods_locked, quint32 group);
+ 
+ private:
++    enum class ShowReason {
++        Explicit,
++        Implicit,
++    };
++    void showPanel(ShowReason reason);
+     void updateInputPanelState();
+     void adoptInputMethodContext();
+     void commitString(quint32 serial, const QString &text);
+diff --git a/autotests/integration/inputmethod_test.cpp b/autotests/integration/inputmethod_test.cpp
+--- a/autotests/integration/inputmethod_test.cpp
++++ b/autotests/integration/inputmethod_test.cpp
+@@ -24,6 +24,7 @@
+ #include "wayland/inputmethod_v1.h"
+ #include "wayland/seat.h"
+ #include "wayland/surface.h"
++#include "wayland/textinput_v3.h"
+ #include "wayland_server.h"
+ #include "window.h"
+ #include "workspace.h"
+@@ -86,6 +87,7 @@
+     void testLateBindCachedState_data();
+     void testLateBindCachedState();
+     void testNativeFloatingInputPanel();
++    void testRecallUnmappedNativePanel();
+     void testFloatingInputPanelRejectsOrdinaryClient();
+ 
+ private:
+@@ -1390,10 +1392,20 @@
+         m_surface->commit();
+     }
+ 
+-protected:
+-    void zwp_input_method_v1_activate(struct ::zwp_input_method_context_v1 *context) override
+-    {
+-        m_context = context;
++    void unmap()
++    {
++        m_surface->attachBuffer(static_cast<wl_buffer *>(nullptr));
++        m_surface->commit();
++    }
++
++    std::unique_ptr<CachedInputMethodContext> cachedContext;
++    bool mapOnActivate = true;
++    int activateCount = 0;
++    int deactivateCount = 0;
++    QStringList lifecycleEvents;
++
++    void map()
++    {
+         m_surface = Test::createSurface(m_client->compositor);
+         m_panel = std::make_unique<QtWayland::zwp_input_panel_surface_v1>(m_client->inputPanelV1->get_input_panel_surface(*m_surface));
+         m_panel->set_toplevel(m_client->outputs.last()->output(), QtWayland::zwp_input_panel_surface_v1::position_center_bottom);
+@@ -1404,10 +1416,25 @@
+         Test::render(m_client->shm, m_surface.get(), image);
+     }
+ 
++protected:
++    void zwp_input_method_v1_activate(struct ::zwp_input_method_context_v1 *context) override
++    {
++        ++activateCount;
++        lifecycleEvents.append(QStringLiteral("activate"));
++        m_context = context;
++        cachedContext = std::make_unique<CachedInputMethodContext>();
++        cachedContext->init(context);
++        if (mapOnActivate) {
++            map();
++        }
++    }
++
+     void zwp_input_method_v1_deactivate(struct ::zwp_input_method_context_v1 *context) override
+     {
+         QCOMPARE(context, m_context);
+-        zwp_input_method_context_v1_destroy(context);
++        ++deactivateCount;
++        lifecycleEvents.append(QStringLiteral("deactivate"));
++        cachedContext.reset();
+         m_context = nullptr;
+         m_panel.reset();
+         m_surface.reset();
+@@ -1518,6 +1545,144 @@
+     QVERIFY(Test::waitForWindowClosed(window));
+ }
+ 
++void InputMethodTest::testRecallUnmappedNativePanel()
++{
++    Test::destroyWaylandConnection();
++    QVERIFY(Test::setupWaylandConnection(Test::AdditionalWaylandInterface::Seat | Test::AdditionalWaylandInterface::TextInputManagerV3));
++    auto inputMethod = kwinApp()->inputMethod();
++    inputMethod->setActive(false);
++    inputMethod->setInputMethodProvider(QString(), true);
++    const auto restoreProvider = qScopeGuard([inputMethod]() {
++        inputMethod->setInputMethodProvider(QString(), false);
++        waylandServer()->destroyInputMethodConnection();
++    });
++    auto nativeClient = createNativeInputMethodConnection();
++    QVERIFY(nativeClient);
++    QVERIFY(nativeClient->methodName);
++    QVERIFY(nativeClient->inputPanelV1);
++    FloatingInputMethod provider(nativeClient.get(), nativeClient->methodName, nativeClient->methodVersion);
++    QVERIFY(nativeClient->sync());
++    QCOMPARE(provider.activateCount, 0);
++
++    auto surface = Test::createSurface();
++    auto shellSurface = Test::createXdgToplevelSurface(surface.get());
++    Window *window = Test::renderAndWaitForShown(surface.get(), QSize(1280, 1024), Qt::red);
++    QVERIFY(window);
++    touchNow();
++    waylandServer()->seat()->setFocusedTextInputSurface(window->surface());
++    QVERIFY(Test::waylandSync());
++    auto textInput = std::make_unique<Test::TextInputV3>();
++    textInput->init(Test::waylandTextInputManagerV3()->get_text_input(Test::kwinSeat()->object()));
++    QVERIFY(Test::waylandSync());
++    textInput->enable();
++    textInput->set_surrounding_text(QStringLiteral("initial"), 7, 7);
++    textInput->commit();
++    QVERIFY(Test::waylandSync());
++    QTRY_VERIFY(inputMethod->isActive());
++    QTRY_VERIFY(inputMethod->isVisible());
++    QTRY_COMPARE(provider.activateCount, 1);
++    auto panel = inputMethod->panel();
++    QVERIFY(panel);
++    QVERIFY(panel->surface()->isMapped());
++    QCOMPARE(panel->surface()->size(), QSize(1280, 1024));
++    const RectF applicationGeometry = window->frameGeometry();
++    QSignalSpy activeSpy(inputMethod, &InputMethod::activeChanged);
++
++    // A compositor-hidden, still-mapped panel must keep the existing context.
++    inputMethod->hide();
++    QVERIFY(!inputMethod->isVisible());
++    inputMethod->show();
++    QTRY_VERIFY(inputMethod->isVisible());
++    QVERIFY(nativeClient->sync());
++    QCOMPARE(inputMethod->panel(), panel);
++    QCOMPARE(provider.activateCount, 1);
++    QCOMPARE(provider.deactivateCount, 0);
++
++    // Model the provider's own hide button, without disabling the target.
++    provider.unmap();
++    QVERIFY(nativeClient->sync());
++    QTRY_VERIFY(!panel->surface()->isMapped());
++    QTRY_VERIFY(!inputMethod->isVisible());
++    QVERIFY(inputMethod->isActive());
++    QVERIFY(waylandServer()->seat()->textInputV3()->isEnabled());
++    textInput->set_surrounding_text(QStringLiteral("hidden secret"), 6, 2);
++    textInput->set_content_type(QtWayland::zwp_text_input_v3::content_hint_hidden_text | QtWayland::zwp_text_input_v3::content_hint_sensitive_data,
++                               QtWayland::zwp_text_input_v3::content_purpose_password);
++    textInput->commit();
++    QVERIFY(Test::waylandSync());
++    QVERIFY(nativeClient->sync());
++    QCOMPARE(provider.cachedContext->surroundingText, QStringLiteral("hidden secret"));
++    QCOMPARE(provider.activateCount, 1);
++    QCOMPARE(provider.deactivateCount, 0);
++    QVERIFY(!inputMethod->isVisible());
++
++    QSignalSpy preeditSpy(textInput.get(), &Test::TextInputV3::preeditString);
++    QSignalSpy commitSpy(textInput.get(), &Test::TextInputV3::commitString);
++    provider.cachedContext->preedit_string(0, QStringLiteral("old composition"), QStringLiteral("stale fallback"));
++    QVERIFY(nativeClient->sync());
++    QTRY_COMPARE(preeditSpy.count(), 1);
++    QCOMPARE(preeditSpy.last().first().toString(), QStringLiteral("old composition"));
++
++    // Explicit recall cancels retired composition, then replays state before remap.
++    provider.mapOnActivate = false;
++    inputMethod->show();
++    QVERIFY(nativeClient->sync());
++    QTRY_COMPARE(provider.activateCount, 2);
++    QCOMPARE(provider.deactivateCount, 1);
++    QCOMPARE(provider.lifecycleEvents, QStringList({QStringLiteral("activate"), QStringLiteral("deactivate"), QStringLiteral("activate")}));
++    QVERIFY(provider.cachedContext);
++    auto context = provider.cachedContext.get();
++    QTRY_COMPARE(context->commitCount, 1);
++    QCOMPARE(context->events, QStringList({QStringLiteral("surrounding"), QStringLiteral("content"), QStringLiteral("commit")}));
++    QCOMPARE(context->snapshots.size(), 1);
++    const auto &snapshot = context->snapshots.first();
++    QCOMPARE(snapshot.surroundingText, QStringLiteral("hidden secret"));
++    QCOMPARE(snapshot.cursor, 6u);
++    QCOMPARE(snapshot.anchor, 2u);
++    QCOMPARE(snapshot.hints, 0xc0u);
++    QCOMPARE(snapshot.purpose, 8u);
++    QVERIFY(inputMethod->isActive());
++    QVERIFY(activeSpy.isEmpty());
++    QVERIFY(!inputMethod->isVisible());
++    QTRY_COMPARE(preeditSpy.count(), 2);
++    QCOMPARE(preeditSpy.last().first().toString(), QString());
++    QVERIFY(commitSpy.isEmpty());
++    inputMethod->commitPendingText();
++    QVERIFY(Test::waylandSync());
++    QVERIFY(commitSpy.isEmpty());
++    context->commit_string(context->serial, QStringLiteral("recalled"));
++    QVERIFY(nativeClient->sync());
++    QTRY_COMPARE(commitSpy.count(), 1);
++    QCOMPARE(commitSpy.first().first().toString(), QStringLiteral("recalled"));
++    provider.map();
++    QVERIFY(nativeClient->sync());
++    QTRY_VERIFY(inputMethod->isVisible());
++    QCOMPARE(window->frameGeometry(), applicationGeometry);
++    QCOMPARE(workspace()->activeWindow(), window);
++    QVERIFY(activeSpy.isEmpty());
++
++    // A later explicit show must not revive the provider after focus loss.
++    provider.unmap();
++    QVERIFY(nativeClient->sync());
++    QTRY_VERIFY(!inputMethod->isVisible());
++    waylandServer()->seat()->setFocusedTextInputSurface(nullptr);
++    QVERIFY(Test::waylandSync());
++    QVERIFY(nativeClient->sync());
++    QTRY_VERIFY(!inputMethod->isActive());
++    QTRY_COMPARE(provider.deactivateCount, 2);
++    inputMethod->show();
++    QVERIFY(nativeClient->sync());
++    QCOMPARE(provider.activateCount, 2);
++    QVERIFY(!provider.context());
++    QVERIFY(!inputMethod->isActive());
++    QVERIFY(!inputMethod->isVisible());
++    textInput->disable();
++    textInput->commit();
++    QVERIFY(Test::waylandSync());
++    shellSurface.reset();
++    QVERIFY(Test::waitForWindowClosed(window));
++}
++
+ void InputMethodTest::testFloatingInputPanelRejectsOrdinaryClient()
+ {
+     auto inputMethod = kwinApp()->inputMethod();

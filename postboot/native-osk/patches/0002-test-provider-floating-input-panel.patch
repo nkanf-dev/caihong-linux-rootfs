@@ -1,0 +1,298 @@
+diff --git a/autotests/integration/inputmethod_test.cpp b/autotests/integration/inputmethod_test.cpp
+--- a/autotests/integration/inputmethod_test.cpp
++++ b/autotests/integration/inputmethod_test.cpp
+@@ -17,6 +17,8 @@
+ #include "qwayland-input-method-unstable-v1.h"
+ #include "qwayland-text-input-unstable-v3.h"
+ #include "virtualkeyboard_dbus.h"
++#include "wayland-client/linuxdmabuf.h"
++#include "wayland-client/viewporter.h"
+ #include "wayland/clientconnection.h"
+ #include "wayland/display.h"
+ #include "wayland/seat.h"
+@@ -32,10 +34,13 @@
+ #include <QPainter>
+ #include <QRasterWindow>
+ #include <QSignalSpy>
++#include <QScopeGuard>
++#include <QThread>
+ #include <QTest>
+ 
+ #include <KWayland/Client/compositor.h>
+ #include <KWayland/Client/connection_thread.h>
++#include <KWayland/Client/event_queue.h>
+ #include <KWayland/Client/keyboard.h>
+ #include <KWayland/Client/output.h>
+ #include <KWayland/Client/region.h>
+@@ -77,6 +82,8 @@
+     void testSendRepeatInfo();
+     void testSendRepeatInfoV10();
+     void testWindowNoIMActivation();
++    void testNativeFloatingInputPanel();
++    void testFloatingInputPanelRejectsOrdinaryClient();
+ 
+ private:
+     void touchNow()
+@@ -1115,6 +1122,262 @@
+     QVERIFY(!kwinApp()->inputMethod()->isActive());
+ }
+ 
++// Unlike Test::Connection::setup(), this uses KWin's dedicated input-method socket.
++// Keep the same client-side connection, queue, and registry fixture as other tests.
++struct NativeInputMethodConnection : Test::Connection
++{
++    quint32 methodName = 0;
++    quint32 methodVersion = 0;
++};
++
++static std::unique_ptr<NativeInputMethodConnection> createNativeInputMethodConnection()
++{
++    const int socket = waylandServer()->createInputMethodConnection();
++    if (socket < 0) {
++        return nullptr;
++    }
++
++    auto client = std::make_unique<NativeInputMethodConnection>();
++    client->connection = new KWayland::Client::ConnectionThread;
++    QSignalSpy connectedSpy(client->connection, &KWayland::Client::ConnectionThread::connected);
++    client->connection->setSocketFd(socket);
++    client->thread = new QThread(kwinApp());
++    client->connection->moveToThread(client->thread);
++    client->thread->start();
++    client->connection->initConnection();
++    if (!connectedSpy.wait()) {
++        return nullptr;
++    }
++
++    client->queue = new KWayland::Client::EventQueue;
++    client->queue->setup(client->connection);
++    client->registry = new KWayland::Client::Registry;
++    client->registry->setEventQueue(client->queue);
++    QObject::connect(client->registry, &KWayland::Client::Registry::outputAnnounced, client->registry,
++                     [c = client.get()](quint32 name, quint32 version) {
++                         c->outputs << c->registry->createOutput(name, version, c->registry);
++                     });
++    QObject::connect(client->registry, &KWayland::Client::Registry::interfaceAnnounced, client->registry,
++                     [c = client.get()](const QByteArray &interface, quint32 name, quint32 version) {
++                         if (interface == QByteArrayLiteral("zwp_input_method_v1")) {
++                             c->methodName = name;
++                             c->methodVersion = version;
++                         } else if (interface == QByteArrayLiteral("zwp_input_panel_v1")) {
++                             c->inputPanelV1 = new QtWayland::zwp_input_panel_v1(*c->registry, name, version);
++                         }
++                     });
++    QSignalSpy announcedSpy(client->registry, &KWayland::Client::Registry::interfacesAnnounced);
++    client->registry->create(client->connection);
++    client->registry->setup();
++    if (!announcedSpy.wait()) {
++        return nullptr;
++    }
++
++    auto compositor = client->registry->interface(KWayland::Client::Registry::Interface::Compositor);
++    client->compositor = client->registry->createCompositor(compositor.name, compositor.version);
++    auto shm = client->registry->interface(KWayland::Client::Registry::Interface::Shm);
++    client->shm = client->registry->createShmPool(shm.name, shm.version);
++    return client;
++}
++
++// MockInputMethod creates surfaces on the ordinary global test connection.
++// This provider instead creates its protocol objects and buffers on the native socket.
++class FloatingInputMethod : public QtWayland::zwp_input_method_v1
++{
++public:
++    explicit FloatingInputMethod(Test::Connection *client, quint32 name, quint32 version)
++        : QtWayland::zwp_input_method_v1(*client->registry, name, version)
++        , m_client(client)
++    {
++    }
++
++    auto *context() const
++    {
++        return m_context;
++    }
++
++    void setInputRegion(const QRect &rect)
++    {
++        std::unique_ptr<KWayland::Client::Region> region(m_client->compositor->createRegion(QRegion(rect)));
++        m_surface->setInputRegion(region.get());
++        m_surface->commit();
++    }
++
++protected:
++    void zwp_input_method_v1_activate(struct ::zwp_input_method_context_v1 *context) override
++    {
++        m_context = context;
++        m_surface = Test::createSurface(m_client->compositor);
++        m_panel = std::make_unique<QtWayland::zwp_input_panel_surface_v1>(m_client->inputPanelV1->get_input_panel_surface(*m_surface));
++        m_panel->set_toplevel(m_client->outputs.last()->output(), QtWayland::zwp_input_panel_surface_v1::position_center_bottom);
++        std::unique_ptr<KWayland::Client::Region> region(m_client->compositor->createRegion(QRegion(QRect(120, 260, 900, 360))));
++        m_surface->setInputRegion(region.get());
++        QImage image(QSize(1280, 1024), QImage::Format_ARGB32_Premultiplied);
++        image.fill(Qt::blue);
++        Test::render(m_client->shm, m_surface.get(), image);
++    }
++
++    void zwp_input_method_v1_deactivate(struct ::zwp_input_method_context_v1 *context) override
++    {
++        QCOMPARE(context, m_context);
++        zwp_input_method_context_v1_destroy(context);
++        m_context = nullptr;
++        m_panel.reset();
++        m_surface.reset();
++    }
++
++private:
++    Test::Connection *m_client;
++    struct ::zwp_input_method_context_v1 *m_context = nullptr;
++    std::unique_ptr<KWayland::Client::Surface> m_surface;
++    std::unique_ptr<QtWayland::zwp_input_panel_surface_v1> m_panel;
++};
++
++void InputMethodTest::testNativeFloatingInputPanel()
++{
++    // The application must not also bind input_method_v1: only the native provider owns it.
++    Test::destroyWaylandConnection();
++    QVERIFY(Test::setupWaylandConnection(Test::AdditionalWaylandInterface::Seat | Test::AdditionalWaylandInterface::TextInputManagerV2));
++    auto inputMethod = kwinApp()->inputMethod();
++    // Retire any context left by the preceding internal-input-method test.
++    inputMethod->setActive(false);
++    inputMethod->setInputMethodProvider(QString(), true);
++    const auto restoreProvider = qScopeGuard([inputMethod]() {
++        inputMethod->setInputMethodProvider(QString(), false);
++        waylandServer()->destroyInputMethodConnection();
++    });
++    auto nativeClient = createNativeInputMethodConnection();
++    QVERIFY(nativeClient);
++    QVERIFY(waylandServer()->inputMethodConnection());
++
++    QVERIFY(nativeClient->methodName);
++    QVERIFY(nativeClient->inputPanelV1);
++    QCOMPARE(nativeClient->outputs.size(), 2);
++    FloatingInputMethod provider(nativeClient.get(), nativeClient->methodName, nativeClient->methodVersion);
++    QVERIFY(nativeClient->sync());
++
++    auto surface = Test::createSurface();
++    auto shellSurface = Test::createXdgToplevelSurface(surface.get());
++    QSignalSpy configureSpy(shellSurface.get(), &Test::XdgToplevel::configureRequested);
++    Window *window = Test::renderAndWaitForShown(surface.get(), QSize(1280, 1024), Qt::red);
++    QVERIFY(window);
++    QVERIFY(window->isActive());
++    touchNow();
++    window->move(QPointF(1280, 0));
++    workspace()->setActiveOutput(QPoint(1920, 512));
++    waylandServer()->seat()->setFocusedTextInputSurface(window->surface());
++    QVERIFY(Test::waylandSync());
++    configureSpy.clear();
++    const RectF applicationGeometry = window->frameGeometry();
++    QCOMPARE(applicationGeometry, RectF(1280, 0, 1280, 1024));
++    QVERIFY(!inputMethod->isFloatingVirtualKeyboardSurface(window->surface()));
++
++    std::unique_ptr<KWayland::Client::TextInput> textInput(Test::waylandTextInputManager()->createTextInput(Test::waylandSeat()));
++    textInput->enable(surface.get());
++    QVERIFY(Test::waylandSync());
++    // As in testFakeEventFallback, activate the protocol provider explicitly.
++    // Text-input focus negotiation is covered by the existing tests above.
++    inputMethod->setActive(true);
++    QVERIFY(inputMethod->isActive());
++    inputMethod->show();
++    QTRY_VERIFY(provider.context());
++    QTRY_VERIFY(inputMethod->panel());
++    auto panel = inputMethod->panel();
++    QTRY_VERIFY(inputMethod->isVisible());
++    QVERIFY(inputMethod->isActive());
++    QCOMPARE(inputMethod->activeWindow(), window);
++    QCOMPARE(panel->surface()->client(), waylandServer()->inputMethodConnection());
++    QVERIFY(inputMethod->isFloatingVirtualKeyboardSurface(panel->surface()));
++    QCOMPARE(panel->surface()->size(), QSize(1280, 1024));
++    QCOMPARE(panel->frameGeometry(), RectF(1400, 260, 900, 360));
++    QCOMPARE(panel->bufferGeometry(), RectF(1280, 0, 1280, 1024));
++    QVERIFY(Test::waylandSync());
++    QCOMPARE(window->frameGeometry(), applicationGeometry);
++    QVERIFY(configureSpy.isEmpty());
++
++    // Moving the input mask must not move or resize the full-output buffer.
++    provider.setInputRegion(QRect(250, 140, 700, 280));
++    QVERIFY(nativeClient->sync());
++    QCOMPARE(panel->surface()->input().boundingRect(), RectF(250, 140, 700, 280));
++    QCOMPARE(panel->frameGeometry(), RectF(1530, 140, 700, 280));
++    QCOMPARE(panel->bufferGeometry(), RectF(1280, 0, 1280, 1024));
++    QVERIFY(Test::waylandSync());
++    QCOMPARE(window->frameGeometry(), applicationGeometry);
++    QVERIFY(configureSpy.isEmpty());
++
++    // Exercise the native visibility path without recreating the provider surface.
++    inputMethod->hide();
++    QVERIFY(!panel->isShown());
++    QVERIFY(!inputMethod->isVisible());
++    textInput->enable(surface.get());
++    textInput->showInputPanel();
++    QTRY_VERIFY(inputMethod->isVisible());
++    QCOMPARE(inputMethod->panel(), panel);
++    QCOMPARE(panel->frameGeometry(), RectF(1530, 140, 700, 280));
++    QCOMPARE(panel->bufferGeometry(), RectF(1280, 0, 1280, 1024));
++    QVERIFY(Test::waylandSync());
++    QCOMPARE(window->frameGeometry(), applicationGeometry);
++    QVERIFY(configureSpy.isEmpty());
++
++    // Native identity alone is insufficient without the provider opt-in.
++    inputMethod->setInputMethodProvider(QString(), false);
++    QVERIFY(!inputMethod->isFloatingVirtualKeyboardSurface(panel->surface()));
++    textInput->disable(surface.get());
++    QVERIFY(Test::waylandSync());
++    inputMethod->setActive(false);
++    QTRY_VERIFY(!inputMethod->isActive());
++    QTRY_VERIFY(!inputMethod->panel());
++    shellSurface.reset();
++    QVERIFY(Test::waitForWindowClosed(window));
++}
++
++void InputMethodTest::testFloatingInputPanelRejectsOrdinaryClient()
++{
++    auto inputMethod = kwinApp()->inputMethod();
++    // Retire any context left by the preceding internal-input-method test.
++    inputMethod->setActive(false);
++    inputMethod->setInputMethodProvider(QString(), true);
++    const auto restoreProvider = qScopeGuard([inputMethod]() {
++        inputMethod->setInputMethodProvider(QString(), false);
++        waylandServer()->destroyInputMethodConnection();
++    });
++    auto nativeClient = createNativeInputMethodConnection();
++    QVERIFY(nativeClient);
++    QVERIFY(waylandServer()->inputMethodConnection());
++
++    auto surface = Test::createSurface();
++    auto shellSurface = Test::createXdgToplevelSurface(surface.get());
++    Window *window = Test::renderAndWaitForShown(surface.get(), QSize(1280, 1024), Qt::red);
++    QVERIFY(window);
++    QVERIFY(window->isActive());
++    touchNow();
++    waylandServer()->seat()->setFocusedTextInputSurface(window->surface());
++    std::unique_ptr<KWayland::Client::TextInput> textInput(Test::waylandTextInputManager()->createTextInput(Test::waylandSeat()));
++    textInput->enable(surface.get());
++    QVERIFY(Test::waylandSync());
++    // As in testFakeEventFallback, activate the protocol provider explicitly.
++    // Text-input focus negotiation is covered by the existing tests above.
++    inputMethod->setActive(true);
++    QVERIFY(inputMethod->isActive());
++    inputMethod->show();
++    QTRY_VERIFY(Test::inputMethod()->context());
++    QTRY_VERIFY(inputMethod->panel());
++    auto panel = inputMethod->panel();
++    QTRY_VERIFY(inputMethod->isVisible());
++    QVERIFY(panel->surface()->client() != waylandServer()->inputMethodConnection());
++    QCOMPARE(panel->surface()->client(), window->surface()->client());
++    QVERIFY(!inputMethod->isFloatingVirtualKeyboardSurface(panel->surface()));
++    QCOMPARE(panel->frameGeometry(), RectF(0, 624, 1280, 400));
++
++    textInput->disable(surface.get());
++    QVERIFY(Test::waylandSync());
++    inputMethod->setActive(false);
++    QTRY_VERIFY(!inputMethod->isActive());
++    QTRY_VERIFY(!inputMethod->panel());
++    shellSurface.reset();
++    QVERIFY(Test::waitForWindowClosed(window));
++}
++
+ WAYLANDTEST_MAIN(InputMethodTest)
+ 
+ #include "inputmethod_test.moc"

@@ -1,0 +1,129 @@
+{
+  "component": "native-floating-input-panel",
+  "license": "GPL-2.0-or-later",
+  "source_basis": {
+    "package": "kwin-6.7.5-1.fc44.src.rpm",
+    "native_package": "kwin6.7.5-1.fc44.armada",
+    "preparation": "Fedora source RPM base with no original Fedora patches, followed by the two ARMADA patches in their original order.",
+    "preparation_evidence": "The parent supplied the prepared ARMADA snapshot and reported exact-apply/fuzz-0 success. All five implementation inputs were checked byte-for-byte against that prepared snapshot.",
+    "retained_downstream_behavior": [
+      "ARMADA inputPanelOutput() connector-priority selection",
+      "Native input-method socket fd inheritance"
+    ],
+    "baseline_files_sha256": {
+      "src/inputmethod.h": "bb7c6f62367a5abd2f0f33d44b991a608927a20d7d2af6c7266f2bb7d7dcedf6",
+      "src/inputmethod.cpp": "fec067102a99ce8b8e2de96f637e6bc0de9b9c7778f8c42449d8b91816814b61",
+      "src/inputpanelv1window.h": "09b709e7dee8e7d7fa08b1697ee308a6200a2a3dd0f97fdddf1991bd4f84ee30",
+      "src/inputpanelv1window.cpp": "7846eed366f04312641a62eba306989f086543c2581c549f46684b1d5194203f",
+      "src/main_wayland.cpp": "1a9581c8836333a27c798704d9f5cfd0047bff17e0742a9d705ad99ba117b690"
+    }
+  },
+  "patch": {
+    "path": "patches/0001-provider-opt-in-floating-input-panel.patch",
+    "sha256": "6f769530942dcf56fca72bf3edd7779e94eadff26ded945f32b6270a87e710c9",
+    "bytes": 5888,
+    "files": [
+      "src/inputmethod.h",
+      "src/inputmethod.cpp",
+      "src/inputpanelv1window.h",
+      "src/inputpanelv1window.cpp",
+      "src/main_wayland.cpp"
+    ],
+    "patched_files_sha256": {
+      "src/inputmethod.h": "7db53579352f3ed7ac3c3664eae1f08a33303685f01a2ae1d38d4db3d0856739",
+      "src/inputmethod.cpp": "6e103012ebc8338b2de8a63ce8621a461e57c3bb586ce7ea723d0d006841f8c9",
+      "src/inputpanelv1window.h": "82b61edd0969d589cbb90ec1bebfdac33c4f3a4d62eba394755c58feb4869605",
+      "src/inputpanelv1window.cpp": "ebd31e519600fad98226b0f21758973a9547d4d8c8d49fd5dff31a5a329432d6",
+      "src/main_wayland.cpp": "d0a0ce90dd2079d7896dabffaedd5bf2d53f406d67532a8e3ee568bf506c0c1f"
+    }
+  },
+  "scope": "Default-off native floating provider metadata; preserved Armada output selection; fixed buffer and empty app reservation; cached-state replay for late native binding; explicit unmapped-panel recall distinct from implicit updates, with retired composition cancelled.",
+  "source_integrity_checks": {
+    "forward_apply_check": true,
+    "reverse_apply_check": true,
+    "whitespace_error_all": true,
+    "order": [
+      "patches/0001-provider-opt-in-floating-input-panel.patch",
+      "patches/0002-test-provider-floating-input-panel.patch",
+      "patches/0003-input-method-replay-state-on-late-bind.patch",
+      "patches/0004-reactivate-unmapped-native-panel-on-show.patch"
+    ],
+    "final_source_matches_native_build": true,
+    "final_source_sha256": {
+      "autotests/integration/inputmethod_test.cpp": "dda606b472906680a869bd2d6eec70f327cb3f24d4db26d9b73e9d0f41ccc0ee",
+      "src/inputmethod.cpp": "c05562132fe7a17d4fb88f2e6c9e70adcef418a8f3c9feef9257ab60d5788603",
+      "src/inputmethod.h": "704b4743efca076b28c067dc09ea0cddd2de5150337fc8ca6750da2bf930442b",
+      "src/inputpanelv1window.cpp": "ebd31e519600fad98226b0f21758973a9547d4d8c8d49fd5dff31a5a329432d6",
+      "src/inputpanelv1window.h": "82b61edd0969d589cbb90ec1bebfdac33c4f3a4d62eba394755c58feb4869605",
+      "src/main_wayland.cpp": "d0a0ce90dd2079d7896dabffaedd5bf2d53f406d67532a8e3ee568bf506c0c1f",
+      "src/wayland/inputmethod_v1.cpp": "c9a3b1c078aafc2fa6c4a55c840e59e2ffc5900a53211dffb4400e303d053a99",
+      "src/wayland/inputmethod_v1.h": "435d15a66cdf3ec3293707eb476fd55ced9698c5b9893cc5cce9941935b40f91"
+    },
+    "base_after_fedora_and_armada_sha256": {
+      "autotests/integration/inputmethod_test.cpp": "84c14c73f6d1bdcfded22d9a8bc464ec4536cfbbf81ea2ae7376aa9d2d219ba5",
+      "src/inputmethod.cpp": "fec067102a99ce8b8e2de96f637e6bc0de9b9c7778f8c42449d8b91816814b61",
+      "src/inputmethod.h": "bb7c6f62367a5abd2f0f33d44b991a608927a20d7d2af6c7266f2bb7d7dcedf6",
+      "src/inputpanelv1window.cpp": "7846eed366f04312641a62eba306989f086543c2581c549f46684b1d5194203f",
+      "src/inputpanelv1window.h": "09b709e7dee8e7d7fa08b1697ee308a6200a2a3dd0f97fdddf1991bd4f84ee30",
+      "src/main_wayland.cpp": "1a9581c8836333a27c798704d9f5cfd0047bff17e0742a9d705ad99ba117b690",
+      "src/wayland/inputmethod_v1.cpp": "b4dc3f4a52e85159d702ce57334e488e8ce4c69ef42b7401c1d2e7071604db4f",
+      "src/wayland/inputmethod_v1.h": "bdf52cb363320af8aa6fb55cc19e98d3c3c192bf39bcee1fad924e3646587641"
+    }
+  },
+  "patch_series": [
+    {
+      "path": "patches/0001-provider-opt-in-floating-input-panel.patch",
+      "sha256": "6f769530942dcf56fca72bf3edd7779e94eadff26ded945f32b6270a87e710c9",
+      "bytes": 5888,
+      "files": [
+        "src/inputmethod.h",
+        "src/inputmethod.cpp",
+        "src/inputpanelv1window.h",
+        "src/inputpanelv1window.cpp",
+        "src/main_wayland.cpp"
+      ]
+    },
+    {
+      "path": "patches/0002-test-provider-floating-input-panel.patch",
+      "sha256": "32c6976189e38af77c1b485de91a3ba3ff2e1bb30fcd5c464a70c8e048fcac59",
+      "bytes": 13372,
+      "files": [
+        "autotests/integration/inputmethod_test.cpp"
+      ]
+    },
+    {
+      "path": "patches/0003-input-method-replay-state-on-late-bind.patch",
+      "sha256": "90c5d3edd25b56bfe38df512091c812e9d2558f52fedd2daf0e4e9af6c50f1fc",
+      "bytes": 10298,
+      "files": [
+        "src/inputmethod.cpp",
+        "src/wayland/inputmethod_v1.cpp",
+        "src/wayland/inputmethod_v1.h",
+        "autotests/integration/inputmethod_test.cpp"
+      ]
+    },
+    {
+      "path": "patches/0004-reactivate-unmapped-native-panel-on-show.patch",
+      "sha256": "d78bf79fa2eabddb0a0b7cbc64320720144189ddf6b83cc30433685af2c7f38b",
+      "bytes": 11783,
+      "files": [
+        "src/inputmethod.cpp",
+        "src/inputmethod.h",
+        "autotests/integration/inputmethod_test.cpp"
+      ]
+    }
+  ],
+  "validation_2026_10_23": {
+    "native_environment": "Linux aarch64 Armada, KWin6.7.5-1.fc44 plus retained two Armada patches, Qt6.11.2, two build jobs",
+    "late_bind_causal": "Without0003latebindreceivesactivatebutnocommit; earlybindPASS. With0003bothPASSandcompleteInputMethodCTestPASS1.38s.",
+    "recall_causal": "Originalshowdoesnotreactivateprovider-unmappedpanel; final0004preservesimplicitupdates,cancelsretiredpreeditwithoutcommit,andpassesfocusedrecallandcompleteInputMethodCTest1.46s.",
+    "real_nested": "NativePinyintoindependentmarkedWaylandscratchPASSwithstandardclientshowandnoagentrefresh. ActualsharedQMLgrip/resize/hideplusonesystemrecallPASSafterprovider-same-connectionasyncsync; clientroot/visual/maskretained.",
+    "main_compositor_replaced": false,
+    "remaining": [
+      "physical touch",
+      "compositor transparent-area hit-through",
+      "real display scale/rotation/output lifecycle",
+      "text-input-v2/internal/nonfloating recall matrix"
+    ]
+  }
+}

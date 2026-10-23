@@ -1,0 +1,154 @@
+diff --git a/src/inputmethod.h b/src/inputmethod.h
+index fa6806b2414eb155f92fb8889a845a333034b5dd..191d8d4b79842ae5797a11ff8e1edc996850a9df 100644
+--- a/src/inputmethod.h
++++ b/src/inputmethod.h
+@@ -27,6 +27,7 @@
+ class InputPanelV1Window;
+ class InputMethodGrabV1;
+ class InternalInputMethodContext;
++class SurfaceInterface;
+ 
+ /**
+  * This class implements the zwp_input_method_unstable_v1, which is currently used to provide
+@@ -73,6 +74,8 @@
+     InputPanelV1Window *panel() const;
+     void setPanel(InputPanelV1Window *panel);
+     void setInputMethodCommand(const QString &path);
++    void setInputMethodProvider(const QString &command, bool floating);
++    bool isFloatingVirtualKeyboardSurface(const SurfaceInterface *surface) const;
+ 
+     InputMethodGrabV1 *keyboardGrab();
+     bool shouldShowOnActive() const;
+@@ -161,6 +164,7 @@
+     QTimer m_inputMethodCrashTimer;
+     uint m_inputMethodCrashes = 0;
+     QString m_inputMethodCommand;
++    bool m_inputMethodFloating = false;
+ 
+     InternalInputMethodContext *m_internalContext = nullptr;
+     bool m_hasPendingModifiers = false;
+diff --git a/src/inputmethod.cpp b/src/inputmethod.cpp
+index 4f3cd3f27c58ee61d291ba27f3abb56aeb8eed47..74add9ab05786dfd3d251794017cbce05b09c3dc 100644
+--- a/src/inputmethod.cpp
++++ b/src/inputmethod.cpp
+@@ -804,10 +804,14 @@
+ 
+     RectF overlap = RectF(0, 0, 0, 0);
+     if (m_trackedWindow) {
+-        const bool bottomKeyboard = m_panel && m_panel->mode() != InputPanelV1Window::Mode::Overlay && m_panel->isShown();
++        const bool bottomKeyboard = m_panel
++            && m_panel->mode() != InputPanelV1Window::Mode::Overlay
++            && !m_panel->isFloatingVirtualKeyboard()
++            && m_panel->isShown();
+         m_trackedWindow->setVirtualKeyboardGeometry(bottomKeyboard ? m_panel->frameGeometry() : RectF());
+ 
+-        if (m_panel && m_panel->mode() != InputPanelV1Window::Mode::Overlay) {
++        if (m_panel && m_panel->mode() != InputPanelV1Window::Mode::Overlay
++            && !m_panel->isFloatingVirtualKeyboard()) {
+             overlap = m_trackedWindow->frameGeometry() & m_panel->frameGeometry();
+             overlap.moveTo(m_trackedWindow->mapToLocal(overlap.topLeft()));
+         }
+@@ -822,14 +826,28 @@
+ 
+ void InputMethod::setInputMethodCommand(const QString &command)
+ {
+-    if (m_inputMethodCommand == command) {
+-        return;
+-    }
+-
++    setInputMethodProvider(command, false);
++}
++
++void InputMethod::setInputMethodProvider(const QString &command, bool floating)
++{
++    if (m_inputMethodCommand == command && m_inputMethodFloating == floating) {
++        return;
++    }
++
++    // Retire the old native connection before publishing a new provider policy.
++    stopInputMethod();
+     m_inputMethodCommand = command;
++    m_inputMethodFloating = floating;
+ 
+     startInputMethod();
+     Q_EMIT availableChanged();
++}
++
++bool InputMethod::isFloatingVirtualKeyboardSurface(const SurfaceInterface *surface) const
++{
++    const auto connection = waylandServer()->inputMethodConnection();
++    return m_inputMethodFloating && connection && surface && surface->client() == connection;
+ }
+ 
+ void InputMethod::stopInputMethod()
+diff --git a/src/inputpanelv1window.h b/src/inputpanelv1window.h
+index 1880dab80ef25336f9c046b90ae38f3c63940bc7..dff97bb031101e0ba3f6c9cdb20223258b551e95 100644
+--- a/src/inputpanelv1window.h
++++ b/src/inputpanelv1window.h
+@@ -75,6 +75,7 @@
+     {
+         return m_mode;
+     }
++    bool isFloatingVirtualKeyboard() const;
+     void allow();
+     void show();
+     void hide();
+@@ -98,6 +99,7 @@
+ 
+     RectF m_windowGeometry;
+     Mode m_mode = Mode::None;
++    bool m_floatingVirtualKeyboard = false;
+     bool m_allowed = false;
+     bool m_requestedToBeShown = false;
+     bool m_wasEverMapped = false;
+diff --git a/src/inputpanelv1window.cpp b/src/inputpanelv1window.cpp
+index 70585d0517da052342f88ee801358549ef17b87a..3848996e2e23097e396dd0d15d59af8598276251 100644
+--- a/src/inputpanelv1window.cpp
++++ b/src/inputpanelv1window.cpp
+@@ -53,6 +53,7 @@
+     });
+     connect(&m_rescalingTimer, &QTimer::timeout, this, &InputPanelV1Window::reposition);
+ 
++    m_floatingVirtualKeyboard = kwinApp()->inputMethod()->isFloatingVirtualKeyboardSurface(surface());
+     kwinApp()->inputMethod()->setPanel(this);
+ }
+ 
+@@ -112,6 +113,10 @@
+         const auto panelOutput = inputPanelOutput();
+         setOutput(panelOutput);
+         setMoveResizeOutput(panelOutput);
++        if (isFloatingVirtualKeyboard()) {
++            moveResize(m_windowGeometry.translated(panelOutput->geometry().topLeft()));
++            break;
++        }
+         RectF availableArea;
+         if (waylandServer()->isScreenLocked()) {
+             availableArea = workspace()->clientArea(FullScreenArea, this, panelOutput);
+@@ -204,6 +209,11 @@
+     return WindowType::Utility;
+ }
+ 
++bool InputPanelV1Window::isFloatingVirtualKeyboard() const
++{
++    return m_floatingVirtualKeyboard && m_mode == Mode::VirtualKeyboard;
++}
++
+ RectF InputPanelV1Window::frameRectToBufferRect(const RectF &rect) const
+ {
+     return RectF(rect.topLeft() - m_windowGeometry.topLeft(), surface()->size());
+diff --git a/src/main_wayland.cpp b/src/main_wayland.cpp
+index 70432da7c840a64442c41934f80ffd9d5249995e..1a83b70a95bbe7434b3a91353c2eac6e86f6b48d 100644
+--- a/src/main_wayland.cpp
++++ b/src/main_wayland.cpp
+@@ -181,7 +181,10 @@
+ {
+     if (group.name() == "Wayland" && names.contains("InputMethod")) {
+         KDesktopFile file(group.readPathEntry("InputMethod", QString()));
+-        kwinApp()->inputMethod()->setInputMethodCommand(file.desktopGroup().readEntry("Exec", QString()));
++        const KConfigGroup desktopGroup = file.desktopGroup();
++        kwinApp()->inputMethod()->setInputMethodProvider(
++            desktopGroup.readEntry("Exec", QString()),
++            desktopGroup.readEntry("X-KDE-Wayland-VirtualKeyboard-Floating", false));
+     }
+ }
+ 

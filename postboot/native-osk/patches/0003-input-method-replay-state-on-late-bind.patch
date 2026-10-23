@@ -1,0 +1,251 @@
+diff --git a/src/inputmethod.cpp b/src/inputmethod.cpp
+--- a/src/inputmethod.cpp
++++ b/src/inputmethod.cpp
+@@ -101,6 +101,12 @@
+ 
+     new TextInputManagerV2Interface(waylandServer()->display(), this);
+     new TextInputManagerV3Interface(waylandServer()->display(), this);
++
++    connect(waylandServer()->inputMethod(), &InputMethodV1Interface::contextResourceCreated, this, [this](InputMethodContextV1Interface *context) {
++        if (isActive() && waylandServer()->inputMethod()->context() == context) {
++            adoptInputMethodContext();
++        }
++    });
+ 
+     connect(waylandServer()->seat(), &SeatInterface::focusedKeyboardSurfaceAboutToChange, this, &InputMethod::commitPendingText);
+     connect(waylandServer()->seat(), &SeatInterface::focusedTextInputSurfaceChanged, this, &InputMethod::handleFocusedSurfaceChanged);
+diff --git a/src/wayland/inputmethod_v1.cpp b/src/wayland/inputmethod_v1.cpp
+--- a/src/wayland/inputmethod_v1.cpp
++++ b/src/wayland/inputmethod_v1.cpp
+@@ -476,6 +476,7 @@
+ 
+         auto addedResource = m_context->d->add(resource->client(), resource->version());
+         send_activate(resource->handle, addedResource->handle);
++        Q_EMIT q->contextResourceCreated(m_context.get());
+     }
+ 
+     std::unique_ptr<InputMethodContextV1Interface> m_context;
+diff --git a/src/wayland/inputmethod_v1.h b/src/wayland/inputmethod_v1.h
+--- a/src/wayland/inputmethod_v1.h
++++ b/src/wayland/inputmethod_v1.h
+@@ -59,6 +59,9 @@
+     void sendDeactivate();
+ 
+     InputMethodContextV1Interface *context() const;
++
++Q_SIGNALS:
++    void contextResourceCreated(InputMethodContextV1Interface *context);
+ 
+ private:
+     std::unique_ptr<InputMethodV1InterfacePrivate> d;
+diff --git a/autotests/integration/inputmethod_test.cpp b/autotests/integration/inputmethod_test.cpp
+--- a/autotests/integration/inputmethod_test.cpp
++++ b/autotests/integration/inputmethod_test.cpp
+@@ -21,6 +21,7 @@
+ #include "wayland-client/viewporter.h"
+ #include "wayland/clientconnection.h"
+ #include "wayland/display.h"
++#include "wayland/inputmethod_v1.h"
+ #include "wayland/seat.h"
+ #include "wayland/surface.h"
+ #include "wayland_server.h"
+@@ -82,6 +83,8 @@
+     void testSendRepeatInfo();
+     void testSendRepeatInfoV10();
+     void testWindowNoIMActivation();
++    void testLateBindCachedState_data();
++    void testLateBindCachedState();
+     void testNativeFloatingInputPanel();
+     void testFloatingInputPanelRejectsOrdinaryClient();
+ 
+@@ -1178,6 +1181,190 @@
+     auto shm = client->registry->interface(KWayland::Client::Registry::Interface::Shm);
+     client->shm = client->registry->createShmPool(shm.name, shm.version);
+     return client;
++}
++
++// Records native protocol events without creating a panel or changing focus.
++class CachedInputMethodContext : public QtWayland::zwp_input_method_context_v1
++{
++public:
++    ~CachedInputMethodContext() override
++    {
++        destroy();
++    }
++
++    struct Snapshot
++    {
++        QString surroundingText;
++        uint32_t cursor;
++        uint32_t anchor;
++        uint32_t hints;
++        uint32_t purpose;
++        uint32_t serial;
++    };
++    QString surroundingText;
++    uint32_t cursor = 0;
++    uint32_t anchor = 0;
++    uint32_t hints = 0;
++    uint32_t purpose = 0;
++    uint32_t serial = 0;
++    int commitCount = 0;
++    QList<Snapshot> snapshots;
++    QStringList events;
++
++protected:
++    void zwp_input_method_context_v1_surrounding_text(const QString &text, uint32_t cursor, uint32_t anchor) override
++    {
++        surroundingText = text;
++        this->cursor = cursor;
++        this->anchor = anchor;
++        events.append(QStringLiteral("surrounding"));
++    }
++    void zwp_input_method_context_v1_content_type(uint32_t hints, uint32_t purpose) override
++    {
++        this->hints = hints;
++        this->purpose = purpose;
++        events.append(QStringLiteral("content"));
++    }
++    void zwp_input_method_context_v1_commit_state(uint32_t serial) override
++    {
++        this->serial = serial;
++        ++commitCount; // Serial zero is valid; count events instead.
++        snapshots.append({surroundingText, cursor, anchor, hints, purpose, serial});
++        events.append(QStringLiteral("commit"));
++    }
++};
++
++class CachedStateInputMethod : public QtWayland::zwp_input_method_v1
++{
++public:
++    explicit CachedStateInputMethod(NativeInputMethodConnection *client)
++        : QtWayland::zwp_input_method_v1(*client->registry, client->methodName, client->methodVersion)
++    {
++    }
++
++    std::unique_ptr<CachedInputMethodContext> context;
++    int activateCount = 0;
++    int deactivateCount = 0;
++
++protected:
++    void zwp_input_method_v1_activate(struct ::zwp_input_method_context_v1 *context) override
++    {
++        ++activateCount;
++        this->context = std::make_unique<CachedInputMethodContext>();
++        this->context->init(context);
++    }
++    void zwp_input_method_v1_deactivate(struct ::zwp_input_method_context_v1 *context) override
++    {
++        ++deactivateCount;
++        this->context.reset();
++    }
++};
++
++void InputMethodTest::testLateBindCachedState_data()
++{
++    QTest::addColumn<bool>("lateBind");
++    QTest::newRow("late-bind") << true;
++    QTest::newRow("early-bind") << false;
++}
++
++void InputMethodTest::testLateBindCachedState()
++{
++    QFETCH(bool, lateBind);
++    // The application must not bind the input-method global.
++    Test::destroyWaylandConnection();
++    QVERIFY(Test::setupWaylandConnection(Test::AdditionalWaylandInterface::Seat | Test::AdditionalWaylandInterface::TextInputManagerV3));
++    auto inputMethod = kwinApp()->inputMethod();
++    inputMethod->setActive(false);
++    const auto retireConnection = qScopeGuard([]() {
++        waylandServer()->destroyInputMethodConnection();
++    });
++    auto nativeClient = createNativeInputMethodConnection();
++    QVERIFY(nativeClient);
++    QVERIFY(nativeClient->methodName);
++    std::unique_ptr<CachedStateInputMethod> provider;
++    if (!lateBind) {
++        provider = std::make_unique<CachedStateInputMethod>(nativeClient.get());
++        QVERIFY(nativeClient->sync());
++        // Binding alone must not create an active context.
++        QCOMPARE(provider->activateCount, 0);
++        QVERIFY(!provider->context);
++    }
++    QVERIFY(!inputMethod->isActive());
++
++    auto surface = Test::createSurface();
++    auto shellSurface = Test::createXdgToplevelSurface(surface.get());
++    Window *window = Test::renderAndWaitForShown(surface.get(), QSize(1280, 1024), Qt::red);
++    QVERIFY(window);
++    QVERIFY(window->isActive());
++    touchNow();
++    waylandServer()->seat()->setFocusedTextInputSurface(window->surface());
++    QVERIFY(Test::waylandSync());
++    auto textInput = std::make_unique<Test::TextInputV3>();
++    textInput->init(Test::waylandTextInputManagerV3()->get_text_input(Test::kwinSeat()->object()));
++    QVERIFY(Test::waylandSync());
++    textInput->enable();
++    textInput->set_surrounding_text(QStringLiteral("cached secret"), 6, 2);
++    textInput->set_content_type(QtWayland::zwp_text_input_v3::content_hint_hidden_text | QtWayland::zwp_text_input_v3::content_hint_sensitive_data,
++                               QtWayland::zwp_text_input_v3::content_purpose_password);
++    textInput->commit();
++    QVERIFY(Test::waylandSync());
++    QVERIFY(inputMethod->isActive());
++    auto serverContext = waylandServer()->inputMethod()->context();
++    QVERIFY(serverContext);
++    QSignalSpy activeSpy(inputMethod, &InputMethod::activeChanged);
++    if (lateBind) {
++        // No state-changing application request follows this bind.
++        provider = std::make_unique<CachedStateInputMethod>(nativeClient.get());
++    }
++    QVERIFY(nativeClient->sync());
++    QTRY_VERIFY(provider->context);
++    QTRY_VERIFY(provider->context->commitCount > 0);
++    auto context = provider->context.get();
++    QCOMPARE(context->surroundingText, QStringLiteral("cached secret"));
++    QCOMPARE(context->cursor, 6u);
++    QCOMPARE(context->anchor, 2u);
++    QCOMPARE(context->hints, 0xc0u); // input-method-v1 hidden_text | sensitive_data
++    QCOMPARE(context->purpose, 8u); // input-method-v1 password
++    const int firstCommit = context->events.indexOf(QStringLiteral("commit"));
++    QVERIFY(context->events.indexOf(QStringLiteral("surrounding")) < firstCommit);
++    QVERIFY(context->events.indexOf(QStringLiteral("content")) < firstCommit);
++    QCOMPARE(context->snapshots.size(), context->commitCount);
++    // Early binding may receive initial state before the application's commit.
++    // Its last snapshot must contain the committed application state; late binding
++    // must never commit default or stale state before the cached sensitive state.
++    const int firstSnapshot = lateBind ? 0 : context->snapshots.size() - 1;
++    for (int i = firstSnapshot; i < context->snapshots.size(); ++i) {
++        const auto &snapshot = context->snapshots.at(i);
++        QCOMPARE(snapshot.surroundingText, QStringLiteral("cached secret"));
++        QCOMPARE(snapshot.cursor, 6u);
++        QCOMPARE(snapshot.anchor, 2u);
++        QCOMPARE(snapshot.hints, 0xc0u);
++        QCOMPARE(snapshot.purpose, 8u);
++    }
++    if (lateBind) {
++        QCOMPARE(context->commitCount, 1);
++    }
++    const int committedSnapshots = context->snapshots.size();
++    QVERIFY(nativeClient->sync());
++    QCOMPARE(context->snapshots.size(), committedSnapshots);
++    QCOMPARE(provider->activateCount, 1);
++    QCOMPARE(provider->deactivateCount, 0);
++    QCOMPARE(waylandServer()->inputMethod()->context(), serverContext);
++    QVERIFY(activeSpy.isEmpty());
++
++    // Replayed state also leaves the existing context connected to the application.
++    QSignalSpy commitSpy(textInput.get(), &Test::TextInputV3::commitString);
++    context->commit_string(context->serial, QStringLiteral("accepted"));
++    QVERIFY(nativeClient->sync());
++    QTRY_COMPARE(commitSpy.count(), 1);
++    QCOMPARE(commitSpy.first().first().toString(), QStringLiteral("accepted"));
++    textInput->disable();
++    textInput->commit();
++    QVERIFY(Test::waylandSync());
++    QTRY_COMPARE(provider->deactivateCount, 1);
++    QVERIFY(!inputMethod->isActive());
++    shellSurface.reset();
++    QVERIFY(Test::waitForWindowClosed(window));
+ }
+ 
+ // MockInputMethod creates surfaces on the ordinary global test connection.
