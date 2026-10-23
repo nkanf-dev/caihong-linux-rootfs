@@ -1,0 +1,161 @@
+--- a/autotests/integration/inputmethod_test.cpp
++++ b/autotests/integration/inputmethod_test.cpp
+@@ -87,6 +87,7 @@
+     void testLateBindCachedState_data();
+     void testLateBindCachedState();
+     void testNativeFloatingInputPanel();
++    void testNativeFloatingPanelInputHitThrough();
+     void testRecallUnmappedNativePanel();
+     void testFloatingInputPanelRejectsOrdinaryClient();
+ 
+@@ -1385,6 +1386,11 @@
+         return m_context;
+     }
+ 
++    auto *surface() const
++    {
++        return m_surface.get();
++    }
++
+     void setInputRegion(const QRect &rect)
+     {
+         std::unique_ptr<KWayland::Client::Region> region(m_client->compositor->createRegion(QRegion(rect)));
+@@ -1540,6 +1546,138 @@
+     QVERIFY(Test::waylandSync());
+     inputMethod->setActive(false);
+     QTRY_VERIFY(!inputMethod->isActive());
++    QTRY_VERIFY(!inputMethod->panel());
++    shellSurface.reset();
++    QVERIFY(Test::waitForWindowClosed(window));
++}
++
++void InputMethodTest::testNativeFloatingPanelInputHitThrough()
++{
++    Test::destroyWaylandConnection();
++    QVERIFY(Test::setupWaylandConnection(Test::AdditionalWaylandInterface::Seat | Test::AdditionalWaylandInterface::TextInputManagerV2));
++    auto inputMethod = kwinApp()->inputMethod();
++    inputMethod->setActive(false);
++    inputMethod->setInputMethodProvider(QString(), true);
++    const auto restoreProvider = qScopeGuard([inputMethod]() {
++        inputMethod->setInputMethodProvider(QString(), false);
++        waylandServer()->destroyInputMethodConnection();
++    });
++    auto nativeClient = createNativeInputMethodConnection();
++    QVERIFY(nativeClient);
++    QVERIFY(nativeClient->methodName);
++    QVERIFY(nativeClient->inputPanelV1);
++    QCOMPARE(nativeClient->outputs.size(), 2);
++    const auto seat = nativeClient->registry->interface(KWayland::Client::Registry::Interface::Seat);
++    nativeClient->kwinSeat = std::make_unique<Test::WlSeat>(*nativeClient->registry, seat.name, seat.version);
++    QVERIFY(Test::waitForWaylandPointer(nativeClient->kwinSeat.get()));
++    auto providerPointer = nativeClient->kwinSeat->getPointer();
++    QVERIFY(Test::waitForWaylandPointer());
++    auto appPointer = Test::kwinSeat()->getPointer();
++    auto appKeyboard = Test::kwinSeat()->getKeyboard();
++    int appEnterCount = 0;
++    int providerEnterCount = 0;
++    connect(appPointer.get(), &Test::WlPointer::entered, this, [&appEnterCount]() { ++appEnterCount; });
++    connect(providerPointer.get(), &Test::WlPointer::entered, this, [&providerEnterCount]() { ++providerEnterCount; });
++    QSignalSpy appButtonSpy(appPointer.get(), &Test::WlPointer::buttonStateChanged);
++    QSignalSpy providerButtonSpy(providerPointer.get(), &Test::WlPointer::buttonStateChanged);
++    FloatingInputMethod provider(nativeClient.get(), nativeClient->methodName, nativeClient->methodVersion);
++    QVERIFY(nativeClient->sync());
++
++    auto surface = Test::createSurface();
++    auto shellSurface = Test::createXdgToplevelSurface(surface.get());
++    QSignalSpy configureSpy(shellSurface.get(), &Test::XdgToplevel::configureRequested);
++    Window *window = Test::renderAndWaitForShown(surface.get(), QSize(1280, 1024), Qt::red);
++    QVERIFY(window);
++    QVERIFY(window->isActive());
++    touchNow();
++    window->move(QPointF(1280, 0));
++    workspace()->setActiveOutput(QPoint(1920, 512));
++    waylandServer()->seat()->setFocusedTextInputSurface(window->surface());
++    QVERIFY(Test::waylandSync());
++    QTRY_COMPARE(appKeyboard->focusedSurface(), surface.get());
++    configureSpy.clear();
++    const RectF applicationGeometry = window->frameGeometry();
++    QCOMPARE(applicationGeometry, RectF(1280, 0, 1280, 1024));
++    std::unique_ptr<KWayland::Client::TextInput> textInput(Test::waylandTextInputManager()->createTextInput(Test::waylandSeat()));
++    textInput->enable(surface.get());
++    QVERIFY(Test::waylandSync());
++    inputMethod->setActive(true);
++    inputMethod->show();
++    QTRY_VERIFY(provider.context());
++    QTRY_VERIFY(inputMethod->panel());
++    auto panel = inputMethod->panel();
++    QTRY_VERIFY(inputMethod->isVisible());
++    QCOMPARE(panel->surface()->client(), waylandServer()->inputMethodConnection());
++    QVERIFY(inputMethod->isFloatingVirtualKeyboardSurface(panel->surface()));
++    QCOMPARE(panel->surface()->size(), QSize(1280, 1024));
++
++    // These helpers inject virtual-device events through KWin's compositor routing.
++    // Both destinations have real wl_pointer resources on their own connections.
++    quint32 timestamp = 100;
++    for (bool moved : {false, true}) {
++        const QRect mask = moved ? QRect(250, 140, 700, 280) : QRect(120, 260, 900, 360);
++        if (moved) {
++            provider.setInputRegion(mask);
++        }
++        QVERIFY(nativeClient->sync());
++        QCOMPARE(panel->surface()->input().boundingRect(), RectF(mask));
++        QCOMPARE(panel->frameGeometry(), RectF(mask.translated(1280, 0)));
++        QCOMPARE(panel->bufferGeometry(), RectF(1280, 0, 1280, 1024));
++        for (bool inside : {false, true}) {
++            // Park on the other output so every sample requires a fresh enter.
++            Test::pointerMotion(QPointF(640, 900), timestamp++);
++            QVERIFY(Test::waylandSync());
++            QVERIFY(nativeClient->sync());
++            appEnterCount = 0;
++            providerEnterCount = 0;
++            appButtonSpy.clear();
++            providerButtonSpy.clear();
++            // After the mask moves, the old panel point must now hit the app.
++            const QPointF outside = moved ? QPointF(1440, 300) : QPointF(2380, 800);
++            const QPointF within = moved ? QPointF(1580, 180) : QPointF(1440, 300);
++            const QPointF point = inside ? within : outside;
++            QVERIFY(panel->bufferGeometry().contains(point));
++            QCOMPARE(mask.contains((point - QPointF(1280, 0)).toPoint()), inside);
++            Test::pointerMotion(point, timestamp++);
++            // Drain both client queues before inspecting the delivered enter events.
++            QVERIFY(Test::waylandSync());
++            QVERIFY(nativeClient->sync());
++            qInfo() << "native hit-through sample: moved" << moved << "inside" << inside
++                    << "global" << point << "app enters" << appEnterCount << "provider enters" << providerEnterCount
++                    << "app pointer surface" << static_cast<const void *>(appPointer->enteredSurface())
++                    << "provider pointer surface" << static_cast<const void *>(providerPointer->enteredSurface());
++            auto target = inside ? providerPointer.get() : appPointer.get();
++            auto other = inside ? appPointer.get() : providerPointer.get();
++            auto expectedSurface = static_cast<wl_surface *>(inside ? *provider.surface() : *surface);
++            const int enterCount = inside ? providerEnterCount : appEnterCount;
++            const int otherEnterCount = inside ? appEnterCount : providerEnterCount;
++            auto &buttonSpy = inside ? providerButtonSpy : appButtonSpy;
++            auto &otherButtonSpy = inside ? appButtonSpy : providerButtonSpy;
++            QTRY_COMPARE(target->enteredSurface(), expectedSurface);
++            QCOMPARE(enterCount, 1);
++            QVERIFY(!other->enteredSurface());
++            QCOMPARE(otherEnterCount, 0);
++            Test::pointerButtonPressed(BTN_LEFT, timestamp++);
++            Test::pointerButtonReleased(BTN_LEFT, timestamp++);
++            QVERIFY(Test::waylandSync());
++            QVERIFY(nativeClient->sync());
++            QTRY_COMPARE(buttonSpy.count(), 2);
++            QCOMPARE(buttonSpy.at(0).at(2).toUInt(), quint32(BTN_LEFT));
++            QCOMPARE(buttonSpy.at(0).at(3).toUInt(), quint32(WL_POINTER_BUTTON_STATE_PRESSED));
++            QCOMPARE(buttonSpy.at(1).at(2).toUInt(), quint32(BTN_LEFT));
++            QCOMPARE(buttonSpy.at(1).at(3).toUInt(), quint32(WL_POINTER_BUTTON_STATE_RELEASED));
++            QVERIFY(otherButtonSpy.isEmpty());
++            QCOMPARE(appKeyboard->focusedSurface(), surface.get());
++            QCOMPARE(workspace()->activeWindow(), window);
++            QCOMPARE(window->frameGeometry(), applicationGeometry);
++            QCOMPARE(panel->surface()->size(), QSize(1280, 1024));
++            QCOMPARE(panel->bufferGeometry(), RectF(1280, 0, 1280, 1024));
++            QVERIFY(configureSpy.isEmpty());
++        }
++    }
++    textInput->disable(surface.get());
++    QVERIFY(Test::waylandSync());
++    inputMethod->setActive(false);
+     QTRY_VERIFY(!inputMethod->panel());
+     shellSurface.reset();
+     QVERIFY(Test::waitForWindowClosed(window));

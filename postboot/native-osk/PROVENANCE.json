@@ -46,11 +46,12 @@
       "patches/0001-provider-opt-in-floating-input-panel.patch",
       "patches/0002-test-provider-floating-input-panel.patch",
       "patches/0003-input-method-replay-state-on-late-bind.patch",
-      "patches/0004-reactivate-unmapped-native-panel-on-show.patch"
+      "patches/0004-reactivate-unmapped-native-panel-on-show.patch",
+      "patches/0005-test-native-floating-input-hit-through.patch"
     ],
     "final_source_matches_native_build": true,
     "final_source_sha256": {
-      "autotests/integration/inputmethod_test.cpp": "dda606b472906680a869bd2d6eec70f327cb3f24d4db26d9b73e9d0f41ccc0ee",
+      "autotests/integration/inputmethod_test.cpp": "02db6f3ef402c7be9b29fb7bff0ffb4b65613d20a92594a306e3bf10960df91d",
       "src/inputmethod.cpp": "c05562132fe7a17d4fb88f2e6c9e70adcef418a8f3c9feef9257ab60d5788603",
       "src/inputmethod.h": "704b4743efca076b28c067dc09ea0cddd2de5150337fc8ca6750da2bf930442b",
       "src/inputpanelv1window.cpp": "ebd31e519600fad98226b0f21758973a9547d4d8c8d49fd5dff31a5a329432d6",
@@ -111,6 +112,14 @@
         "src/inputmethod.h",
         "autotests/integration/inputmethod_test.cpp"
       ]
+    },
+    {
+      "path": "patches/0005-test-native-floating-input-hit-through.patch",
+      "sha256": "bf2a6afdc2ad49786fbf37ad9af6bba5eba2db943fe8b14497dc20c4e1cbc324",
+      "bytes": 8609,
+      "files": [
+        "autotests/integration/inputmethod_test.cpp"
+      ]
     }
   ],
   "validation_2026_10_23": {
@@ -121,9 +130,10 @@
     "main_compositor_replaced": false,
     "remaining": [
       "physical touch",
-      "compositor transparent-area hit-through",
       "real display scale/rotation/output lifecycle",
-      "text-input-v2/internal/nonfloating recall matrix"
-    ]
+      "text-input-v2/internal/nonfloating recall matrix",
+      "physical touch routing and input/output lifecycle matrix"
+    ],
+    "pointer_hit_through": "Native virtual-pointer routing to separate real application/provider wl_pointer resources passed before/after input-mask move, keeping keyboard focus, app geometry and full buffer unchanged. Focused test 159ms; full input-method CTest1.39s. Physical touch not implied."
   }
 }

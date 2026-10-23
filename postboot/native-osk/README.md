@@ -58,12 +58,13 @@ previous ARMADA KWin package set with its matching libraries.
 
 ## Ordered patch series
 
-Apply all four patches after the exact Fedora 6.7.5 source and the retained two Armada patches:
+Apply the five patches after the exact Fedora 6.7.5 source and the retained two Armada patches:
 
 1. `0001-provider-opt-in-floating-input-panel.patch`: default-off provider policy, fixed output buffer, bounded input region and no application reservation.
 2. `0002-test-provider-floating-input-panel.patch`: real dedicated-client floating policy and ordinary-client rejection regressions.
 3. `0003-input-method-replay-state-on-late-bind.patch`: after binding the active native context, replay its current cached surrounding/content state and a real commit serial. It does not request focus or visibility.
 4. `0004-reactivate-unmapped-native-panel-on-show.patch`: explicit system show can recall a provider-unmapped native panel through a fresh context edge. Implicit V3 state updates and panel setup retain their old behavior. Retired preedit/fallback is cancelled without committing it before replacement.
+5. `0005-test-native-floating-input-hit-through.patch`: compositor virtual-pointer delivery reaches the underlying application outside the native input mask and the provider inside it, including after mask movement. App keyboard focus/geometry and the full buffer remain unchanged.
 
 `PROVENANCE.json` records exact patch bytes, order and source hashes. Native reverse/forward application with strict whitespace checks reproduced the final build source exactly.
 
@@ -73,4 +74,6 @@ The late-bind test first failed without its implementation while the early-bind 
 
 The final private KWin was also exercised as an isolated nested Wayland compositor, not a replacement of the main desktop session. The actual OnHand provider committed a Chinese candidate to its independent scratch client after a standard application-owned show request, with no agent context refresh. Real shared QML grip/resize items moved and resized the keyboard while the native full-output root and input mask stayed coherent. Server frame samples changed while the same buffer remained at the output origin. Actual hide-button unmap and one system-native recall passed after a same-connection asynchronous Wayland sync barrier; local visibility alone cannot order independent D-Bus and Wayland requests.
 
-These are source, protocol and automated-pointer results. Physical touch, transparent-area compositor input routing, the display/output matrix and text-input-v2/internal/nonfloating recall coverage remain open. The main package-owned KWin binary/libraries and live provider selector were not replaced by these tests.
+These are source, protocol and automated-pointer results. Transparent-area compositor pointer routing was subsequently verified with real application/provider pointer resources and moved input masks. Physical touch, the display/output matrix and text-input-v2/internal/nonfloating recall coverage remain open. The main package-owned KWin binary/libraries and live provider selector were not replaced by these tests.
+
+The hit-through regression uses KWin's virtual-device pointer path, not direct QtTest events sent to the provider. Both client queues are dispatched before enter/button assertions. It checks press and release button identity/state, wrong-client event absence, keyboard focus and no application configure. The focused native test and the complete input-method CTest passed. This is not physical pointer or touchscreen acceptance.
